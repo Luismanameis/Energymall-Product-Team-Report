@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { background-color: #050505; color: #ffffff; font-family: 'Inter', sans-serif; }
@@ -9,10 +10,12 @@
         .card { background: #0f0f0f; border: 1px solid #1a1a1a; border-radius: 12px; padding: 24px; }
         .stat-label { color: #555; font-size: 0.65rem; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px; }
         .stack-lg { font-size: 2.6rem; font-weight: 900; line-height: 1; }
-        .stack-md { font-size: 1.6rem; font-weight: 800; }
         table { width: 100%; border-collapse: collapse; }
-        th { color:#444; font-size:10px; text-transform:uppercase; padding:12px; border-bottom:1px solid #222; }
-        td { padding:12px; border-bottom:1px solid #111; font-size:1.05rem; }
+        th { color:#444; font-size:10px; text-transform:uppercase; padding:12px; border-bottom:1px solid #222; text-align: left; }
+        td { padding:12px; border-bottom:1px solid #111; font-size:0.95rem; font-weight: 700; }
+        .perc-zero { color: #FF0000; }
+        .staff-name { color: #eee; }
+        .staff-cat { color: #555; font-size: 0.75rem; display: block; text-transform: uppercase; }
     </style>
 </head>
 
@@ -21,114 +24,72 @@
 
 <header class="flex justify-between items-end mb-10 border-b border-zinc-900 pb-8">
     <div>
-        <h1 class="text-6xl font-black tracking-tighter">ENERGY<span class="text-red-600">MALL</span></h1>
+        <h1 class="text-6xl font-black tracking-tighter uppercase">ENERGY<span class="text-red-600">MALL</span></h1>
         <p class="text-zinc-500 font-bold uppercase text-xs tracking-[5px] mt-2">
             Product Team Performance | January 2026
         </p>
     </div>
 </header>
 
-<!-- KPI SUMMARY -->
 <span class="h-red">Product Execution Summary</span>
 <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
-    <div class="card">
-        <p class="stat-label">Existing Products Updated</p>
-        <p class="stack-lg">16k</p>
-    </div>
-    <div class="card">
-        <p class="stat-label">New Products Onboarded</p>
-        <p class="stack-lg">9k</p>
-    </div>
-    <div class="card">
-        <p class="stat-label">SEO Articles Submitted</p>
-        <p class="stack-lg">18k</p>
-    </div>
-    <div class="card">
-        <p class="stat-label">Product Content Submitted</p>
-        <p class="stack-lg">72k</p>
-    </div>
+    <div class="card"><p class="stat-label">Total Updates</p><p class="stack-lg">160</p></div>
+    <div class="card"><p class="stat-label">New Onboard</p><p class="stack-lg">90</p></div>
+    <div class="card"><p class="stat-label">SEO Articles</p><p class="stack-lg">18</p></div>
+    <div class="card"><p class="stat-label">Content Pieces</p><p class="stack-lg">72</p></div>
 </div>
 
-<!-- EXISTING PRODUCTS -->
-<span class="h-red">Existing Products Updated</span>
-<div class="card mb-12 overflow-x-auto">
-<table>
-<thead>
-<tr><th>Staff</th><th>Category</th><th>Target</th><th>Achieved</th></tr>
-</thead>
-<tbody>
-<tr><td>Emmanuel Rafiu</td><td>Cables & Electricals</td><td>20k</td><td>0%</td></tr>
-<tr><td>Olanrewaju Victoria</td><td>Home Electronics</td><td>20k</td><td>0%</td></tr>
-<tr><td>Asia Grace & Funmi (Lead)</td><td>Water & Insulation</td><td>10k</td><td>0%</td></tr>
-<tr><td>Funmilola (Lead)</td><td>Water & Insulation</td><td>20k</td><td>0%</td></tr>
-<tr><td>Oyelekan Samson</td><td>UPS / Transformers</td><td>20k</td><td>0%</td></tr>
-<tr><td>Ishola Abisola</td><td>Computer & CCTV</td><td>20k</td><td>0%</td></tr>
-<tr><td>Orumwense Owen</td><td>Lighting</td><td>20k</td><td>0%</td></tr>
-<tr><td>Oyelekan Victor</td><td>Solar Inverters & Batteries</td><td>20k</td><td>0%</td></tr>
-<tr><td>Sarah Onuoha</td><td>Solar Accessories</td><td>10k</td><td>0%</td></tr>
-</tbody>
-</table>
-</div>
+<script>
+    const staff = [
+        ["Emmanuel Rafiu", "Cables and Electricals"],
+        ["Olanrewaju Victoria", "Home Electronics"],
+        ["Asia Grace & Funmi", "Water & Insulation"],
+        ["Funmilola", "Water & Insulation"],
+        ["Oyelekan Samson", "UPS, Generators, Stabilizer & Transformers"],
+        ["Ishola Abisola", "Computer, Network & CCTV"],
+        ["Orumwense Owen", "Lighting, Streetlight And Floodlight"],
+        ["Oyelekan Victor", "Solar (Inverters and Batteries)"],
+        ["Sarah Onuoha", "Solar (Panels, Appliances)"]
+    ];
 
-<!-- NEW PRODUCTS -->
-<span class="h-red">New Products Onboarded</span>
-<div class="card mb-12 overflow-x-auto">
-<table>
-<thead>
-<tr><th>Staff</th><th>Category</th><th>Target</th><th>Achieved</th></tr>
-</thead>
-<tbody>
-<tr><td>All Product Owners</td><td>All Categories</td><td>10k each</td><td>0%</td></tr>
-</tbody>
-</table>
-</div>
+    function renderTable(title, targetArr) {
+        let html = `<span class="h-red">${title}</span><div class="card mb-12 overflow-x-auto"><table><thead><tr><th>Staff & Category</th><th>Target</th><th>Achieved</th><th>%</th></tr></thead><tbody>`;
+        staff.forEach((s, i) => {
+            let target = targetArr[i];
+            html += `<tr>
+                <td><span class="staff-name">${s[0]}</span><span class="staff-cat">${s[1]}</span></td>
+                <td>${target}</td><td>0</td><td class="perc-zero">0.00%</td>
+            </tr>`;
+        });
+        html += `</tbody></table></div>`;
+        document.write(html);
+    }
 
-<!-- SEO -->
-<span class="h-red">SEO Articles Submitted</span>
-<div class="card mb-12 overflow-x-auto">
-<table>
-<thead>
-<tr><th>Staff</th><th>Category</th><th>Target</th><th>Achieved</th></tr>
-</thead>
-<tbody>
-<tr><td>Each Product Owner</td><td>Assigned Category</td><td>2k</td><td>0%</td></tr>
-</tbody>
-</table>
-</div>
+    // Targets based on your data: Updates (20/10), New (10), SEO (2), Content (8)
+    renderTable("Existing Products Updated", [20, 20, 10, 20, 20, 20, 20, 20, 10]);
+    renderTable("New Products Onboarded", [10, 10, 10, 10, 10, 10, 10, 10, 10]);
+    renderTable("SEO Articles Submitted", [2, 2, 2, 2, 2, 2, 2, 2, 2]);
+    renderTable("Product Content Submitted", [8, 8, 8, 8, 8, 8, 8, 8, 8]);
+</script>
 
-<!-- CONTENT -->
-<span class="h-red">Product Content Submitted</span>
-<div class="card mb-12 overflow-x-auto">
-<table>
-<thead>
-<tr><th>Staff</th><th>Category</th><th>Target</th><th>Achieved</th></tr>
-</thead>
-<tbody>
-<tr><td>Each Product Owner</td><td>Assigned Category</td><td>8k</td><td>0%</td></tr>
-</tbody>
-</table>
-</div>
-
-<!-- SALES -->
-<span class="h-red">Category / Product Sales</span>
+<span class="h-red">Category / Product Sales (Active)</span>
 <div class="card mb-20 overflow-x-auto">
 <table>
-<thead>
-<tr><th>Product Category</th><th>Units Sold</th></tr>
-</thead>
+<thead><tr><th>Product Category</th><th class="text-right">Units Sold</th></tr></thead>
 <tbody>
-<tr><td>Solar Batteries</td><td>15</td></tr>
-<tr><td>Inverters</td><td>3</td></tr>
-<tr><td>Solar Panels</td><td>6</td></tr>
-<tr><td>Water Pumps</td><td>2</td></tr>
-<tr><td>Electrical Accessories</td><td>45</td></tr>
-<tr class="font-bold bg-zinc-900"><td>Total Units Sold</td><td>72</td></tr>
+<tr><td>Solar Batteries</td><td class="text-right">15</td></tr>
+<tr><td>Inverters</td><td class="text-right">3</td></tr>
+<tr><td>Solar Panels</td><td class="text-right">6</td></tr>
+<tr><td>Water Pumps</td><td class="text-right">2</td></tr>
+<tr><td>Water Pump Bundles</td><td class="text-right">1</td></tr>
+<tr><td>Electrical Accessories</td><td class="text-right">45</td></tr>
+<tr class="font-black bg-zinc-900 text-red-600"><td>TOTAL UNITS SOLD</td><td class="text-right text-2xl">72</td></tr>
 </tbody>
 </table>
 </div>
 
-<footer class="text-center py-20 opacity-10 text-[10px] uppercase tracking-[15px]">
-    Energymall | Product Intelligence Report
+<footer class="text-center py-20 opacity-20 text-[10px] uppercase tracking-[15px]">
+    Energymall | Operations Intelligence
 </footer>
 
 </div>
