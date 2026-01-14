@@ -1,155 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <script>
-    const REPORT_MONTH = "JANUARY 2026";
-    const UPDATE_DATE = "Jan 14, 2026";
+    // =========================================
+    // UPDATE YOUR NUMBERS HERE
+    // Format: [Name, Target, Achieved]
+    // =========================================
+    
+    const REPORT_DATE = "JANUARY 2026";
 
-    // DATA FORMAT: [Name, Category, Target, Achieved]
-    // The % is calculated automatically by the code below.
-
-    const EXISTING_PRODUCTS = [
-        ["Emmanuel Rafiu", "Cables and Electricals", 20, 0],
-        ["Olanrewaju Victoria", "Home Electronics", 20, 0],
-        ["Asia Grace & Funmi", "Water & Insulation", 10, 0],
-        ["Funmilola", "Water & Insulation", 20, 0],
-        ["Oyelekan Samson", "UPS & Transformers", 20, 0],
-        ["Ishola Abisola", "Computer & CCTV", 20, 0],
-        ["Orumwense Owen", "Lighting & Floodlight", 20, 0],
-        ["Oyelekan Victor", "Solar (Inv/Batt)", 20, 0],
-        ["Sarah Onuoha", "Solar (Panels/Apps)", 10, 0]
+    // 1. EXISTING PRODUCTS UPDATED
+    const DATA_UPDATES = [
+        ["Emmanuel Rafiu", 20, 0], ["Olanrewaju Victoria", 20, 0], ["Asia & Funmi", 10, 0], 
+        ["Funmilola", 20, 0], ["Oyelekan Samson", 20, 0], ["Ishola Abisola", 20, 0], 
+        ["Orumwense Owen", 20, 0], ["Oyelekan Victor", 20, 0], ["Sarah Onuoha", 10, 0]
     ];
 
-    const NEW_PRODUCTS = [
-        ["Emmanuel Rafiu", "Cables and Electricals", 10, 0],
-        ["Olanrewaju Victoria", "Home Electronics", 10, 0],
-        ["Asia Grace & Funmi", "Water & Insulation", 10, 0],
-        ["Funmilola", "Water & Insulation", 10, 0],
-        ["Oyelekan Samson", "UPS & Transformers", 10, 0],
-        ["Ishola Abisola", "Computer & CCTV", 10, 0],
-        ["Orumwense Owen", "Lighting & Floodlight", 10, 0],
-        ["Oyelekan Victor", "Solar (Inv/Batt)", 10, 0],
-        ["Sarah Onuoha", "Solar (Panels/Apps)", 10, 0]
+    // 2. NEW PRODUCTS ONBOARDED
+    const DATA_NEW = [
+        ["Emmanuel Rafiu", 10, 0], ["Olanrewaju Victoria", 10, 0], ["Asia & Funmi", 10, 0], 
+        ["Funmilola", 10, 0], ["Oyelekan Samson", 10, 0], ["Ishola Abisola", 10, 0], 
+        ["Orumwense Owen", 10, 0], ["Oyelekan Victor", 10, 0], ["Sarah Onuoha", 10, 0]
     ];
 
-    // TOTAL SALES UNITS (Direct numbers)
-    const SALES_UNITS = [
-        ["Solar Batteries", 15],
-        ["Inverters", 3],
-        ["Solar Panels", 6],
-        ["Water Pumps", 2],
-        ["Water Pump Bundles", 1],
-        ["Electrical Accessories", 45]
+    // 3. SEO ARTICLES
+    const DATA_SEO = [
+        ["Emmanuel Rafiu", 2, 0], ["Olanrewaju Victoria", 2, 0], ["Asia & Funmi", 2, 0], 
+        ["Funmilola", 2, 0], ["Oyelekan Samson", 2, 0], ["Ishola Abisola", 2, 0], 
+        ["Orumwense Owen", 2, 0], ["Oyelekan Victor", 2, 0], ["Sarah Onuoha", 2, 0]
+    ];
+
+    // 4. PRODUCT CONTENT
+    const DATA_CONTENT = [
+        ["Emmanuel Rafiu", 8, 0], ["Olanrewaju Victoria", 8, 0], ["Asia & Funmi", 8, 0], 
+        ["Funmilola", 8, 0], ["Oyelekan Samson", 8, 0], ["Ishola Abisola", 8, 0], 
+        ["Orumwense Owen", 8, 0], ["Oyelekan Victor", 8, 0], ["Sarah Onuoha", 8, 0]
+    ];
+
+    // 5. SALES (Category Name, Achieved)
+    const DATA_SALES = [
+        ["Solar Batteries", 15], ["Inverters", 3], ["Solar Panels", 6], ["Water Pumps", 2], 
+        ["Water Pump Bundles", 1], ["Electrical Accessories", 45]
     ];
 </script>
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Team Audit - EnergyMall</title>
+    <title>EnergyMall Product Team Audit</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #000000; }
-        .table-header { background-color: #f1f1f1; border-bottom: 2px solid #000; color: #000; font-weight: 900; text-transform: uppercase; font-size: 11px; }
-        .row-border { border-bottom: 1px solid #e2e8f0; }
-        .negative { color: #dc2626; font-weight: bold; } /* Red for 0% */
-        .positive { color: #16a34a; font-weight: bold; } /* Green for 100% */
+        body { font-family: sans-serif; color: black; background: white; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 2rem; border: 2px solid black; }
+        th { background: #001F3F; color: white; padding: 10px; text-align: left; font-size: 12px; text-transform: uppercase; }
+        td { padding: 10px; border: 1px solid #ddd; font-weight: bold; }
+        .red-bold { color: red; }
+        .section-title { background: black; color: white; padding: 10px; font-weight: 900; margin-top: 20px; }
     </style>
 </head>
 <body class="p-4 md:p-10">
+    <div class="max-w-5xl mx-auto">
+        <h1 class="text-3xl font-black border-b-4 border-black mb-2">ENERGYMALL PRODUCT AUDIT</h1>
+        <p class="mb-6 font-bold uppercase">Month: <span id="monthTitle"></span></p>
 
-    <div class="max-w-6xl mx-auto">
-        <div class="border-b-4 border-black pb-4 mb-8">
-            <h1 class="text-4xl font-black uppercase tracking-tighter">EnergyMall</h1>
-            <p class="text-lg font-bold">Product Team Operations Audit — <span id="monthTxt"></span></p>
-            <p class="text-sm text-gray-500 italic">Last Update: <span id="dateTxt"></span></p>
-        </div>
-
-        <div class="mb-12">
-            <h2 class="text-xl font-black bg-black text-white px-4 py-2 inline-block mb-4">1. EXISTING PRODUCTS UPDATED</h2>
-            <table class="w-full border-collapse">
-                <thead>
-                    <tr class="table-header">
-                        <th class="p-4 text-left">Staff Name / Category</th>
-                        <th class="p-4 text-center">Target</th>
-                        <th class="p-4 text-center">Achieved</th>
-                        <th class="p-4 text-right">% Performance</th>
-                    </tr>
-                </thead>
-                <tbody id="existingTable"></tbody>
-            </table>
-        </div>
-
-        <div class="mb-12">
-            <h2 class="text-xl font-black bg-black text-white px-4 py-2 inline-block mb-4">2. NEW PRODUCTS ONBOARDED</h2>
-            <table class="w-full border-collapse">
-                <thead>
-                    <tr class="table-header">
-                        <th class="p-4 text-left">Staff Name / Category</th>
-                        <th class="p-4 text-center">Target</th>
-                        <th class="p-4 text-center">Achieved</th>
-                        <th class="p-4 text-right">% Performance</th>
-                    </tr>
-                </thead>
-                <tbody id="newTable"></tbody>
-            </table>
-        </div>
-
-        <div class="mb-12">
-            <h2 class="text-xl font-black bg-blue-600 text-white px-4 py-2 inline-block mb-4">3. CATEGORY SALES (UNITS SOLD)</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <table class="w-full border-collapse">
-                    <thead>
-                        <tr class="table-header">
-                            <th class="p-4 text-left">Category</th>
-                            <th class="p-4 text-right">Achieved</th>
-                        </tr>
-                    </thead>
-                    <tbody id="salesTable"></tbody>
-                    <tfoot>
-                        <tr class="font-black bg-gray-100">
-                            <td class="p-4">TOTAL UNITS SOLD</td>
-                            <td class="p-4 text-right text-xl">72</td>
-                        </tr>
-                    </tfoot>
-                </table>
-            </div>
-        </div>
-
+        <div id="report-container"></div>
+        
+        <div class="section-title">CATEGORY / PRODUCT SALES</div>
+        <table id="sales-table">
+            <thead><tr><th>Category</th><th class="text-right">Units Achieved</th></tr></thead>
+            <tbody id="sales-body"></tbody>
+        </table>
     </div>
 
     <script>
-        document.getElementById('monthTxt').textContent = REPORT_MONTH;
-        document.getElementById('dateTxt').textContent = UPDATE_DATE;
+        document.getElementById('monthTitle').textContent = REPORT_DATE;
 
-        function populateTable(data, tableId) {
-            const tbody = document.getElementById(tableId);
+        function createTable(title, data) {
+            let html = `<div class="section-title">${title}</div>`;
+            html += `<table><thead><tr><th>Staff Name</th><th>Target</th><th>Achieved</th><th class="text-right">%</th></tr></thead><tbody>`;
+            
             data.forEach(row => {
-                const percent = row[2] > 0 ? ((row[3] / row[2]) * 100).toFixed(0) : 0;
-                const tr = document.createElement('tr');
-                tr.className = "row-border text-black";
-                tr.innerHTML = `
-                    <td class="p-4">
-                        <div class="font-bold">${row[0]}</div>
-                        <div class="text-xs text-gray-500 uppercase">${row[1]}</div>
-                    </td>
-                    <td class="p-4 text-center font-bold">${row[2]}</td>
-                    <td class="p-4 text-center font-bold">${row[3]}</td>
-                    <td class="p-4 text-right ${percent == 0 ? 'negative' : 'positive'}">${percent}%</td>
-                `;
-                tbody.appendChild(tr);
+                let percent = row[1] > 0 ? ((row[2] / row[1]) * 100).toFixed(2) : 0;
+                let colorClass = percent == 0 ? "red-bold" : "";
+                html += `<tr>
+                    <td>${row[0]}</td>
+                    <td>${row[1]}</td>
+                    <td>${row[2]}</td>
+                    <td class="text-right ${colorClass}">${percent}%</td>
+                </tr>`;
             });
+            html += `</tbody></table>`;
+            return html;
         }
 
-        populateTable(EXISTING_PRODUCTS, 'existingTable');
-        populateTable(NEW_PRODUCTS, 'newTable');
+        const container = document.getElementById('report-container');
+        container.innerHTML += createTable("EXISTING PRODUCTS UPDATED", DATA_UPDATES);
+        container.innerHTML += createTable("NEW PRODUCTS ONBOARDED", DATA_NEW);
+        container.innerHTML += createTable("SEO ARTICLES SUBMITTED", DATA_SEO);
+        container.innerHTML += createTable("PRODUCT CONTENT SUBMITTED", DATA_CONTENT);
 
-        // Sales Table
-        const sBody = document.getElementById('salesTable');
-        SALES_UNITS.forEach(row => {
-            const tr = document.createElement('tr');
-            tr.className = "row-border text-black";
-            tr.innerHTML = `<td class="p-4 font-medium">${row[0]}</td><td class="p-4 text-right font-black">${row[1]}</td>`;
-            sBody.appendChild(tr);
+        const sBody = document.getElementById('sales-body');
+        DATA_SALES.forEach(s => {
+            sBody.innerHTML += `<tr><td>${s[0]}</td><td class="text-right">${s[1]}</td></tr>`;
         });
     </script>
 </body>
