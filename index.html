@@ -5,11 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #050505; color: #ffffff; font-family: 'Inter', sans-serif; }
+        body { background-color: #050505; color: #ffffff; font-family: 'Inter', sans-serif; margin: 0; }
+        
+        /* Sticky Header Section */
+        .sticky-header { 
+            position: sticky; 
+            top: 0; 
+            z-index: 50; 
+            background-color: #050505; 
+            border-bottom: 1px solid #1a1a1a;
+            padding-bottom: 20px;
+        }
+
         .h-red { color: #FF0000; font-weight: 950; text-transform: uppercase; border-left: 6px solid #FF0000; padding-left: 15px; margin: 40px 0 15px 0; display: block; font-size: 1.6rem; }
-        .card { background: #0f0f0f; border: 1px solid #1a1a1a; border-radius: 12px; padding: 24px; }
-        .stat-label { color: #555; font-size: 0.65rem; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px; }
-        .stack-lg { font-size: 2.6rem; font-weight: 900; line-height: 1; }
+        .card { background: #0f0f0f; border: 1px solid #1a1a1a; border-radius: 12px; padding: 20px; }
+        .stat-label { color: #555; font-size: 0.6rem; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 4px; }
+        .stack-lg { font-size: 2.2rem; font-weight: 900; line-height: 1; }
+        
         table { width: 100%; border-collapse: collapse; }
         th { color:#444; font-size:10px; text-transform:uppercase; padding:12px; border-bottom:1px solid #222; text-align: left; }
         td { padding:12px; border-bottom:1px solid #111; font-size:0.9rem; font-weight: 700; }
@@ -22,73 +34,75 @@
 <body class="p-6 md:p-10">
 <div class="max-w-7xl mx-auto">
 
-<header class="flex justify-between items-end mb-10 border-b border-zinc-900 pb-8">
-    <div>
-        <h1 class="text-6xl font-black tracking-tighter uppercase">ENERGY<span class="text-red-600">MALL</span></h1>
-        <p class="text-zinc-500 font-bold uppercase text-xs tracking-[5px] mt-2">Product Team Performance | January 2026</p>
+    <div class="sticky-header">
+        <header class="flex justify-between items-end mb-6 pt-4">
+            <div>
+                <h1 class="text-5xl font-black tracking-tighter uppercase">ENERGY<span class="text-red-600">MALL</span></h1>
+                <p class="text-zinc-500 font-bold uppercase text-xs tracking-[5px] mt-1">Product Team Performance | Jan 2026</p>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="card border-red-900/30"><p class="stat-label">Updates Target</p><p class="stack-lg">1.6k</p></div>
+            <div class="card border-red-900/30"><p class="stat-label">Onboard Target</p><p class="stack-lg">900</p></div>
+            <div class="card border-red-900/30"><p class="stat-label">SEO Target</p><p class="stack-lg">180</p></div>
+            <div class="card border-red-900/30"><p class="stat-label">Content Target</p><p class="stack-lg">720</p></div>
+        </div>
     </div>
-</header>
 
-<span class="h-red">Product Execution Summary</span>
-<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
-    <div class="card"><p class="stat-label">Total Updates Target</p><p class="stack-lg">1.6k</p></div>
-    <div class="card"><p class="stat-label">New Onboard Target</p><p class="stack-lg">900</p></div>
-    <div class="card"><p class="stat-label">SEO Articles Target</p><p class="stack-lg">180</p></div>
-    <div class="card"><p class="stat-label">Content Pieces Target</p><p class="stack-lg">720</p></div>
-</div>
+    <div class="mt-8">
+        <script>
+            const staffData = [
+                { name: "Emmanuel Rafiu", cat: "Cables and Electricals" },
+                { name: "Olanrewaju Victoria", cat: "Home Electronics" },
+                { name: "Asia Grace & Funmi", cat: "Water & Insulation" },
+                { name: "Funmilola", cat: "Water & Insulation" },
+                { name: "Oyelekan Samson", cat: "UPS, Generators, Stabilizer & Transformers" },
+                { name: "Ishola Abisola", cat: "Computer, Network & CCTV" },
+                { name: "Orumwense Owen", cat: "Lighting, Streetlight And Floodlight" },
+                { name: "Oyelekan Victor", cat: "Solar (Inverters and Batteries)" },
+                { name: "Sarah Onuoha", cat: "Solar (Charge Controllers, Panels, etc)" }
+            ];
 
-<script>
-    const staffData = [
-        { name: "Emmanuel Rafiu", cat: "Cables and Electricals" },
-        { name: "Olanrewaju Victoria", cat: "Home Electronics" },
-        { name: "Asia Grace & Funmi", cat: "Water & Insulation" },
-        { name: "Funmilola", cat: "Water & Insulation" },
-        { name: "Oyelekan Samson", cat: "UPS, Generators, Stabilizer & Transformers" },
-        { name: "Ishola Abisola", cat: "Computer, Network & CCTV" },
-        { name: "Orumwense Owen", cat: "Lighting, Streetlight And Floodlight" },
-        { name: "Oyelekan Victor", cat: "Solar (Inverters and Batteries)" },
-        { name: "Sarah Onuoha", cat: "Solar (Charge Controllers, Panels, etc)" }
-    ];
+            function renderTable(title, targets) {
+                let html = `<span class="h-red">${title}</span><div class="card mb-12 overflow-x-auto"><table><thead><tr><th>Staff & Category</th><th>Target</th><th>Achieved</th><th>%</th></tr></thead><tbody>`;
+                staffData.forEach((s, i) => {
+                    let t = Array.isArray(targets) ? targets[i] : targets;
+                    html += `<tr>
+                        <td><span class="staff-name">${s.name}</span><span class="staff-cat">${s.cat}</span></td>
+                        <td>${t}</td><td>0</td><td class="perc-zero">0.00%</td>
+                    </tr>`;
+                });
+                html += `</tbody></table></div>`;
+                document.write(html);
+            }
 
-    function renderTable(title, targets) {
-        let html = `<span class="h-red">${title}</span><div class="card mb-12 overflow-x-auto"><table><thead><tr><th>Staff & Category</th><th>Target</th><th>Achieved</th><th>%</th></tr></thead><tbody>`;
-        staffData.forEach((s, i) => {
-            let t = Array.isArray(targets) ? targets[i] : targets;
-            html += `<tr>
-                <td><span class="staff-name">${s.name}</span><span class="staff-cat">${s.cat}</span></td>
-                <td>${t}</td><td>0</td><td class="perc-zero">0.00%</td>
-            </tr>`;
-        });
-        html += `</tbody></table></div>`;
-        document.write(html);
-    }
+            renderTable("Existing Products Updated", [200, 200, 100, 200, 200, 200, 200, 200, 100]);
+            renderTable("New Products Onboarded", 100);
+            renderTable("SEO Articles Submitted", 20);
+            renderTable("Product Content Submitted", 80);
+        </script>
 
-    // TARGETS: 200/100 for Updates, 100 for New, 20 for SEO, 80 for Content
-    renderTable("Existing Products Updated", [200, 200, 100, 200, 200, 200, 200, 200, 100]);
-    renderTable("New Products Onboarded", 100);
-    renderTable("SEO Articles Submitted", 20);
-    renderTable("Product Content Submitted", 80);
-</script>
+        <span class="h-red">Category / Product Sales (Active)</span>
+        <div class="card mb-20 overflow-x-auto">
+        <table>
+        <thead><tr><th>Product Category</th><th class="text-right">Units Sold</th></tr></thead>
+        <tbody>
+            <tr><td>Solar Batteries</td><td class="text-right text-red-600 font-black">15</td></tr>
+            <tr><td>Inverters</td><td class="text-right text-red-600 font-black">3</td></tr>
+            <tr><td>Solar Panels</td><td class="text-right text-red-600 font-black">6</td></tr>
+            <tr><td>Water Pumps</td><td class="text-right text-red-600 font-black">2</td></tr>
+            <tr><td>Water Pump Bundles</td><td class="text-right text-red-600 font-black">1</td></tr>
+            <tr><td>Electrical Accessories</td><td class="text-right text-red-600 font-black">45</td></tr>
+            <tr class="font-black bg-zinc-900"><td>TOTAL UNITS SOLD</td><td class="text-right text-2xl text-red-600">72</td></tr>
+        </tbody>
+        </table>
+        </div>
+    </div>
 
-<span class="h-red">Category / Product Sales (Active Only)</span>
-<div class="card mb-20 overflow-x-auto">
-<table>
-<thead><tr><th>Product Category</th><th class="text-right">Units Sold</th></tr></thead>
-<tbody>
-    <tr><td>Solar Batteries</td><td class="text-right text-red-600 font-black">15</td></tr>
-    <tr><td>Inverters</td><td class="text-right text-red-600 font-black">3</td></tr>
-    <tr><td>Solar Panels</td><td class="text-right text-red-600 font-black">6</td></tr>
-    <tr><td>Water Pumps</td><td class="text-right text-red-600 font-black">2</td></tr>
-    <tr><td>Water Pump Bundles</td><td class="text-right text-red-600 font-black">1</td></tr>
-    <tr><td>Electrical Accessories</td><td class="text-right text-red-600 font-black">45</td></tr>
-    <tr class="font-black bg-zinc-900 border-t-2 border-red-600"><td>TOTAL UNITS SOLD</td><td class="text-right text-2xl text-red-600">72</td></tr>
-</tbody>
-</table>
-</div>
-
-<footer class="text-center py-20 opacity-20 text-[10px] uppercase tracking-[15px]">
-    Energymall | Operations Intelligence
-</footer>
+    <footer class="text-center py-20 opacity-20 text-[10px] uppercase tracking-[15px]">
+        Energymall | Operations Intelligence
+    </footer>
 
 </div>
 </body>
