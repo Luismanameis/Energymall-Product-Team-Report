@@ -1,106 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
-<script>
-    // =========================================
-    // UPDATE YOUR NUMBERS HERE
-    // Format: [Name, Target, Achieved]
-    // =========================================
-    
-    const REPORT_DATE = "JANUARY 2026";
-
-    // 1. EXISTING PRODUCTS UPDATED
-    const DATA_UPDATES = [
-        ["Emmanuel Rafiu", 20, 0], ["Olanrewaju Victoria", 20, 0], ["Asia & Funmi", 10, 0], 
-        ["Funmilola", 20, 0], ["Oyelekan Samson", 20, 0], ["Ishola Abisola", 20, 0], 
-        ["Orumwense Owen", 20, 0], ["Oyelekan Victor", 20, 0], ["Sarah Onuoha", 10, 0]
-    ];
-
-    // 2. NEW PRODUCTS ONBOARDED
-    const DATA_NEW = [
-        ["Emmanuel Rafiu", 10, 0], ["Olanrewaju Victoria", 10, 0], ["Asia & Funmi", 10, 0], 
-        ["Funmilola", 10, 0], ["Oyelekan Samson", 10, 0], ["Ishola Abisola", 10, 0], 
-        ["Orumwense Owen", 10, 0], ["Oyelekan Victor", 10, 0], ["Sarah Onuoha", 10, 0]
-    ];
-
-    // 3. SEO ARTICLES
-    const DATA_SEO = [
-        ["Emmanuel Rafiu", 2, 0], ["Olanrewaju Victoria", 2, 0], ["Asia & Funmi", 2, 0], 
-        ["Funmilola", 2, 0], ["Oyelekan Samson", 2, 0], ["Ishola Abisola", 2, 0], 
-        ["Orumwense Owen", 2, 0], ["Oyelekan Victor", 2, 0], ["Sarah Onuoha", 2, 0]
-    ];
-
-    // 4. PRODUCT CONTENT
-    const DATA_CONTENT = [
-        ["Emmanuel Rafiu", 8, 0], ["Olanrewaju Victoria", 8, 0], ["Asia & Funmi", 8, 0], 
-        ["Funmilola", 8, 0], ["Oyelekan Samson", 8, 0], ["Ishola Abisola", 8, 0], 
-        ["Orumwense Owen", 8, 0], ["Oyelekan Victor", 8, 0], ["Sarah Onuoha", 8, 0]
-    ];
-
-    // 5. SALES (Category Name, Achieved)
-    const DATA_SALES = [
-        ["Solar Batteries", 15], ["Inverters", 3], ["Solar Panels", 6], ["Water Pumps", 2], 
-        ["Water Pump Bundles", 1], ["Electrical Accessories", 45]
-    ];
-</script>
-
 <head>
     <meta charset="UTF-8">
-    <title>EnergyMall Product Team Audit</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { font-family: sans-serif; color: black; background: white; }
-        table { width: 100%; border-collapse: collapse; margin-bottom: 2rem; border: 2px solid black; }
-        th { background: #001F3F; color: white; padding: 10px; text-align: left; font-size: 12px; text-transform: uppercase; }
-        td { padding: 10px; border: 1px solid #ddd; font-weight: bold; }
-        .red-bold { color: red; }
-        .section-title { background: black; color: white; padding: 10px; font-weight: 900; margin-top: 20px; }
+        body { background-color: #050505; color: #ffffff; font-family: 'Inter', sans-serif; }
+        .h-red { color: #FF0000; font-weight: 950; text-transform: uppercase; border-left: 6px solid #FF0000; padding-left: 15px; margin: 40px 0 15px 0; display: block; font-size: 1.6rem; }
+        .card { background: #0f0f0f; border: 1px solid #1a1a1a; border-radius: 12px; padding: 24px; }
+        .stat-label { color: #555; font-size: 0.65rem; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px; }
+        .stack-lg { font-size: 2.6rem; font-weight: 900; line-height: 1; }
+        .stack-md { font-size: 1.6rem; font-weight: 800; }
+        table { width: 100%; border-collapse: collapse; }
+        th { color:#444; font-size:10px; text-transform:uppercase; padding:12px; border-bottom:1px solid #222; }
+        td { padding:12px; border-bottom:1px solid #111; font-size:1.05rem; }
     </style>
 </head>
-<body class="p-4 md:p-10">
-    <div class="max-w-5xl mx-auto">
-        <h1 class="text-3xl font-black border-b-4 border-black mb-2">ENERGYMALL PRODUCT AUDIT</h1>
-        <p class="mb-6 font-bold uppercase">Month: <span id="monthTitle"></span></p>
 
-        <div id="report-container"></div>
-        
-        <div class="section-title">CATEGORY / PRODUCT SALES</div>
-        <table id="sales-table">
-            <thead><tr><th>Category</th><th class="text-right">Units Achieved</th></tr></thead>
-            <tbody id="sales-body"></tbody>
-        </table>
+<body class="p-6 md:p-10">
+<div class="max-w-7xl mx-auto">
+
+<header class="flex justify-between items-end mb-10 border-b border-zinc-900 pb-8">
+    <div>
+        <h1 class="text-6xl font-black tracking-tighter">ENERGY<span class="text-red-600">MALL</span></h1>
+        <p class="text-zinc-500 font-bold uppercase text-xs tracking-[5px] mt-2">
+            Product Team Performance | January 2026
+        </p>
     </div>
+</header>
 
-    <script>
-        document.getElementById('monthTitle').textContent = REPORT_DATE;
+<!-- KPI SUMMARY -->
+<span class="h-red">Product Execution Summary</span>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+    <div class="card">
+        <p class="stat-label">Existing Products Updated</p>
+        <p class="stack-lg">16k</p>
+    </div>
+    <div class="card">
+        <p class="stat-label">New Products Onboarded</p>
+        <p class="stack-lg">9k</p>
+    </div>
+    <div class="card">
+        <p class="stat-label">SEO Articles Submitted</p>
+        <p class="stack-lg">18k</p>
+    </div>
+    <div class="card">
+        <p class="stat-label">Product Content Submitted</p>
+        <p class="stack-lg">72k</p>
+    </div>
+</div>
 
-        function createTable(title, data) {
-            let html = `<div class="section-title">${title}</div>`;
-            html += `<table><thead><tr><th>Staff Name</th><th>Target</th><th>Achieved</th><th class="text-right">%</th></tr></thead><tbody>`;
-            
-            data.forEach(row => {
-                let percent = row[1] > 0 ? ((row[2] / row[1]) * 100).toFixed(2) : 0;
-                let colorClass = percent == 0 ? "red-bold" : "";
-                html += `<tr>
-                    <td>${row[0]}</td>
-                    <td>${row[1]}</td>
-                    <td>${row[2]}</td>
-                    <td class="text-right ${colorClass}">${percent}%</td>
-                </tr>`;
-            });
-            html += `</tbody></table>`;
-            return html;
-        }
+<!-- EXISTING PRODUCTS -->
+<span class="h-red">Existing Products Updated</span>
+<div class="card mb-12 overflow-x-auto">
+<table>
+<thead>
+<tr><th>Staff</th><th>Category</th><th>Target</th><th>Achieved</th></tr>
+</thead>
+<tbody>
+<tr><td>Emmanuel Rafiu</td><td>Cables & Electricals</td><td>20k</td><td>0%</td></tr>
+<tr><td>Olanrewaju Victoria</td><td>Home Electronics</td><td>20k</td><td>0%</td></tr>
+<tr><td>Asia Grace & Funmi (Lead)</td><td>Water & Insulation</td><td>10k</td><td>0%</td></tr>
+<tr><td>Funmilola (Lead)</td><td>Water & Insulation</td><td>20k</td><td>0%</td></tr>
+<tr><td>Oyelekan Samson</td><td>UPS / Transformers</td><td>20k</td><td>0%</td></tr>
+<tr><td>Ishola Abisola</td><td>Computer & CCTV</td><td>20k</td><td>0%</td></tr>
+<tr><td>Orumwense Owen</td><td>Lighting</td><td>20k</td><td>0%</td></tr>
+<tr><td>Oyelekan Victor</td><td>Solar Inverters & Batteries</td><td>20k</td><td>0%</td></tr>
+<tr><td>Sarah Onuoha</td><td>Solar Accessories</td><td>10k</td><td>0%</td></tr>
+</tbody>
+</table>
+</div>
 
-        const container = document.getElementById('report-container');
-        container.innerHTML += createTable("EXISTING PRODUCTS UPDATED", DATA_UPDATES);
-        container.innerHTML += createTable("NEW PRODUCTS ONBOARDED", DATA_NEW);
-        container.innerHTML += createTable("SEO ARTICLES SUBMITTED", DATA_SEO);
-        container.innerHTML += createTable("PRODUCT CONTENT SUBMITTED", DATA_CONTENT);
+<!-- NEW PRODUCTS -->
+<span class="h-red">New Products Onboarded</span>
+<div class="card mb-12 overflow-x-auto">
+<table>
+<thead>
+<tr><th>Staff</th><th>Category</th><th>Target</th><th>Achieved</th></tr>
+</thead>
+<tbody>
+<tr><td>All Product Owners</td><td>All Categories</td><td>10k each</td><td>0%</td></tr>
+</tbody>
+</table>
+</div>
 
-        const sBody = document.getElementById('sales-body');
-        DATA_SALES.forEach(s => {
-            sBody.innerHTML += `<tr><td>${s[0]}</td><td class="text-right">${s[1]}</td></tr>`;
-        });
-    </script>
+<!-- SEO -->
+<span class="h-red">SEO Articles Submitted</span>
+<div class="card mb-12 overflow-x-auto">
+<table>
+<thead>
+<tr><th>Staff</th><th>Category</th><th>Target</th><th>Achieved</th></tr>
+</thead>
+<tbody>
+<tr><td>Each Product Owner</td><td>Assigned Category</td><td>2k</td><td>0%</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- CONTENT -->
+<span class="h-red">Product Content Submitted</span>
+<div class="card mb-12 overflow-x-auto">
+<table>
+<thead>
+<tr><th>Staff</th><th>Category</th><th>Target</th><th>Achieved</th></tr>
+</thead>
+<tbody>
+<tr><td>Each Product Owner</td><td>Assigned Category</td><td>8k</td><td>0%</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- SALES -->
+<span class="h-red">Category / Product Sales</span>
+<div class="card mb-20 overflow-x-auto">
+<table>
+<thead>
+<tr><th>Product Category</th><th>Units Sold</th></tr>
+</thead>
+<tbody>
+<tr><td>Solar Batteries</td><td>15</td></tr>
+<tr><td>Inverters</td><td>3</td></tr>
+<tr><td>Solar Panels</td><td>6</td></tr>
+<tr><td>Water Pumps</td><td>2</td></tr>
+<tr><td>Electrical Accessories</td><td>45</td></tr>
+<tr class="font-bold bg-zinc-900"><td>Total Units Sold</td><td>72</td></tr>
+</tbody>
+</table>
+</div>
+
+<footer class="text-center py-20 opacity-10 text-[10px] uppercase tracking-[15px]">
+    Energymall | Product Intelligence Report
+</footer>
+
+</div>
 </body>
 </html>
