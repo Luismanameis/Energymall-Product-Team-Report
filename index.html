@@ -20,13 +20,13 @@
         .card { background: #0f0f0f; border: 1px solid #222; border-radius: 12px; padding: 20px; }
         .stat-label { color: #888; font-size: 0.75rem; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px; }
         
-        /* HIGH CONTRAST COLORS */
         .txt-update { color: #10b981; } 
         .txt-onboard { color: #38bdf8; } 
         .txt-seo { color: #fbbf24; } 
         .txt-content { color: #f87171; } 
 
         .stack-lg { font-size: 2.8rem; font-weight: 900; line-height: 1; }
+        .stack-sm { font-size: 0.8rem; font-weight: 700; color: #555; display: block; margin-top: 4px; }
         
         table { width: 100%; border-collapse: collapse; }
         th { color:#555; font-size:11px; text-transform:uppercase; font-weight: 900; letter-spacing: 1px; padding:15px 12px; border-bottom:2px solid #222; text-align: left; }
@@ -38,8 +38,6 @@
         
         #resetBtn { display: none; background: #FF0000; color: white; font-size: 10px; font-weight: 900; padding: 5px 12px; border-radius: 4px; cursor: pointer; text-transform: uppercase; margin-top: 10px; }
         .grid-container { padding: 0 40px; }
-
-        /* HIGHLIGHTED INSTRUCTION */
         .filter-hint { color: #FF0000; font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-left: 20px; }
     </style>
 </head>
@@ -57,10 +55,10 @@
         </header>
 
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="card border-emerald-900/30"><p class="stat-label">Updates Target</p><p id="hUpdate" class="stack-lg txt-update">1.6k</p></div>
-            <div class="card border-sky-900/30"><p class="stat-label">Onboard Target</p><p id="hOnboard" class="stack-lg txt-onboard">900</p></div>
-            <div class="card border-amber-900/30"><p class="stat-label">SEO Target</p><p id="hSeo" class="stack-lg txt-seo">180</p></div>
-            <div class="card border-red-900/30"><p class="stat-label">Content Target</p><p id="hContent" class="stack-lg txt-content">720</p></div>
+            <div class="card border-emerald-900/30"><p class="stat-label">Updates Achieved</p><p id="hUpdate" class="stack-lg txt-update">0</p><span id="tUpdate" class="stack-sm">Target: 1.6k</span></div>
+            <div class="card border-sky-900/30"><p class="stat-label">Onboard Achieved</p><p id="hOnboard" class="stack-lg txt-onboard">0</p><span id="tOnboard" class="stack-sm">Target: 900</span></div>
+            <div class="card border-amber-900/30"><p class="stat-label">SEO Achieved</p><p id="hSeo" class="stack-lg txt-seo">0</p><span id="tSeo" class="stack-sm">Target: 180</span></div>
+            <div class="card border-red-900/30"><p class="stat-label">Content Achieved</p><p id="hContent" class="stack-lg txt-content">0</p><span id="tContent" class="stack-sm">Target: 720</span></div>
         </div>
     </div>
 
@@ -72,30 +70,42 @@
                 <thead>
                     <tr>
                         <th>Staff & Category</th>
-                        <th class="txt-update">Update Target</th>
-                        <th class="txt-onboard">Onboard Target</th>
-                        <th class="txt-seo">SEO Target</th>
-                        <th class="txt-content">Content Target</th>
+                        <th class="txt-update">Updates</th>
+                        <th class="txt-onboard">Onboard</th>
+                        <th class="txt-seo">SEO</th>
+                        <th class="txt-content">Content</th>
                     </tr>
                 </thead>
-                <tbody id="staffTableBody">
-                    </tbody>
+                <tbody id="staffTableBody"></tbody>
             </table>
         </div>
 
-        <span class="h-red">Category / Product Sales (Active)</span>
-        <div class="card mb-20 p-0 overflow-hidden">
-            <table>
-                <thead><tr><th>Product Category</th><th class="text-right">Units Sold</th></tr></thead>
-                <tbody>
-                    <tr><td>Solar Batteries</td><td class="text-right txt-seo">15</td></tr>
-                    <tr><td>Inverters</td><td class="text-right txt-seo">3</td></tr>
-                    <tr><td>Solar Panels</td><td class="text-right txt-seo">6</td></tr>
-                    <tr><td>Water Pumps</td><td class="text-right txt-seo">2</td></tr>
-                    <tr><td>Electrical Accessories</td><td class="text-right txt-seo">45</td></tr>
-                    <tr class="bg-zinc-900/50"><td class="font-black text-white">TOTAL UNITS SOLD</td><td class="text-right text-2xl text-red-600 font-black">72</td></tr>
-                </tbody>
-            </table>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+            <div>
+                <span class="h-red">Category Sales</span>
+                <div class="card p-0 overflow-hidden">
+                    <table>
+                        <thead><tr><th>Category</th><th class="text-right">Units</th></tr></thead>
+                        <tbody>
+                            <tr><td>Solar Batteries</td><td class="text-right txt-seo">17</td></tr>
+                            <tr><td>Inverters</td><td class="text-right txt-seo">4</td></tr>
+                            <tr><td>Solar Panels</td><td class="text-right txt-seo">17</td></tr>
+                            <tr><td>Water Pumps</td><td class="text-right txt-seo">2</td></tr>
+                            <tr><td>Water Pump Bundles</td><td class="text-right txt-seo">1</td></tr>
+                            <tr><td>Electrical Accessories</td><td class="text-right txt-seo">45</td></tr>
+                            <tr class="bg-zinc-900"><td class="font-black">TOTAL UNITS SOLD</td><td class="text-right text-2xl text-red-600 font-black">86</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div>
+                <span class="h-red">Status Overview</span>
+                <div class="card bg-zinc-900/20 border-zinc-800">
+                    <p class="text-zinc-500 text-xs font-bold uppercase tracking-widest leading-relaxed">
+                        Operational targets for existing products, new onboarding, SEO, and content are currently at <span class="text-white">0% completion</span> for the current audit cycle. Sales remain the primary active metric.
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -107,15 +117,15 @@
 
 <script>
     const staffData = [
-        { name: "Emmanuel Rafiu", cat: "Cables and Electricals", up: 200, on: 100, seo: 20, cont: 80 },
-        { name: "Olanrewaju Victoria", cat: "Home Electronics", up: 200, on: 100, seo: 20, cont: 80 },
-        { name: "Asia Grace & Funmi", cat: "Water & Insulation", up: 100, on: 100, seo: 20, cont: 80 },
-        { name: "Funmilola", cat: "Water & Insulation", up: 200, on: 100, seo: 20, cont: 80 },
-        { name: "Oyelekan Samson", cat: "UPS, Generators & Transformers", up: 200, on: 100, seo: 20, cont: 80 },
-        { name: "Ishola Abisola", cat: "Computer, Network & CCTV", up: 200, on: 100, seo: 20, cont: 80 },
-        { name: "Orumwense Owen", cat: "Lighting & Streetlights", up: 200, on: 100, seo: 20, cont: 80 },
-        { name: "Oyelekan Victor", cat: "Solar (Inverters/Batteries)", up: 200, on: 100, seo: 20, cont: 80 },
-        { name: "Sarah Onuoha", cat: "Solar (Controllers/Panels)", up: 100, on: 100, seo: 20, cont: 80 }
+        { name: "Emmanuel Rafiu", cat: "Cables & Electricals", upA: 0, upT: 200, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
+        { name: "Olanrewaju Victoria", cat: "Home Electronics", upA: 0, upT: 200, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
+        { name: "Asia Grace & Funmi", cat: "Water & Insulation", upA: 0, upT: 100, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
+        { name: "Funmilola", cat: "Water & Insulation", upA: 0, upT: 200, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
+        { name: "Oyelekan Samson", cat: "UPS & Generators", upA: 0, upT: 200, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
+        { name: "Ishola Abisola", cat: "Computer & CCTV", upA: 0, upT: 200, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
+        { name: "Orumwense Owen", cat: "Lighting & Floodlight", upA: 0, upT: 200, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
+        { name: "Oyelekan Victor", cat: "Solar (Inverters/Batt)", upA: 0, upT: 200, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
+        { name: "Sarah Onuoha", cat: "Solar (Panels/App)", upA: 0, upT: 100, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 }
     ];
 
     function initTable() {
@@ -125,31 +135,39 @@
             tr.onclick = () => filterStaff(s);
             tr.innerHTML = `
                 <td><span class="staff-name">${s.name}</span><span class="staff-cat">${s.cat}</span></td>
-                <td class="txt-update">${s.up}</td>
-                <td class="txt-onboard">${s.on}</td>
-                <td class="txt-seo">${s.seo}</td>
-                <td class="txt-content">${s.cont}</td>
+                <td class="txt-update">${s.upA} <span class="text-[9px] text-zinc-600">/ ${s.upT}</span></td>
+                <td class="txt-onboard">${s.onA} <span class="text-[9px] text-zinc-600">/ ${s.onT}</span></td>
+                <td class="txt-seo">${s.seoA} <span class="text-[9px] text-zinc-600">/ ${s.seoT}</span></td>
+                <td class="txt-content">${s.conA} <span class="text-[9px] text-zinc-600">/ ${s.conT}</span></td>
             `;
             body.appendChild(tr);
         });
     }
 
     function filterStaff(s) {
-        document.getElementById('hUpdate').innerText = s.up;
-        document.getElementById('hOnboard').innerText = s.on;
-        document.getElementById('hSeo').innerText = s.seo;
-        document.getElementById('hContent').innerText = s.cont;
+        document.getElementById('hUpdate').innerText = s.upA;
+        document.getElementById('tUpdate').innerText = "Target: " + s.upT;
+        document.getElementById('hOnboard').innerText = s.onA;
+        document.getElementById('tOnboard').innerText = "Target: " + s.onT;
+        document.getElementById('hSeo').innerText = s.seoA;
+        document.getElementById('tSeo').innerText = "Target: " + s.seoT;
+        document.getElementById('hContent').innerText = s.conA;
+        document.getElementById('tContent').innerText = "Target: " + s.conT;
         
-        document.getElementById('viewStatus').innerText = "INDIVIDUAL FOCUS: " + s.name.toUpperCase();
+        document.getElementById('viewStatus').innerText = "FOCUS: " + s.name.toUpperCase();
         document.getElementById('resetBtn').style.display = 'inline-block';
         window.scrollTo({top: 0, behavior: 'smooth'});
     }
 
     function resetAudit() {
-        document.getElementById('hUpdate').innerText = "1.6k";
-        document.getElementById('hOnboard').innerText = "900";
-        document.getElementById('hSeo').innerText = "180";
-        document.getElementById('hContent').innerText = "720";
+        document.getElementById('hUpdate').innerText = "0";
+        document.getElementById('tUpdate').innerText = "Target: 1.6k";
+        document.getElementById('hOnboard').innerText = "0";
+        document.getElementById('tOnboard').innerText = "Target: 900";
+        document.getElementById('hSeo').innerText = "0";
+        document.getElementById('tSeo').innerText = "Target: 180";
+        document.getElementById('hContent').innerText = "0";
+        document.getElementById('tContent').innerText = "Target: 720";
         
         document.getElementById('viewStatus').innerText = "Product Team Report | Jan 2026";
         document.getElementById('resetBtn').style.display = 'none';
