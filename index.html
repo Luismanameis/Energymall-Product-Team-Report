@@ -7,96 +7,95 @@
     <style>
         body { background-color: #050505; color: #ffffff; font-family: 'Inter', sans-serif; margin: 0; }
         
-        /* Sticky Header Section */
         .sticky-header { 
             position: sticky; 
             top: 0; 
             z-index: 50; 
             background-color: #050505; 
-            border-bottom: 1px solid #1a1a1a;
-            padding-bottom: 20px;
+            border-bottom: 2px solid #1a1a1a;
+            padding: 15px 40px 20px 40px;
         }
 
-        .h-red { color: #FF0000; font-weight: 950; text-transform: uppercase; border-left: 6px solid #FF0000; padding-left: 15px; margin: 40px 0 15px 0; display: block; font-size: 1.6rem; }
-        .card { background: #0f0f0f; border: 1px solid #1a1a1a; border-radius: 12px; padding: 20px; }
-        .stat-label { color: #555; font-size: 0.6rem; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 4px; }
-        .stack-lg { font-size: 2.2rem; font-weight: 900; line-height: 1; }
+        .h-red { color: #ffffff; font-weight: 950; text-transform: uppercase; border-left: 8px solid #FF0000; padding-left: 15px; margin: 40px 0 15px 0; display: block; font-size: 1.6rem; letter-spacing: 1px; }
+        .card { background: #0f0f0f; border: 1px solid #222; border-radius: 12px; padding: 20px; }
+        .stat-label { color: #888; font-size: 0.75rem; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px; }
+        
+        /* HIGH CONTRAST COLORS */
+        .txt-update { color: #10b981; } 
+        .txt-onboard { color: #38bdf8; } 
+        .txt-seo { color: #fbbf24; } 
+        .txt-content { color: #f87171; } 
+
+        .stack-lg { font-size: 2.8rem; font-weight: 900; line-height: 1; }
         
         table { width: 100%; border-collapse: collapse; }
-        th { color:#444; font-size:10px; text-transform:uppercase; padding:12px; border-bottom:1px solid #222; text-align: left; }
-        td { padding:12px; border-bottom:1px solid #111; font-size:0.9rem; font-weight: 700; }
-        .perc-zero { color: #FF0000; }
-        .staff-name { color: #eee; font-size: 0.95rem; }
-        .staff-cat { color: #555; font-size: 0.7rem; display: block; text-transform: uppercase; }
+        th { color:#555; font-size:11px; text-transform:uppercase; font-weight: 900; letter-spacing: 1px; padding:15px 12px; border-bottom:2px solid #222; text-align: left; }
+        td { padding:14px 12px; border-bottom: 1px solid #1a1a1a; font-size:0.95rem; font-weight: 700; cursor: pointer; }
+        tr:hover { background: #111; }
+        
+        .staff-name { color: #eee; font-size: 0.95rem; display: block; }
+        .staff-cat { color: #555; font-size: 0.7rem; text-transform: uppercase; }
+        
+        #resetBtn { display: none; background: #FF0000; color: white; font-size: 10px; font-weight: 900; padding: 5px 12px; border-radius: 4px; cursor: pointer; text-transform: uppercase; margin-top: 10px; }
+        .grid-container { padding: 0 40px; }
+
+        /* HIGHLIGHTED INSTRUCTION */
+        .filter-hint { color: #FF0000; font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-left: 20px; }
     </style>
 </head>
 
-<body class="p-6 md:p-10">
+<body>
 <div class="max-w-7xl mx-auto">
 
     <div class="sticky-header">
         <header class="flex justify-between items-end mb-6 pt-4">
             <div>
                 <h1 class="text-5xl font-black tracking-tighter uppercase">ENERGY<span class="text-red-600">MALL</span></h1>
-                <p class="text-zinc-500 font-bold uppercase text-xs tracking-[5px] mt-1">Product Team Performance | Jan 2026</p>
+                <p id="viewStatus" class="text-zinc-500 font-bold uppercase text-xs tracking-[5px] mt-1">Product Team Report | Jan 2026</p>
+                <div id="resetBtn" onclick="resetAudit()">Reset View ✕</div>
             </div>
         </header>
 
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="card border-red-900/30"><p class="stat-label">Updates Target</p><p class="stack-lg">1.6k</p></div>
-            <div class="card border-red-900/30"><p class="stat-label">Onboard Target</p><p class="stack-lg">900</p></div>
-            <div class="card border-red-900/30"><p class="stat-label">SEO Target</p><p class="stack-lg">180</p></div>
-            <div class="card border-red-900/30"><p class="stat-label">Content Target</p><p class="stack-lg">720</p></div>
+            <div class="card border-emerald-900/30"><p class="stat-label">Updates Target</p><p id="hUpdate" class="stack-lg txt-update">1.6k</p></div>
+            <div class="card border-sky-900/30"><p class="stat-label">Onboard Target</p><p id="hOnboard" class="stack-lg txt-onboard">900</p></div>
+            <div class="card border-amber-900/30"><p class="stat-label">SEO Target</p><p id="hSeo" class="stack-lg txt-seo">180</p></div>
+            <div class="card border-red-900/30"><p class="stat-label">Content Target</p><p id="hContent" class="stack-lg txt-content">720</p></div>
         </div>
     </div>
 
-    <div class="mt-8">
-        <script>
-            const staffData = [
-                { name: "Emmanuel Rafiu", cat: "Cables and Electricals" },
-                { name: "Olanrewaju Victoria", cat: "Home Electronics" },
-                { name: "Asia Grace & Funmi", cat: "Water & Insulation" },
-                { name: "Funmilola", cat: "Water & Insulation" },
-                { name: "Oyelekan Samson", cat: "UPS, Generators, Stabilizer & Transformers" },
-                { name: "Ishola Abisola", cat: "Computer, Network & CCTV" },
-                { name: "Orumwense Owen", cat: "Lighting, Streetlight And Floodlight" },
-                { name: "Oyelekan Victor", cat: "Solar (Inverters and Batteries)" },
-                { name: "Sarah Onuoha", cat: "Solar (Charge Controllers, Panels, etc)" }
-            ];
-
-            function renderTable(title, targets) {
-                let html = `<span class="h-red">${title}</span><div class="card mb-12 overflow-x-auto"><table><thead><tr><th>Staff & Category</th><th>Target</th><th>Achieved</th><th>%</th></tr></thead><tbody>`;
-                staffData.forEach((s, i) => {
-                    let t = Array.isArray(targets) ? targets[i] : targets;
-                    html += `<tr>
-                        <td><span class="staff-name">${s.name}</span><span class="staff-cat">${s.cat}</span></td>
-                        <td>${t}</td><td>0</td><td class="perc-zero">0.00%</td>
-                    </tr>`;
-                });
-                html += `</tbody></table></div>`;
-                document.write(html);
-            }
-
-            renderTable("Existing Products Updated", [200, 200, 100, 200, 200, 200, 200, 200, 100]);
-            renderTable("New Products Onboarded", 100);
-            renderTable("SEO Articles Submitted", 20);
-            renderTable("Product Content Submitted", 80);
-        </script>
+    <div class="grid-container">
+        <span class="h-red">Operational Personnel <span class="filter-hint">CLICK ANY NAME TO FILTER TARGETS</span></span>
+        
+        <div class="card mb-12 p-0 overflow-hidden">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Staff & Category</th>
+                        <th class="txt-update">Update Target</th>
+                        <th class="txt-onboard">Onboard Target</th>
+                        <th class="txt-seo">SEO Target</th>
+                        <th class="txt-content">Content Target</th>
+                    </tr>
+                </thead>
+                <tbody id="staffTableBody">
+                    </tbody>
+            </table>
+        </div>
 
         <span class="h-red">Category / Product Sales (Active)</span>
-        <div class="card mb-20 overflow-x-auto">
-        <table>
-        <thead><tr><th>Product Category</th><th class="text-right">Units Sold</th></tr></thead>
-        <tbody>
-            <tr><td>Solar Batteries</td><td class="text-right text-red-600 font-black">15</td></tr>
-            <tr><td>Inverters</td><td class="text-right text-red-600 font-black">3</td></tr>
-            <tr><td>Solar Panels</td><td class="text-right text-red-600 font-black">6</td></tr>
-            <tr><td>Water Pumps</td><td class="text-right text-red-600 font-black">2</td></tr>
-            <tr><td>Water Pump Bundles</td><td class="text-right text-red-600 font-black">1</td></tr>
-            <tr><td>Electrical Accessories</td><td class="text-right text-red-600 font-black">45</td></tr>
-            <tr class="font-black bg-zinc-900"><td>TOTAL UNITS SOLD</td><td class="text-right text-2xl text-red-600">72</td></tr>
-        </tbody>
-        </table>
+        <div class="card mb-20 p-0 overflow-hidden">
+            <table>
+                <thead><tr><th>Product Category</th><th class="text-right">Units Sold</th></tr></thead>
+                <tbody>
+                    <tr><td>Solar Batteries</td><td class="text-right txt-seo">15</td></tr>
+                    <tr><td>Inverters</td><td class="text-right txt-seo">3</td></tr>
+                    <tr><td>Solar Panels</td><td class="text-right txt-seo">6</td></tr>
+                    <tr><td>Water Pumps</td><td class="text-right txt-seo">2</td></tr>
+                    <tr><td>Electrical Accessories</td><td class="text-right txt-seo">45</td></tr>
+                    <tr class="bg-zinc-900/50"><td class="font-black text-white">TOTAL UNITS SOLD</td><td class="text-right text-2xl text-red-600 font-black">72</td></tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
@@ -105,5 +104,58 @@
     </footer>
 
 </div>
+
+<script>
+    const staffData = [
+        { name: "Emmanuel Rafiu", cat: "Cables and Electricals", up: 200, on: 100, seo: 20, cont: 80 },
+        { name: "Olanrewaju Victoria", cat: "Home Electronics", up: 200, on: 100, seo: 20, cont: 80 },
+        { name: "Asia Grace & Funmi", cat: "Water & Insulation", up: 100, on: 100, seo: 20, cont: 80 },
+        { name: "Funmilola", cat: "Water & Insulation", up: 200, on: 100, seo: 20, cont: 80 },
+        { name: "Oyelekan Samson", cat: "UPS, Generators & Transformers", up: 200, on: 100, seo: 20, cont: 80 },
+        { name: "Ishola Abisola", cat: "Computer, Network & CCTV", up: 200, on: 100, seo: 20, cont: 80 },
+        { name: "Orumwense Owen", cat: "Lighting & Streetlights", up: 200, on: 100, seo: 20, cont: 80 },
+        { name: "Oyelekan Victor", cat: "Solar (Inverters/Batteries)", up: 200, on: 100, seo: 20, cont: 80 },
+        { name: "Sarah Onuoha", cat: "Solar (Controllers/Panels)", up: 100, on: 100, seo: 20, cont: 80 }
+    ];
+
+    function initTable() {
+        const body = document.getElementById('staffTableBody');
+        staffData.forEach(s => {
+            const tr = document.createElement('tr');
+            tr.onclick = () => filterStaff(s);
+            tr.innerHTML = `
+                <td><span class="staff-name">${s.name}</span><span class="staff-cat">${s.cat}</span></td>
+                <td class="txt-update">${s.up}</td>
+                <td class="txt-onboard">${s.on}</td>
+                <td class="txt-seo">${s.seo}</td>
+                <td class="txt-content">${s.cont}</td>
+            `;
+            body.appendChild(tr);
+        });
+    }
+
+    function filterStaff(s) {
+        document.getElementById('hUpdate').innerText = s.up;
+        document.getElementById('hOnboard').innerText = s.on;
+        document.getElementById('hSeo').innerText = s.seo;
+        document.getElementById('hContent').innerText = s.cont;
+        
+        document.getElementById('viewStatus').innerText = "INDIVIDUAL FOCUS: " + s.name.toUpperCase();
+        document.getElementById('resetBtn').style.display = 'inline-block';
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+
+    function resetAudit() {
+        document.getElementById('hUpdate').innerText = "1.6k";
+        document.getElementById('hOnboard').innerText = "900";
+        document.getElementById('hSeo').innerText = "180";
+        document.getElementById('hContent').innerText = "720";
+        
+        document.getElementById('viewStatus').innerText = "Product Team Report | Jan 2026";
+        document.getElementById('resetBtn').style.display = 'none';
+    }
+
+    initTable();
+</script>
 </body>
 </html>
