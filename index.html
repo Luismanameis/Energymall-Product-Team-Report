@@ -55,8 +55,8 @@
         </header>
 
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="card border-emerald-900/30"><p class="stat-label">Updates Achieved</p><p id="hUpdate" class="stack-lg txt-update">0</p><span id="tUpdate" class="stack-sm">Target: 1.6k</span></div>
-            <div class="card border-sky-900/30"><p class="stat-label">Onboard Achieved</p><p id="hOnboard" class="stack-lg txt-onboard">0</p><span id="tOnboard" class="stack-sm">Target: 900</span></div>
+            <div class="card border-emerald-900/30"><p class="stat-label">Updates Achieved</p><p id="hUpdate" class="stack-lg txt-update">235</p><span id="tUpdate" class="stack-sm">Target: 1.6k</span></div>
+            <div class="card border-sky-900/30"><p class="stat-label">Onboard Achieved</p><p id="hOnboard" class="stack-lg txt-onboard">61</p><span id="tOnboard" class="stack-sm">Target: 900</span></div>
             <div class="card border-amber-900/30"><p class="stat-label">SEO Achieved</p><p id="hSeo" class="stack-lg txt-seo">0</p><span id="tSeo" class="stack-sm">Target: 180</span></div>
             <div class="card border-red-900/30"><p class="stat-label">Content Achieved</p><p id="hContent" class="stack-lg txt-content">0</p><span id="tContent" class="stack-sm">Target: 720</span></div>
         </div>
@@ -87,13 +87,14 @@
                     <table>
                         <thead><tr><th>Category</th><th class="text-right">Units</th></tr></thead>
                         <tbody>
+                            <tr><td>Cables</td><td class="text-right txt-update">890</td></tr>
+                            <tr><td>Electrical Accessories</td><td class="text-right txt-seo">45</td></tr>
                             <tr><td>Solar Batteries</td><td class="text-right txt-seo">17</td></tr>
-                            <tr><td>Inverters</td><td class="text-right txt-seo">4</td></tr>
                             <tr><td>Solar Panels</td><td class="text-right txt-seo">17</td></tr>
+                            <tr><td>Inverters</td><td class="text-right txt-seo">5</td></tr>
                             <tr><td>Water Pumps</td><td class="text-right txt-seo">2</td></tr>
                             <tr><td>Water Pump Bundles</td><td class="text-right txt-seo">1</td></tr>
-                            <tr><td>Electrical Accessories</td><td class="text-right txt-seo">45</td></tr>
-                            <tr class="bg-zinc-900"><td class="font-black">TOTAL UNITS SOLD</td><td class="text-right text-2xl text-red-600 font-black">86</td></tr>
+                            <tr class="bg-zinc-900"><td class="font-black">TOTAL UNITS SOLD</td><td class="text-right text-2xl text-red-600 font-black">977</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -102,7 +103,7 @@
                 <span class="h-red">Status Overview</span>
                 <div class="card bg-zinc-900/20 border-zinc-800">
                     <p class="text-zinc-500 text-xs font-bold uppercase tracking-widest leading-relaxed">
-                        Operational targets for existing products, new onboarding, SEO, and content are currently at <span class="text-white">0% completion</span> for the current audit cycle. Sales remain the primary active metric.
+                        Total operational activity shows <span class="text-emerald-500">235 existing updates</span> and <span class="text-sky-400">61 new onboards</span>. Oyelekan Victor is leading across both metrics. SEO and Content submissions remain at <span class="text-white">0% completion</span> for the current audit cycle.
                     </p>
                 </div>
             </div>
@@ -117,14 +118,14 @@
 
 <script>
     const staffData = [
-        { name: "Emmanuel Rafiu", cat: "Cables & Electricals", upA: 0, upT: 200, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
-        { name: "Olanrewaju Victoria", cat: "Home Electronics", upA: 0, upT: 200, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
-        { name: "Asia Grace & Funmi", cat: "Water & Insulation", upA: 0, upT: 100, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
-        { name: "Funmilola", cat: "Water & Insulation", upA: 0, upT: 200, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
-        { name: "Oyelekan Samson", cat: "UPS & Generators", upA: 0, upT: 200, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
-        { name: "Ishola Abisola", cat: "Computer & CCTV", upA: 0, upT: 200, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
-        { name: "Orumwense Owen", cat: "Lighting & Floodlight", upA: 0, upT: 200, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
-        { name: "Oyelekan Victor", cat: "Solar (Inverters/Batt)", upA: 0, upT: 200, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
+        { name: "Emmanuel Rafiu", cat: "Cables & Electricals", upA: 0, upT: 200, onA: 2, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
+        { name: "Olanrewaju Victoria", cat: "Home Electronics", upA: 0, upT: 200, onA: 3, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
+        { name: "Asia Grace & Funmi", cat: "Water & Insulation", upA: 3, upT: 100, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
+        { name: "Funmilola", cat: "Water & Insulation", upA: 1, upT: 200, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
+        { name: "Oyelekan Samson", cat: "UPS & Generators", upA: 18, upT: 200, onA: 3, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
+        { name: "Ishola Abisola", cat: "Computer & CCTV", upA: 0, upT: 200, onA: 8, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
+        { name: "Orumwense Owen", cat: "Lighting & Floodlight", upA: 16, upT: 200, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
+        { name: "Oyelekan Victor", cat: "Solar (Inverters/Batt)", upA: 197, upT: 200, onA: 45, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
         { name: "Sarah Onuoha", cat: "Solar (Panels/App)", upA: 0, upT: 100, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 }
     ];
 
@@ -160,9 +161,9 @@
     }
 
     function resetAudit() {
-        document.getElementById('hUpdate').innerText = "0";
+        document.getElementById('hUpdate').innerText = "235";
         document.getElementById('tUpdate').innerText = "Target: 1.6k";
-        document.getElementById('hOnboard').innerText = "0";
+        document.getElementById('hOnboard').innerText = "61";
         document.getElementById('tOnboard').innerText = "Target: 900";
         document.getElementById('hSeo').innerText = "0";
         document.getElementById('tSeo').innerText = "Target: 180";
