@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENERGYMALL PRODUCT AUDIT</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { background-color: #050505; color: #ffffff; font-family: 'Inter', sans-serif; margin: 0; }
@@ -55,8 +56,8 @@
         </header>
 
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="card border-emerald-900/30"><p class="stat-label">Updates Achieved</p><p id="hUpdate" class="stack-lg txt-update">240</p><span id="tUpdate" class="stack-sm">Target: 1.6k</span></div>
-            <div class="card border-sky-900/30"><p class="stat-label">Onboard Achieved</p><p id="hOnboard" class="stack-lg txt-onboard">61</p><span id="tOnboard" class="stack-sm">Target: 900</span></div>
+            <div class="card border-emerald-900/30"><p class="stat-label">Updates Achieved</p><p id="hUpdate" class="stack-lg txt-update">366</p><span id="tUpdate" class="stack-sm">Target: 1.6k</span></div>
+            <div class="card border-sky-900/30"><p class="stat-label">Onboard Achieved</p><p id="hOnboard" class="stack-lg txt-onboard">85</p><span id="tOnboard" class="stack-sm">Target: 900</span></div>
             <div class="card border-amber-900/30"><p class="stat-label">SEO Achieved</p><p id="hSeo" class="stack-lg txt-seo">5</p><span id="tSeo" class="stack-sm">Target: 180</span></div>
             <div class="card border-red-900/30"><p class="stat-label">Content Achieved</p><p id="hContent" class="stack-lg txt-content">28</p><span id="tContent" class="stack-sm">Target: 720</span></div>
         </div>
@@ -103,7 +104,7 @@
                 <span class="h-red">Status Overview</span>
                 <div class="card bg-zinc-900/20 border-zinc-800">
                     <p class="text-zinc-500 text-xs font-bold uppercase tracking-widest leading-relaxed">
-                        Operational activity is scaling. Existing updates reached <span class="text-emerald-500">240</span>, while <span class="text-amber-500">SEO (5)</span> and <span class="text-red-500">Content (28)</span> metrics have officially gone live via Funmilola. Sales volume is dominated by Cable categories at <span class="text-white">890 units</span>.
+                        Operational activity is scaling. Existing updates reached <span class="text-emerald-500">366</span>, while <span class="text-amber-500">SEO (5)</span> and <span class="text-red-500">Content (28)</span> metrics are active via Funmilola. New onboarding achieved <span class="text-sky-500">85 products</span>. Sales volume is dominated by Cable categories at <span class="text-white">890 units</span>.
                     </p>
                 </div>
             </div>
@@ -118,14 +119,14 @@
 
 <script>
     const staffData = [
-        { name: "Emmanuel Rafiu", cat: "Cables & Electricals", upA: 0, upT: 200, onA: 2, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
+        { name: "Emmanuel Rafiu", cat: "Cables & Electricals", upA: 44, upT: 200, onA: 25, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
         { name: "Olanrewaju Victoria", cat: "Home Electronics", upA: 0, upT: 200, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
         { name: "Asia Grace & Funmi", cat: "Water & Insulation", upA: 3, upT: 100, onA: 3, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
-        { name: "Funmilola", cat: "Water & Insulation", upA: 1, upT: 200, onA: 0, onT: 100, seoA: 5, seoT: 20, conA: 28, conT: 80 },
+        { name: "Funmilola", cat: "Lead - Content/SEO", upA: 1, upT: 200, onA: 0, onT: 100, seoA: 5, seoT: 20, conA: 28, conT: 80 },
         { name: "Oyelekan Samson", cat: "UPS & Generators", upA: 18, upT: 200, onA: 3, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
         { name: "Ishola Abisola", cat: "Computer & CCTV", upA: 0, upT: 200, onA: 8, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
-        { name: "Orumwense Owen", cat: "Lighting & Floodlight", upA: 16, upT: 200, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
-        { name: "Oyelekan Victor", cat: "Solar (Inverters/Batt)", upA: 202, upT: 200, onA: 45, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
+        { name: "Orumwense Owen", cat: "Lighting & Streetlight", upA: 16, upT: 200, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
+        { name: "Oyelekan Victor", cat: "Solar (Inverters/Batt)", upA: 284, upT: 200, onA: 46, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
         { name: "Sarah Onuoha", cat: "Solar (Panels/App)", upA: 0, upT: 100, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 }
     ];
 
@@ -162,9 +163,9 @@
     }
 
     function resetAudit() {
-        document.getElementById('hUpdate').innerText = "240";
+        document.getElementById('hUpdate').innerText = "366";
         document.getElementById('tUpdate').innerText = "Target: 1.6k";
-        document.getElementById('hOnboard').innerText = "61";
+        document.getElementById('hOnboard').innerText = "85";
         document.getElementById('tOnboard').innerText = "Target: 900";
         document.getElementById('hSeo').innerText = "5";
         document.getElementById('tSeo').innerText = "Target: 180";
