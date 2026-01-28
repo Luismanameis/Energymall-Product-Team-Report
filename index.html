@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ENERGYMALL PRODUCT AUDIT</title>
+    <title>ENERGYMALL PRODUCT AUDIT - JAN UPDATE</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         body { background-color: #050505; color: #ffffff; font-family: 'Inter', sans-serif; margin: 0; }
         
-        /* GUARANTEED STAGNANT HEADER */
         .fixed-header { 
             position: fixed; top: 0; left: 0; right: 0; z-index: 999;
             background-color: rgba(5, 5, 5, 0.98); backdrop-filter: blur(12px);
@@ -18,7 +17,9 @@
 
         .scroll-container { margin-top: 320px; padding: 0 20px; }
 
-        .h-red { color: #ffffff; font-weight: 950; text-transform: uppercase; border-left: 8px solid #FF0000; padding-left: 15px; margin: 40px 0 15px 0; display: block; font-size: 1.4rem; letter-spacing: 1px; }
+        /* Bold Red Headings per Instructions */
+        .h-red { color: #FF0000; font-weight: 950; text-transform: uppercase; border-left: 8px solid #FF0000; padding-left: 15px; margin: 40px 0 15px 0; display: block; font-size: 1.4rem; letter-spacing: 1px; }
+        
         .card { background: #0f0f0f; border: 1px solid #222; border-radius: 12px; padding: 18px; }
         .stat-label { color: #888; font-size: 0.65rem; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 4px; }
         
@@ -32,13 +33,16 @@
         
         table { width: 100%; border-collapse: collapse; }
         th { color:#555; font-size:10px; text-transform:uppercase; font-weight: 900; letter-spacing: 1px; padding:12px; border-bottom:2px solid #222; text-align: left; }
-        td { padding:12px; border-bottom: 1px solid #1a1a1a; font-size:0.85rem; font-weight: 700; cursor: pointer; }
-        tr:hover { background: #111; }
+        td { padding:12px; border-bottom: 1px solid #1a1a1a; font-size:0.85rem; font-weight: 700; }
         
-        .rev-green { color: #00FF00 !important; }
-        .pct-green { color: #00FF00 !important; }
-        .pct-red { color: #FF0000 !important; }
+        /* Specific Instruction Formatting */
+        .rev-green { color: #00FF41 !important; } /* Green Revenue/Sales Metrics */
+        .pct-green { color: #00FF41 !important; } /* >50% Green */
+        .pct-red { color: #FF0000 !important; }   /* <50% Red */
         
+        .staff-name { display: block; font-weight: 900; }
+        .staff-cat { font-size: 0.7rem; color: #666; font-weight: 400; text-transform: uppercase; }
+
         #resetBtn { display: none; background: #FF0000; color: white; font-size: 9px; font-weight: 900; padding: 4px 10px; border-radius: 4px; cursor: pointer; text-transform: uppercase; margin-top: 8px; }
 
         @media (max-width: 768px) {
@@ -64,10 +68,10 @@
         </header>
 
         <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-            <div class="card"><p class="stat-label">Updates Achieved</p><p id="hUpdate" class="stack-lg txt-update">518</p><span id="tUpdate" class="stack-sm">Target: 1.4k</span></div>
-            <div class="card"><p class="stat-label">Onboard Achieved</p><p id="hOnboard" class="stack-lg txt-onboard">169</p><span id="tOnboard" class="stack-sm">Target: 900</span></div>
+            <div class="card"><p class="stat-label">Updates Achieved</p><p id="hUpdate" class="stack-lg txt-update">584</p><span id="tUpdate" class="stack-sm">Target: 1.4k</span></div>
+            <div class="card"><p class="stat-label">Onboard Achieved</p><p id="hOnboard" class="stack-lg txt-onboard">187</p><span id="tOnboard" class="stack-sm">Target: 900</span></div>
             <div class="card"><p class="stat-label">SEO Achieved</p><p id="hSeo" class="stack-lg txt-seo">12</p><span id="tSeo" class="stack-sm">Target: 180</span></div>
-            <div class="card"><p class="stat-label">Content Achieved</p><p id="hContent" class="stack-lg txt-content">28</p><span id="tContent" class="stack-sm">Target: 720</span></div>
+            <div class="card"><p class="stat-label">Content Achieved</p><p id="hContent" class="stack-lg txt-content">29</p><span id="tContent" class="stack-sm">Target: 720</span></div>
         </div>
     </div>
 
@@ -99,14 +103,14 @@
                         <tbody>
                             <tr><td>Cables</td><td class="text-right rev-green">929</td></tr>
                             <tr><td>Electrical Accessories</td><td class="text-right rev-green">52</td></tr>
-                            <tr><td>Solar Batteries</td><td class="text-right rev-green">41</td></tr>
-                            <tr><td>Inverters</td><td class="text-right rev-green">26</td></tr>
-                            <tr><td>Solar Panels</td><td class="text-right rev-green">16</td></tr>
+                            <tr><td>Solar Batteries</td><td class="text-right rev-green">44</td></tr>
+                            <tr><td>Inverters</td><td class="text-right rev-green">27</td></tr>
+                            <tr><td>Solar Panels</td><td class="text-right rev-green">32</td></tr>
                             <tr><td>Water Pumps</td><td class="text-right rev-green">6</td></tr>
-                            <tr><td>Computers & Equipment</td><td class="text-right rev-green">3</td></tr>
+                            <tr><td>Computers & Office Equipment</td><td class="text-right rev-green">3</td></tr>
                             <tr class="bg-zinc-900 border-t-2 border-red-600">
                                 <td class="font-black">TOTAL UNITS SOLD</td>
-                                <td class="text-right text-2xl rev-green font-black">1,078</td>
+                                <td class="text-right text-2xl rev-green font-black">1,099</td>
                             </tr>
                         </tbody>
                     </table>
@@ -116,7 +120,7 @@
                 <span class="h-red">Operational Summary</span>
                 <div class="card bg-zinc-900/20 border-zinc-800">
                     <p class="text-zinc-400 text-xs font-bold uppercase tracking-widest leading-relaxed">
-                        Audit confirms high performance in Solar segments. <span class="text-white">Victor (Solar)</span> is currently outperforming with an update score of <span class="pct-green">328%</span>. Cable volume remains dominant at <span class="rev-green">929 units</span>. SEO and Product Content tasks remain concentrated in the <span class="text-white">Water & Insulation</span> category under Funmilola.
+                        Audit confirms exceptional performance in Solar updates. <span class="text-white">Victor</span> reached <span class="pct-green">344%</span> of target. Cable volume remains dominant at <span class="rev-green">929 units</span>. SEO and Product Content tasks are gaining traction in <span class="text-white">Water & Insulation</span> categories.
                     </p>
                 </div>
             </div>
@@ -131,15 +135,15 @@
 
 <script>
     const staffData = [
-        { name: "Emmanuel Rafiu", cat: "Cables & Electricals", upA: 97, upT: 200, onA: 43, onT: 100, seoA: 1, seoT: 20, conA: 0, conT: 80, upP: 48.5 },
-        { name: "Olanrewaju Victoria", cat: "Home Electronics", upA: 0, upT: 200, onA: 6, onT: 100, seoA: 1, seoT: 20, conA: 0, conT: 80, upP: 0 },
-        { name: "Asia Grace & Funmi", cat: "Water & Insulation", upA: 18, upT: 100, onA: 24, onT: 100, seoA: 1, seoT: 20, conA: 0, conT: 80, upP: 18 },
+        { name: "Emmanuel Rafiu", cat: "Cables & Electricals", upA: 98, upT: 200, onA: 43, onT: 100, seoA: 1, seoT: 20, conA: 0, conT: 80, upP: 49 },
+        { name: "Olanrewaju Victoria", cat: "Home Electronics", upA: 30, upT: 200, onA: 6, onT: 100, seoA: 1, seoT: 20, conA: 0, conT: 80, upP: 15 },
+        { name: "Asia Grace & Funmi", cat: "Water & Insulation", upA: 19, upT: 100, onA: 27, onT: 100, seoA: 1, seoT: 20, conA: 1, conT: 80, upP: 19 },
         { name: "Funmilola", cat: "Water & Insulation", upA: 1, upT: 100, onA: 0, onT: 100, seoA: 5, seoT: 20, conA: 28, conT: 80, upP: 1 },
-        { name: "Oyelekan Samson", cat: "UPS & Generators", upA: 27, upT: 200, onA: 9, onT: 100, seoA: 1, seoT: 20, conA: 0, conT: 80, upP: 13.5 },
-        { name: "Ishola Abisola", cat: "Computer & CCTV", upA: 4, upT: 200, onA: 11, onT: 100, seoA: 1, seoT: 20, conA: 0, conT: 80, upP: 2 },
+        { name: "Oyelekan Samson", cat: "UPS & Generators", upA: 39, upT: 200, onA: 18, onT: 100, seoA: 1, seoT: 20, conA: 0, conT: 80, upP: 19.5 },
+        { name: "Ishola Abisola", cat: "Computer & CCTV", upA: 8, upT: 200, onA: 13, onT: 100, seoA: 1, seoT: 20, conA: 0, conT: 80, upP: 4 },
         { name: "Orumwense Owen", cat: "Lighting & Streetlight", upA: 38, upT: 200, onA: 2, onT: 100, seoA: 1, seoT: 20, conA: 0, conT: 80, upP: 19 },
-        { name: "Oyelekan Victor", cat: "Solar (Inverters/Batt)", upA: 328, upT: 100, onA: 59, onT: 100, seoA: 1, seoT: 20, conA: 0, conT: 80, upP: 328 },
-        { name: "Sarah Onuoha", cat: "Solar (Panels/App)", upA: 5, upT: 100, onA: 15, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80, upP: 5 }
+        { name: "Oyelekan Victor", cat: "Solar (Inverters/Batt)", upA: 344, upT: 100, onA: 63, onT: 100, seoA: 1, seoT: 20, conA: 0, conT: 80, upP: 344 },
+        { name: "Sarah Onuoha", cat: "Solar (Panels/App)", upA: 7, upT: 100, onA: 15, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80, upP: 7 }
     ];
 
     function initTable() {
@@ -147,6 +151,7 @@
         body.innerHTML = "";
         staffData.forEach(s => {
             const tr = document.createElement('tr');
+            tr.className = "cursor-pointer hover:bg-zinc-900";
             tr.onclick = () => filterStaff(s);
             const pctClass = s.upP >= 50 ? 'pct-green' : 'pct-red';
             tr.innerHTML = `
@@ -176,13 +181,13 @@
     }
 
     function resetAudit() {
-        document.getElementById('hUpdate').innerText = "518";
+        document.getElementById('hUpdate').innerText = "584";
         document.getElementById('tUpdate').innerText = "Target: 1.4k";
-        document.getElementById('hOnboard').innerText = "169";
+        document.getElementById('hOnboard').innerText = "187";
         document.getElementById('tOnboard').innerText = "Target: 900";
         document.getElementById('hSeo').innerText = "12";
         document.getElementById('tSeo').innerText = "Target: 180";
-        document.getElementById('hContent').innerText = "28";
+        document.getElementById('hContent').innerText = "29";
         document.getElementById('tContent').innerText = "Target: 720";
         
         document.getElementById('viewStatus').innerText = "Product Team Report | Jan 2026";
