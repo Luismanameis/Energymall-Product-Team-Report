@@ -2,209 +2,198 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ENERGYMALL EXECUTIVE AUDIT - FEB START</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ENERGYMALL PRODUCT AUDIT - FEB 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #050505; color: #ffffff; font-family: 'Inter', sans-serif; margin: 0; padding: 0; }
+        body { background-color: #050505; color: #ffffff; font-family: 'Inter', sans-serif; margin: 0; }
         .fixed-header { 
-            position: fixed; top: 0; left: 0; right: 0; z-index: 1000; 
-            background-color: rgba(5, 5, 5, 0.98); backdrop-filter: blur(15px);
-            border-bottom: 2px solid #1a1a1a; padding: 15px 25px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+            background-color: rgba(5, 5, 5, 0.98); backdrop-filter: blur(12px);
+            border-bottom: 2px solid #1a1a1a; padding: 15px 25px;
         }
-        .scroll-content { margin-top: 240px; padding-bottom: 50px; }
-        @media (max-width: 768px) { .scroll-content { margin-top: 280px; } }
+        .scroll-container { margin-top: 245px; padding: 0 25px; }
+        .h-red { color: #FF0000 !important; font-weight: 950; text-transform: uppercase; border-left: 8px solid #FF0000; padding-left: 15px; margin: 40px 0 15px 0; display: block; font-size: 1.5rem; }
+        .card { background: #0f0f0f; border: 1px solid #222; border-radius: 12px; padding: 15px; }
+        .stat-label { color: #888; font-size: 0.65rem; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 4px; }
+        
+        .txt-update { color: #10b981; } 
+        .txt-onboard { color: #38bdf8; } 
+        .txt-seo { color: #fbbf24; } 
+        .txt-content { color: #f87171; } 
 
-        .h-red { color: #FF0000 !important; font-weight: 950; text-transform: uppercase; border-left: 8px solid #FF0000; padding-left: 15px; margin: 40px 0 15px 0; display: block; font-size: 1.6rem; }
+        .stack-lg { font-size: 2.2rem; font-weight: 900; line-height: 1; }
+        .stack-sm { font-size: 0.75rem; font-weight: 700; color: #555; display: block; margin-top: 4px; }
         
-        .card { background: #0f0f0f; border: 1px solid #222; border-radius: 12px; padding: 12px; }
-        .stat-label { color: #666; font-size: 0.65rem; font-weight: 900; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; }
-        
-        .text-revenue { color: #00FF41 !important; } 
-        .text-white-metric { color: #ffffff !important; } 
-        .pct-high { color: #00FF41 !important; } 
-        .pct-low { color: #FF0000 !important; }  
-        
-        .stack-lg { font-size: 1.8rem; font-weight: 900; line-height: 1; }
         table { width: 100%; border-collapse: collapse; }
-        th { color:#888; font-size:10px; text-transform:uppercase; font-weight: 900; padding:12px; border-bottom:2px solid #333; text-align: left; background: #0a0a0a; }
-        td { padding:14px 12px; border-bottom: 1px solid #1a1a1a; font-size:0.95rem; font-weight: 700; color: #eee; }
+        th { color:#555; font-size:10px; text-transform:uppercase; font-weight: 900; padding:12px; border-bottom:2px solid #222; text-align: left; }
+        td { padding:12px; border-bottom: 1px solid #1a1a1a; font-size:0.9rem; font-weight: 700; }
         
-        .staff-name { color: #ffffff; font-size: 1rem; cursor: pointer; text-decoration: underline; text-underline-offset: 4px; text-decoration-color: #FF0000; }
-        #resetBtn { display: none; background: #FF0000; color: white; font-size: 10px; font-weight: 900; padding: 4px 10px; border-radius: 4px; cursor: pointer; text-transform: uppercase; margin-top: 5px; }
-        .hidden-row { display: none !important; }
+        .rev-green { color: #00FF41 !important; } 
+        .pct-green { color: #00FF41 !important; } 
+        .pct-red { color: #FF0000 !important; }  
+        
+        .staff-name { display: block; font-weight: 900; color: #fff; }
+        .staff-cat { font-size: 0.7rem; color: #666; font-weight: 400; text-transform: uppercase; }
+        #resetBtn { display: none; background: #FF0000; color: white; font-size: 9px; font-weight: 900; padding: 4px 10px; border-radius: 4px; cursor: pointer; text-transform: uppercase; margin-top: 8px; }
+        @media (max-width: 768px) { .scroll-container { margin-top: 290px; } }
     </style>
 </head>
 <body>
 <div class="max-w-7xl mx-auto">
-
     <div class="fixed-header">
-        <header class="flex justify-between items-start mb-4">
+        <header class="flex justify-between items-start mb-5">
             <div>
-                <h1 class="text-3xl md:text-4xl font-black tracking-tighter uppercase leading-none">ENERGY<span class="text-red-600">MALL</span></h1>
-                <p id="viewStatus" class="text-zinc-500 font-bold uppercase text-[9px] tracking-[4px] mt-1">Executive Sales Audit | Jan-Feb 2026</p>
+                <h1 class="text-3xl font-black tracking-tighter uppercase">ENERGY<span class="text-red-600">MALL</span></h1>
+                <p id="viewStatus" class="text-zinc-500 font-bold uppercase text-[9px] tracking-[4px] mt-1">Product Team Report | Feb 2026</p>
                 <div id="resetBtn" onclick="resetAudit()">Reset View ✕</div>
             </div>
             <div class="text-right border-l-2 border-red-600 pl-4">
-                <p class="stat-label">Jan Leader</p>
-                <p class="text-sm font-black text-white uppercase italic">Damilola A.</p>
-                <p class="text-lg font-black text-revenue">₦41.8m</p>
+                <p class="stat-label">Leading Efficiency</p>
+                <p class="text-sm font-black text-white uppercase italic">Team Reset</p>
+                <p class="text-lg font-black pct-green">February Cycle</p>
             </div>
         </header>
-
         <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-            <div class="card border-zinc-800"><p class="stat-label">Total Revenue (Jan)</p><p id="hRev" class="stack-lg text-revenue">₦119.0m</p></div>
-            <div class="card border-zinc-800"><p class="stat-label">Total Cust</p><p id="hCust" class="stack-lg text-white-metric">48</p></div>
-            <div class="card border-zinc-800"><p class="stat-label">Total Leads</p><p id="hLeads" class="stack-lg text-white-metric">262</p></div>
-            <div class="card border-zinc-800"><p class="stat-label">Conv %</p><p id="hConv" class="stack-lg pct-low">16.79%</p></div>
+            <div class="card"><p class="stat-label">Updates Achieved</p><p id="hUpdate" class="stack-lg txt-update">0</p><span id="tUpdate" class="stack-sm">Target: 1.4k</span></div>
+            <div class="card"><p class="stat-label">Onboard Achieved</p><p id="hOnboard" class="stack-lg txt-onboard">0</p><span id="tOnboard" class="stack-sm">Target: 900</span></div>
+            <div class="card"><p class="stat-label">SEO Achieved</p><p id="hSeo" class="stack-lg txt-seo">0</p><span id="tSeo" class="stack-sm">Target: 180</span></div>
+            <div class="card"><p class="stat-label">Content Achieved</p><p id="hContent" class="stack-lg txt-content">0</p><span id="tContent" class="stack-sm">Target: 720</span></div>
         </div>
     </div>
 
-    <div class="scroll-content">
-        <div class="px-5 md:px-10">
-            
-            <span class="h-red">Representative Audit (2026 YTD)</span>
-            <div class="card mb-8 p-0 overflow-hidden">
-                <div class="overflow-x-auto">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Representative</th>
-                                <th>Revenue</th>
-                                <th class="text-white-metric">Cust</th>
-                                <th class="text-white-metric">Leads</th>
-                                <th>% Target</th>
-                                <th class="text-right">Conv %</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="rep-row" data-name="Damilola Abidemi Akingboye" data-rev="41.8m" data-cust="11" data-leads="73" data-conv="15.07%">
-                                <td><span class="staff-name" onclick="filterAudit(this)">Damilola A. Akingboye</span></td>
-                                <td class="text-revenue">₦41.8m</td>
-                                <td class="text-white-metric">11</td>
-                                <td class="text-white-metric">73</td>
-                                <td class="text-zinc-500">6.97%</td>
-                                <td class="text-right pct-low">15.07%</td>
-                            </tr>
-                            <tr class="rep-row" data-name="Patricia Uchedienyi" data-rev="36.3m" data-cust="9" data-leads="90" data-conv="10.00%">
-                                <td><span class="staff-name" onclick="filterAudit(this)">Patricia Uchedienyi</span></td>
-                                <td class="text-revenue">₦36.3m</td>
-                                <td class="text-white-metric">9</td>
-                                <td class="text-white-metric">90</td>
-                                <td class="text-zinc-500">5.49%</td>
-                                <td class="text-right pct-low">10.00%</td>
-                            </tr>
-                            <tr class="rep-row" data-name="Immaculate Osereme Imion" data-rev="36.2m" data-cust="22" data-leads="99" data-conv="22.22%">
-                                <td><span class="staff-name" onclick="filterAudit(this)">Immaculate O. Imion</span></td>
-                                <td class="text-revenue">₦36.2m</td>
-                                <td class="text-white-metric">22</td>
-                                <td class="text-white-metric">99</td>
-                                <td class="text-zinc-500">3.87%</td>
-                                <td class="text-right pct-low">22.22%</td>
-                            </tr>
-                            <tr class="rep-row" data-name="Jemila Ojo-Agafu Ibrahim" data-rev="1.4m" data-cust="2" data-leads="0" data-conv="0.00%">
-                                <td><span class="staff-name" onclick="filterAudit(this)">Jemila O. Ibrahim</span></td>
-                                <td class="text-revenue">₦1.4m</td>
-                                <td class="text-white-metric">2</td>
-                                <td class="text-white-metric">0</td>
-                                <td class="text-zinc-500">0.50%</td>
-                                <td class="text-right pct-low">0.00%</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                    <span class="h-red">Revenue Split (YTD)</span>
-                    <div class="card p-0 overflow-hidden">
-                        <table>
-                            <thead><tr><th>Entity</th><th>Revenue</th><th class="text-right">% Share</th></tr></thead>
-                            <tbody>
-                                <tr><td>Sales Team</td><td class="text-revenue">₦115.6m</td><td class="text-right pct-high">97.13%</td></tr>
-                                <tr><td>The Business</td><td class="text-revenue">₦3.4m</td><td class="text-right pct-low">2.87%</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div>
-                    <span class="h-red">Monthly Velocity (Jan)</span>
-                    <div class="card p-0 overflow-hidden">
-                        <table>
-                            <thead><tr><th>Timeline</th><th>Revenue</th><th>Cust</th><th class="text-right">Leads</th></tr></thead>
-                            <tbody>
-                                <tr><td>Week 4</td><td class="text-revenue">₦77.0m</td><td class="text-white-metric">16</td><td class="text-right text-white-metric">52</td></tr>
-                                <tr><td>Week 5</td><td class="text-revenue">₦18.0m</td><td class="text-white-metric">12</td><td class="text-right text-white-metric">49</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <span class="h-red">Historical Variance (2025 vs 2026)</span>
-            <div class="card p-0 overflow-hidden">
+    <div class="scroll-container">
+        <span class="h-red">Operational Personnel Audit</span>
+        <div class="card mb-10 p-0 overflow-hidden">
+            <div class="overflow-x-auto">
                 <table>
                     <thead>
                         <tr>
-                            <th>Category</th>
-                            <th>2025 Total</th>
-                            <th>2026 YTD</th>
-                            <th>Difference</th>
-                            <th class="text-right">% Diff</th>
+                            <th>Staff & Focus</th>
+                            <th class="txt-update">Update %</th>
+                            <th class="txt-onboard">Onboard</th>
+                            <th class="txt-seo">SEO</th>
+                            <th class="txt-content">Content</th>
                         </tr>
                     </thead>
+                    <tbody id="staffTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <span class="h-red">Category Sales & Volume (Jan 2026 Final)</span>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+            <div class="card p-0 overflow-hidden">
+                <table>
+                    <thead><tr><th>Category</th><th class="text-right">Units</th></tr></thead>
                     <tbody>
-                        <tr>
-                            <td>Sales Team</td>
-                            <td class="text-white-metric">₦863.3m</td>
-                            <td class="text-revenue">₦115.6m</td>
-                            <td class="text-zinc-400">₦747.7m</td>
-                            <td class="text-right pct-low">86.61%</td>
-                        </tr>
-                        <tr>
-                            <td>The Business</td>
-                            <td class="text-white-metric">₦138.0m</td>
-                            <td class="text-revenue">₦3.4m</td>
-                            <td class="text-zinc-400">₦134.6m</td>
-                            <td class="text-right pct-low">97.53%</td>
+                        <tr><td>Cables</td><td class="text-right rev-green">3,429</td></tr>
+                        <tr><td>Electrical Accessories</td><td class="text-right rev-green">126</td></tr>
+                        <tr><td>Solar Batteries</td><td class="text-right rev-green">47</td></tr>
+                        <tr><td>Solar Panels</td><td class="text-right rev-green">36</td></tr>
+                        <tr><td>Inverters</td><td class="text-right rev-green">32</td></tr>
+                        <tr><td>Lighting</td><td class="text-right rev-green">7</td></tr>
+                        <tr><td>Water Pumps</td><td class="text-right rev-green">6</td></tr>
+                        <tr class="bg-zinc-900 border-t-2 border-red-600 font-black">
+                            <td>JAN TOTAL VOLUME</td>
+                            <td class="text-right text-xl rev-green">3,689</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-
-            <footer class="text-center py-16 opacity-20 text-[10px] uppercase tracking-[15px]">
-                Energymall Intelligence 2026
-            </footer>
+            <div class="card bg-zinc-900/40">
+                <p class="stat-label">Growth Summary</p>
+                <p class="text-zinc-400 text-sm leading-relaxed mb-4">
+                    Cable category dominance continues at <span class="text-white">93% of total volume</span>. Solar infrastructure (Panels/Inverters) holds <span class="text-white">2% combined share</span>. January closed with <span class="text-white">3.6k+</span> total unit movements.
+                </p>
+                <div class="mt-4 pt-4 border-t border-zinc-800">
+                    <p class="stat-label">High Velocity Mover</p>
+                    <p class="text-xl font-black text-white">Cables & Wiring</p>
+                    <p class="text-3xl font-black rev-green">3.4k Units</p>
+                </div>
+            </div>
         </div>
+
+        <span class="h-red">Category Growth Audit (2024-2026)</span>
+        <div class="card p-0 overflow-hidden mb-20">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>2024</th>
+                        <th>2025</th>
+                        <th>2026 YTD</th>
+                        <th class="text-right">Share %</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Solar Batteries</td><td>2.5k</td><td>1.9k</td><td class="text-white">47</td><td class="text-right pct-red">1%</td></tr>
+                    <tr><td>Inverters</td><td>518</td><td>284</td><td class="text-white">32</td><td class="text-right pct-red">1%</td></tr>
+                    <tr><td>Solar Panels</td><td>144</td><td>212</td><td class="text-white">36</td><td class="text-right pct-red">1%</td></tr>
+                    <tr><td>Cables</td><td>26.2k</td><td>85.9k</td><td class="rev-green">3.4k</td><td class="text-right pct-green">93%</td></tr>
+                    <tr><td>Electrical Access.</td><td>3.6k</td><td>1.2k</td><td class="text-white">126</td><td class="text-right pct-red">3%</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <footer class="text-center py-16 opacity-20 text-[10px] uppercase tracking-[15px]">
+            Energymall Product Intelligence 2026
+        </footer>
     </div>
 
     <script>
-        function filterAudit(element) {
-            const row = element.closest('tr');
-            const rows = document.querySelectorAll('.rep-row');
-            rows.forEach(r => r.classList.add('hidden-row'));
-            row.classList.remove('hidden-row');
-            document.getElementById('hRev').innerText = '₦' + row.getAttribute('data-rev');
-            document.getElementById('hCust').innerText = row.getAttribute('data-cust');
-            document.getElementById('hLeads').innerText = row.getAttribute('data-leads');
-            document.getElementById('hConv').innerText = row.getAttribute('data-conv');
-            document.getElementById('viewStatus').innerText = "AUDIT: " + row.getAttribute('data-name');
-            document.getElementById('resetBtn').style.display = 'block';
+        const staffData = [
+            { name: "Emmanuel Rafiu", cat: "Cables & Electricals", upA: 0, upT: 200, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80, upP: 0 },
+            { name: "Olanrewaju Victoria", cat: "Home Electronics", upA: 0, upT: 200, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80, upP: 0 },
+            { name: "Asia Grace & Funmi", cat: "Water & Insulation", upA: 0, upT: 100, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80, upP: 0 },
+            { name: "Funmilola", cat: "Water & Insulation", upA: 0, upT: 100, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80, upP: 0 },
+            { name: "Oyelekan Samson", cat: "UPS & Generators", upA: 0, upT: 200, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80, upP: 0 },
+            { name: "Ishola Abisola", cat: "Computer & CCTV", upA: 0, upT: 200, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80, upP: 0 },
+            { name: "Orumwense Owen", cat: "Lighting & Streetlight", upA: 0, upT: 200, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80, upP: 0 },
+            { name: "Oyelekan Victor", cat: "Solar (Inverters/Batt)", upA: 0, upT: 100, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80, upP: 0 },
+            { name: "Sarah Onuoha", cat: "Solar (Panels/App)", upA: 0, upT: 100, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80, upP: 0 }
+        ];
+
+        function initTable() {
+            const body = document.getElementById('staffTableBody');
+            body.innerHTML = "";
+            staffData.forEach(s => {
+                const tr = document.createElement('tr');
+                tr.className = "cursor-pointer hover:bg-zinc-900";
+                tr.onclick = () => filterStaff(s);
+                const pctClass = s.upP >= 50 ? 'pct-green' : 'pct-red';
+                tr.innerHTML = `
+                    <td><span class="staff-name">${s.name}</span><span class="staff-cat">${s.cat}</span></td>
+                    <td class="txt-update"><span class="${pctClass}">${s.upP}%</span></td>
+                    <td class="txt-onboard">${s.onA} <span class="text-zinc-600 text-[9px]">/ ${s.onT}</span></td>
+                    <td class="txt-seo">${s.seoA} <span class="text-zinc-600 text-[9px]">/ ${s.seoT}</span></td>
+                    <td class="txt-content">${s.conA} <span class="text-zinc-600 text-[9px]">/ ${s.conT}</span></td>
+                `;
+                body.appendChild(tr);
+            });
+        }
+
+        function filterStaff(s) {
+            document.getElementById('hUpdate').innerText = s.upA;
+            document.getElementById('hOnboard').innerText = s.onA;
+            document.getElementById('hSeo').innerText = s.seoA;
+            document.getElementById('hContent').innerText = s.conA;
+            document.getElementById('viewStatus').innerText = "AUDIT: " + s.name.toUpperCase();
+            document.getElementById('resetBtn').style.display = 'inline-block';
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
+
         function resetAudit() {
-            const rows = document.querySelectorAll('.rep-row');
-            rows.forEach(r => r.classList.remove('hidden-row'));
-            document.getElementById('hRev').innerText = '₦119.0m';
-            document.getElementById('hCust').innerText = '48';
-            document.getElementById('hLeads').innerText = '262';
-            document.getElementById('hConv').innerText = '16.79%';
-            document.getElementById('viewStatus').innerText = "Executive Sales Audit | Jan-Feb 2026";
+            document.getElementById('hUpdate').innerText = "0";
+            document.getElementById('hOnboard').innerText = "0";
+            document.getElementById('hSeo').innerText = "0";
+            document.getElementById('hContent').innerText = "0";
+            document.getElementById('viewStatus').innerText = "Product Team Report | Feb 2026";
             document.getElementById('resetBtn').style.display = 'none';
         }
+
+        initTable();
     </script>
 </div>
 </body>
