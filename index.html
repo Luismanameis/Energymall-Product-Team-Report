@@ -8,27 +8,32 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         body { background-color: #050505; color: #ffffff; font-family: 'Inter', sans-serif; margin: 0; }
+        
         .fixed-header { 
             position: fixed; top: 0; left: 0; right: 0; z-index: 999;
-            background-color: rgba(5, 5, 5, 0.98); backdrop-filter: blur(12px);
-            border-bottom: 2px solid #1a1a1a; padding: 15px 25px;
+            background-color: #050505; border-bottom: 2px solid #1a1a1a; padding: 12px 20px;
         }
-        .scroll-container { margin-top: 245px; padding: 0 25px; }
-        .h-red { color: #FF0000 !important; font-weight: 950; text-transform: uppercase; border-left: 8px solid #FF0000; padding-left: 15px; margin: 40px 0 15px 0; display: block; font-size: 1.5rem; }
-        .card { background: #0f0f0f; border: 1px solid #222; border-radius: 12px; padding: 15px; }
-        .stat-label { color: #888; font-size: 0.65rem; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 4px; }
+
+        /* Tighter margin to remove excess space */
+        .scroll-container { margin-top: 185px; padding: 0 20px; max-width: 1400px; margin-left: auto; margin-right: auto; }
+        
+        @media (max-width: 768px) { .scroll-container { margin-top: 230px; } }
+
+        .h-red { color: #FF0000 !important; font-weight: 950; text-transform: uppercase; border-left: 6px solid #FF0000; padding-left: 12px; margin: 30px 0 12px 0; display: block; font-size: 1.1rem; }
+        .card { background: #0f0f0f; border: 1px solid #222; border-radius: 8px; padding: 12px; }
+        .stat-label { color: #555; font-size: 0.6rem; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px; }
         
         .txt-update { color: #10b981; } 
         .txt-onboard { color: #38bdf8; } 
         .txt-seo { color: #fbbf24; } 
         .txt-content { color: #f87171; } 
 
-        .stack-lg { font-size: 2.2rem; font-weight: 900; line-height: 1; }
-        .stack-sm { font-size: 0.75rem; font-weight: 700; color: #555; display: block; margin-top: 4px; }
+        .stack-lg { font-size: 1.5rem; font-weight: 900; line-height: 1; }
+        .stack-sm { font-size: 0.7rem; font-weight: 700; color: #444; display: block; }
         
         table { width: 100%; border-collapse: collapse; }
-        th { color:#555; font-size:10px; text-transform:uppercase; font-weight: 900; padding:12px; border-bottom:2px solid #222; text-align: left; }
-        td { padding:12px; border-bottom: 1px solid #1a1a1a; font-size:0.9rem; font-weight: 700; }
+        th { color:#444; font-size:9px; text-transform:uppercase; font-weight: 900; padding:10px; border-bottom:2px solid #222; text-align: left; }
+        td { padding:10px; border-bottom: 1px solid #1a1a1a; font-size:0.85rem; font-weight: 700; }
         
         .rev-green { color: #00FF41 !important; } 
         .pct-green { color: #00FF41 !important; } 
@@ -36,42 +41,35 @@
         
         .staff-name { display: block; font-weight: 900; color: #fff; }
         .staff-cat { font-size: 0.7rem; color: #666; font-weight: 400; text-transform: uppercase; }
-        #resetBtn { display: none; background: #FF0000; color: white; font-size: 9px; font-weight: 900; padding: 4px 10px; border-radius: 4px; cursor: pointer; text-transform: uppercase; margin-top: 8px; }
-        @media (max-width: 768px) { .scroll-container { margin-top: 290px; } }
+        #resetBtn { display: none; background: #FF0000; color: white; font-size: 9px; font-weight: 900; padding: 2px 8px; border-radius: 4px; cursor: pointer; text-transform: uppercase; margin-left: 10px; }
     </style>
 </head>
 <body>
-<div class="max-w-7xl mx-auto">
+
     <div class="fixed-header">
-        <header class="flex justify-between items-start mb-5">
-            <div>
-                <h1 class="text-3xl font-black tracking-tighter uppercase">ENERGY<span class="text-red-600">MALL</span></h1>
-                <p id="viewStatus" class="text-zinc-500 font-bold uppercase text-[9px] tracking-[4px] mt-1">Product Team Report | Feb 2026</p>
-                <div id="resetBtn" onclick="resetAudit()">Reset View ✕</div>
-            </div>
-            <div class="text-right border-l-2 border-red-600 pl-4">
-                <p class="stat-label">Baseline Month</p>
-                <p class="text-sm font-black text-white uppercase italic">Active Cycle</p>
-                <p class="text-lg font-black pct-green">February 2026</p>
+        <header class="flex justify-between items-center mb-3">
+            <h1 class="text-2xl font-black tracking-tighter uppercase">ENERGY<span class="text-red-600">MALL</span> <span id="resetBtn" onclick="resetAudit()">Reset View ✕</span></h1>
+            <div class="text-right">
+                <p id="viewStatus" class="text-zinc-500 font-bold uppercase text-[9px] tracking-[2px]">Product Team Report | Feb 2026</p>
             </div>
         </header>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-            <div class="card"><p class="stat-label">Updates Achieved</p><p id="hUpdate" class="stack-lg txt-update">0</p><span id="tUpdate" class="stack-sm">Target: 1.4k</span></div>
-            <div class="card"><p class="stat-label">Onboard Achieved</p><p id="hOnboard" class="stack-lg txt-onboard">0</p><span id="tOnboard" class="stack-sm">Target: 900</span></div>
-            <div class="card"><p class="stat-label">SEO Achieved</p><p id="hSeo" class="stack-lg txt-seo">0</p><span id="tSeo" class="stack-sm">Target: 180</span></div>
-            <div class="card"><p class="stat-label">Content Achieved</p><p id="hContent" class="stack-lg txt-content">0</p><span id="tContent" class="stack-sm">Target: 720</span></div>
+        <div class="grid grid-cols-4 gap-2">
+            <div class="card"><p class="stat-label">Updates</p><p id="hUpdate" class="stack-lg txt-update">4</p><span class="stack-sm">Target: 1.4k</span></div>
+            <div class="card"><p class="stat-label">Onboard</p><p id="hOnboard" class="stack-lg txt-onboard">6</p><span class="stack-sm">Target: 900</span></div>
+            <div class="card"><p class="stat-label">SEO</p><p id="hSeo" class="stack-lg txt-seo">1</p><span class="stack-sm">Target: 180</span></div>
+            <div class="card"><p class="stat-label">Content</p><p id="hContent" class="stack-lg txt-content">1</p><span class="stack-sm">Target: 720</span></div>
         </div>
     </div>
 
     <div class="scroll-container">
         <span class="h-red">Operational Personnel Audit (February)</span>
-        <div class="card mb-10 p-0 overflow-hidden">
+        <div class="card p-0 overflow-hidden mb-6">
             <div class="overflow-x-auto">
                 <table>
                     <thead>
                         <tr>
                             <th>Staff & Focus</th>
-                            <th class="txt-update">Update %</th>
+                            <th class="txt-update">Update</th>
                             <th class="txt-onboard">Onboard</th>
                             <th class="txt-seo">SEO</th>
                             <th class="txt-content">Content</th>
@@ -82,75 +80,74 @@
             </div>
         </div>
 
-        <span class="h-red">February Sales Volume (Current)</span>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
-            <div class="card p-0 overflow-hidden">
-                <table>
-                    <thead><tr><th>Category</th><th class="text-right">Units</th></tr></thead>
-                    <tbody>
-                        <tr><td>Cables</td><td class="text-right text-zinc-600">0</td></tr>
-                        <tr><td>Solar Batteries</td><td class="text-right text-zinc-600">0</td></tr>
-                        <tr><td>Inverters</td><td class="text-right text-zinc-600">0</td></tr>
-                        <tr><td>Solar Panels</td><td class="text-right text-zinc-600">0</td></tr>
-                        <tr><td>Electrical Accessories</td><td class="text-right text-zinc-600">0</td></tr>
-                        <tr class="bg-zinc-900 border-t-2 border-red-600 font-black">
-                            <td>FEB TOTAL VOLUME</td>
-                            <td class="text-right text-xl text-zinc-600">0</td>
-                        </tr>
-                    </tbody>
-                </table>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div>
+                <span class="h-red">Feb Sales Volume</span>
+                <div class="card p-0 overflow-hidden">
+                    <table>
+                        <thead><tr><th>Category</th><th class="text-right">Units</th></tr></thead>
+                        <tbody>
+                            <tr><td>Water Pumps</td><td class="text-right rev-green">1</td></tr>
+                            <tr><td>Cables</td><td class="text-right rev-green">1</td></tr>
+                            <tr><td>All Other Categories</td><td class="text-right text-zinc-600">0</td></tr>
+                            <tr class="bg-zinc-900 border-t-2 border-red-600 font-black">
+                                <td>FEB TOTAL VOLUME</td>
+                                <td class="text-right text-lg rev-green">2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div class="card bg-zinc-900/40">
-                <p class="stat-label">Status Summary</p>
-                <p class="text-zinc-400 text-sm leading-relaxed mb-4">
-                    Reporting cycle reset for February. All category volumes are at baseline. Personnel targets established at <span class="text-white">100% per unit</span>.
-                </p>
-                <div class="mt-4 pt-4 border-t border-zinc-800">
-                    <p class="stat-label">Historical Peak (Jan 2026)</p>
+            <div>
+                <span class="h-red">Historical Peak</span>
+                <div class="card flex flex-col justify-center items-center py-10 bg-zinc-900/30">
+                    <p class="stat-label">Jan 2026 Performance</p>
                     <p class="text-xl font-black text-white">Cables & Wiring</p>
-                    <p class="text-3xl font-black rev-green">3.4k Units</p>
+                    <p class="text-4xl font-black rev-green">3.4k Units</p>
                 </div>
             </div>
         </div>
 
         <span class="h-red">Category Growth Audit (2024-2026)</span>
-        <div class="card p-0 overflow-hidden mb-20">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Category</th>
-                        <th>2024</th>
-                        <th>2025</th>
-                        <th>2026 YTD</th>
-                        <th class="text-right">Share %</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>Solar Batteries</td><td>2.5k</td><td>1.9k</td><td class="text-white">47</td><td class="text-right pct-red">1%</td></tr>
-                    <tr><td>Inverters</td><td>518</td><td>284</td><td class="text-white">32</td><td class="text-right pct-red">1%</td></tr>
-                    <tr><td>Solar Panels</td><td>144</td><td>212</td><td class="text-white">36</td><td class="text-right pct-red">1%</td></tr>
-                    <tr><td>Cables</td><td>26.2k</td><td>85.9k</td><td class="rev-green">3.4k</td><td class="text-right pct-green">93%</td></tr>
-                    <tr><td>Electrical Access.</td><td>3.6k</td><td>1.2k</td><td class="text-white">126</td><td class="text-right pct-red">3%</td></tr>
-                </tbody>
-            </table>
+        <div class="card p-0 overflow-hidden mb-10">
+            <div class="overflow-x-auto">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>2024</th>
+                            <th>2025</th>
+                            <th>2026 YTD</th>
+                            <th class="text-right">Share %</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Cables</td><td>26.2k</td><td>85.9k</td><td class="rev-green">3.4k</td><td class="text-right pct-green">93%</td></tr>
+                        <tr><td>Solar Batteries</td><td>2.5k</td><td>1.9k</td><td class="text-white">47</td><td class="text-right pct-red">1%</td></tr>
+                        <tr><td>Electrical Access.</td><td>3.6k</td><td>1.2k</td><td class="text-white">126</td><td class="text-right pct-red">3%</td></tr>
+                        <tr><td>Solar Panels</td><td>144</td><td>212</td><td class="text-white">36</td><td class="text-right pct-red">1%</td></tr>
+                        <tr><td>Inverters</td><td>518</td><td>284</td><td class="text-white">32</td><td class="text-right pct-red">1%</td></tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
-        <footer class="text-center py-16 opacity-20 text-[10px] uppercase tracking-[15px]">
+        <footer class="text-center py-10 opacity-20 text-[8px] uppercase tracking-[10px]">
             Energymall Product Intelligence 2026
         </footer>
     </div>
 
     <script>
         const staffData = [
-            { name: "Emmanuel Rafiu", cat: "Cables & Electricals", upA: 0, upT: 200, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80, upP: 0 },
-            { name: "Olanrewaju Victoria", cat: "Home Electronics", upA: 0, upT: 200, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80, upP: 0 },
-            { name: "Asia Grace & Funmi", cat: "Water & Insulation", upA: 0, upT: 100, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80, upP: 0 },
-            { name: "Funmilola", cat: "Water & Insulation", upA: 0, upT: 100, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80, upP: 0 },
-            { name: "Oyelekan Samson", cat: "UPS & Stabilizers", upA: 0, upT: 200, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80, upP: 0 },
-            { name: "Ishola Abisola", cat: "Computer & CCTV", upA: 0, upT: 200, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80, upP: 0 },
-            { name: "Orumwense Owen", cat: "Lighting & Floodlight", upA: 0, upT: 200, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80, upP: 0 },
-            { name: "Oyelekan Victor", cat: "Solar (Inverters/Batt)", upA: 0, upT: 100, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80, upP: 0 },
-            { name: "Sarah Onuoha", cat: "Solar (Panels/App)", upA: 0, upT: 100, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80, upP: 0 }
+            { name: "Emmanuel Rafiu", cat: "Cables & Electricals", upA: 0, upT: 200, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
+            { name: "Olanrewaju Victoria", cat: "Home Electronics", upA: 0, upT: 200, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
+            { name: "Asia Grace & Funmi", cat: "Water & Insulation", upA: 1, upT: 100, onA: 2, onT: 100, seoA: 0, seoT: 20, conA: 1, conT: 80 },
+            { name: "Funmilola", cat: "Water & Insulation", upA: 0, upT: 100, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
+            { name: "Oyelekan Samson", cat: "UPS & Transformers", upA: 2, upT: 200, onA: 2, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
+            { name: "Ishola Abisola", cat: "Computer & CCTV", upA: 0, upT: 200, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
+            { name: "Orumwense Owen", cat: "Lighting & Floodlight", upA: 0, upT: 200, onA: 0, onT: 100, seoA: 1, seoT: 20, conA: 0, conT: 80 },
+            { name: "Oyelekan Victor", cat: "Solar (Inverters/Batt)", upA: 1, upT: 100, onA: 2, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
+            { name: "Sarah Onuoha", cat: "Solar (Panels/App)", upA: 0, upT: 100, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 }
         ];
 
         function initTable() {
@@ -160,10 +157,9 @@
                 const tr = document.createElement('tr');
                 tr.className = "cursor-pointer hover:bg-zinc-900";
                 tr.onclick = () => filterStaff(s);
-                const pctClass = s.upP >= 50 ? 'pct-green' : 'pct-red';
                 tr.innerHTML = `
                     <td><span class="staff-name">${s.name}</span><span class="staff-cat">${s.cat}</span></td>
-                    <td class="txt-update"><span class="${pctClass}">${s.upP}%</span></td>
+                    <td class="txt-update">${s.upA} <span class="text-zinc-600 text-[9px]">/ ${s.upT}</span></td>
                     <td class="txt-onboard">${s.onA} <span class="text-zinc-600 text-[9px]">/ ${s.onT}</span></td>
                     <td class="txt-seo">${s.seoA} <span class="text-zinc-600 text-[9px]">/ ${s.seoT}</span></td>
                     <td class="txt-content">${s.conA} <span class="text-zinc-600 text-[9px]">/ ${s.conT}</span></td>
@@ -183,16 +179,15 @@
         }
 
         function resetAudit() {
-            document.getElementById('hUpdate').innerText = "0";
-            document.getElementById('hOnboard').innerText = "0";
-            document.getElementById('hSeo').innerText = "0";
-            document.getElementById('hContent').innerText = "0";
+            document.getElementById('hUpdate').innerText = "4";
+            document.getElementById('hOnboard').innerText = "6";
+            document.getElementById('hSeo').innerText = "1";
+            document.getElementById('hContent').innerText = "1";
             document.getElementById('viewStatus').innerText = "Product Team Report | Feb 2026";
             document.getElementById('resetBtn').style.display = 'none';
         }
 
         initTable();
     </script>
-</div>
 </body>
 </html>
