@@ -53,10 +53,10 @@
             </div>
         </header>
         <div class="grid grid-cols-4 gap-2">
-            <div class="card"><p class="stat-label">Updates</p><p id="hUpdate" class="stack-lg txt-update">17</p><span class="stack-sm">Target: 1.4k</span></div>
-            <div class="card"><p class="stat-label">Onboard</p><p id="hOnboard" class="stack-lg txt-onboard">41</p><span class="stack-sm">Target: 900</span></div>
-            <div class="card"><p class="stat-label">SEO</p><p id="hSeo" class="stack-lg txt-seo">2</p><span class="stack-sm">Target: 180</span></div>
-            <div class="card"><p class="stat-label">Content</p><p id="hContent" class="stack-lg txt-content">5</p><span class="stack-sm">Target: 720</span></div>
+            <div class="card"><p class="stat-label">Updates</p><p id="hUpdate" class="stack-lg txt-update">61</p><span class="stack-sm">Target: 1.4k</span></div>
+            <div class="card"><p class="stat-label">Onboard</p><p id="hOnboard" class="stack-lg txt-onboard">63</p><span class="stack-sm">Target: 900</span></div>
+            <div class="card"><p class="stat-label">SEO</p><p id="hSeo" class="stack-lg txt-seo">35</p><span class="stack-sm">Target: 180</span></div>
+            <div class="card"><p class="stat-label">Content</p><p id="hContent" class="stack-lg txt-content">10</p><span class="stack-sm">Target: 720</span></div>
         </div>
     </div>
 
@@ -86,13 +86,14 @@
                     <table>
                         <thead><tr><th>Top Categories</th><th class="text-right">Units</th></tr></thead>
                         <tbody>
-                            <tr><td>Cables</td><td class="text-right rev-green">621</td></tr>
-                            <tr><td>Solar Streetlights</td><td class="text-right rev-green">6</td></tr>
-                            <tr><td>Solar Batteries</td><td class="text-right rev-green">4</td></tr>
-                            <tr><td>Electrical Access.</td><td class="text-right rev-green">4</td></tr>
+                            <tr><td>Cables</td><td class="text-right rev-green">1,221</td></tr>
+                            <tr><td>Electrical Access.</td><td class="text-right rev-green">56</td></tr>
+                            <tr><td>Solar Panels</td><td class="text-right rev-green">35</td></tr>
+                            <tr><td>Solar Batteries</td><td class="text-right rev-green">9</td></tr>
+                            <tr><td>Inverters</td><td class="text-right rev-green">7</td></tr>
                             <tr class="bg-zinc-900 border-t-2 border-red-600 font-black">
                                 <td>TOTAL UNITS (MTD)</td>
-                                <td class="text-right text-lg rev-green">660</td>
+                                <td class="text-right text-lg rev-green">1,339</td>
                             </tr>
                         </tbody>
                     </table>
@@ -103,8 +104,8 @@
                 <div class="card flex flex-col justify-center items-center py-10 bg-zinc-900/30">
                     <p class="stat-label">2026 Core Driver</p>
                     <p class="text-xl font-black text-white">Cables & Wiring</p>
-                    <p class="text-4xl font-black rev-green">4k Units YTD</p>
-                    <p class="text-[10px] text-zinc-500 mt-2">93% TOTAL MARKET SHARE</p>
+                    <p class="text-4xl font-black rev-green">4.6k Units YTD</p>
+                    <p class="text-[10px] text-zinc-500 mt-2">92% TOTAL MARKET SHARE</p>
                 </div>
             </div>
         </div>
@@ -123,11 +124,18 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>Cables</td><td>26.2k</td><td>85.9k</td><td class="rev-green">4k</td><td class="text-right pct-green">93%</td></tr>
-                        <tr><td>Solar Batteries</td><td>2.5k</td><td>1.9k</td><td class="text-white">51</td><td class="text-right pct-red">1%</td></tr>
-                        <tr><td>Electrical Access.</td><td>3.6k</td><td>1.2k</td><td class="text-white">130</td><td class="text-right pct-red">3%</td></tr>
-                        <tr><td>Solar Panels</td><td>144</td><td>212</td><td class="text-white">54</td><td class="text-right pct-red">1%</td></tr>
-                        <tr><td>Inverters</td><td>518</td><td>284</td><td class="text-white">35</td><td class="text-right pct-red">1%</td></tr>
+                        <tr><td>Cables</td><td>26.2k</td><td>85.9k</td><td class="rev-green">4.6k</td><td class="text-right pct-green">92%</td></tr>
+                        <tr><td>Solar Panels</td><td>144</td><td>212</td><td class="text-white">71</td><td class="text-right pct-green">11%</td></tr>
+                        <tr><td>Electrical Access.</td><td>3.6k</td><td>1.2k</td><td class="text-white">182</td><td class="text-right pct-red">4%</td></tr>
+                        <tr><td>Solar Batteries</td><td>2.5k</td><td>1.9k</td><td class="text-white">56</td><td class="text-right pct-red">1%</td></tr>
+                        <tr><td>Inverters</td><td>518</td><td>284</td><td class="text-white">39</td><td class="text-right pct-red">1%</td></tr>
+                        <tr class="bg-zinc-950">
+                            <td class="font-bold">TOTAL AGGREGATE</td>
+                            <td>12.5k</td>
+                            <td>13.6k</td>
+                            <td class="rev-green">5k</td>
+                            <td class="text-right">--</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -140,15 +148,15 @@
 
     <script>
         const staffData = [
-            { name: "Emmanuel Rafiu", cat: "Cables & Electricals", upA: 3, upT: 200, onA: 10, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
-            { name: "Olanrewaju Victoria", cat: "Home Electronics", upA: 0, upT: 200, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
-            { name: "Asia Grace & Funmi", cat: "Water & Insulation", upA: 3, upT: 100, onA: 5, onT: 100, seoA: 1, seoT: 20, conA: 5, conT: 80 },
-            { name: "Funmilola", cat: "Water & Insulation", upA: 0, upT: 100, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
-            { name: "Oyelekan Samson", cat: "UPS & Gen", upA: 2, upT: 200, onA: 18, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
-            { name: "Ishola Abisola", cat: "Computer & CCTV", upA: 0, upT: 200, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
-            { name: "Orumwense Owen", cat: "Lighting", upA: 0, upT: 200, onA: 2, onT: 100, seoA: 1, seoT: 20, conA: 0, conT: 80 },
-            { name: "Oyelekan Victor", cat: "Solar (Inverters/Batt)", upA: 9, upT: 100, onA: 6, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
-            { name: "Sarah Onuoha", cat: "Solar (Panels)", upA: 0, upT: 100, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 }
+            { name: "Emmanuel Rafiu", cat: "Cables & Electricals", upA: 3, upT: 200, onA: 17, onT: 100, seoA: 5, seoT: 20, conA: 0, conT: 80 },
+            { name: "Olanrewaju Victoria", cat: "Home Electronics", upA: 199, upT: 200, onA: 0, onT: 100, seoA: 2, seoT: 20, conA: 0, conT: 80 },
+            { name: "Asia Grace & Funmi", cat: "Water & Insulation", upA: 33, upT: 100, onA: 5, onT: 100, seoA: 11, seoT: 20, conA: 9, conT: 80 },
+            { name: "Oyelekan Samson", cat: "UPS & Gen", upA: 23, upT: 200, onA: 18, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
+            { name: "Ishola Abisola", cat: "Computer & CCTV", upA: 2, upT: 200, onA: 12, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
+            { name: "Orumwense Owen", cat: "Lighting", upA: 0, upT: 200, onA: 3, onT: 100, seoA: 7, seoT: 20, conA: 1, conT: 80 },
+            { name: "Oyelekan Victor", cat: "Solar (Inverters/Batt)", upA: 11, upT: 100, onA: 8, onT: 100, seoA: 10, seoT: 20, conA: 0, conT: 80 },
+            { name: "Sarah Onuoha", cat: "Solar (Panels)", upA: 0, upT: 100, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
+            { name: "Funmilola", cat: "Water & Insulation", upA: 0, upT: 100, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 }
         ];
 
         function initTable() {
@@ -180,10 +188,10 @@
         }
 
         function resetAudit() {
-            document.getElementById('hUpdate').innerText = "17";
-            document.getElementById('hOnboard').innerText = "41";
-            document.getElementById('hSeo').innerText = "2";
-            document.getElementById('hContent').innerText = "5";
+            document.getElementById('hUpdate').innerText = "61";
+            document.getElementById('hOnboard').innerText = "63";
+            document.getElementById('hSeo').innerText = "35";
+            document.getElementById('hContent').innerText = "10";
             document.getElementById('viewStatus').innerText = "Product Team Report | Feb 2026";
             document.getElementById('resetBtn').style.display = 'none';
         }
