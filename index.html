@@ -7,56 +7,57 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #050505; color: #ffffff; font-family: 'Inter', sans-serif; margin: 0; }
+        body { background-color: #050505; color: #ffffff; font-family: 'Inter', sans-serif; margin: 0; line-height: 1.2; }
         
         .fixed-header { 
             position: fixed; top: 0; left: 0; right: 0; z-index: 999;
-            background-color: #050505; border-bottom: 2px solid #1a1a1a; padding: 12px 20px;
+            background-color: rgba(5, 5, 5, 0.95); backdrop-filter: blur(10px);
+            border-bottom: 2px solid #FF0000; padding: 10px 20px;
         }
 
-        .scroll-container { margin-top: 185px; padding: 0 20px; max-width: 1400px; margin-left: auto; margin-right: auto; }
+        .scroll-container { margin-top: 165px; padding: 0 20px 40px 20px; max-width: 1400px; margin-left: auto; margin-right: auto; }
         
-        @media (max-width: 768px) { .scroll-container { margin-top: 230px; } }
+        @media (max-width: 768px) { .scroll-container { margin-top: 215px; } }
 
-        .h-red { color: #FF0000 !important; font-weight: 950; text-transform: uppercase; border-left: 6px solid #FF0000; padding-left: 12px; margin: 30px 0 12px 0; display: block; font-size: 1.1rem; }
-        .card { background: #0f0f0f; border: 1px solid #222; border-radius: 8px; padding: 12px; }
-        .stat-label { color: #555; font-size: 0.6rem; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px; }
+        .h-red { color: #FF0000 !important; font-weight: 950; text-transform: uppercase; border-left: 4px solid #FF0000; padding-left: 10px; margin: 20px 0 10px 0; display: block; font-size: 0.9rem; letter-spacing: 1px; }
+        .card { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 6px; padding: 10px; }
+        .stat-label { color: #666; font-size: 0.6rem; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px; }
         
         .txt-update { color: #10b981; } 
         .txt-onboard { color: #38bdf8; } 
         .txt-seo { color: #fbbf24; } 
         .txt-content { color: #f87171; } 
 
-        .stack-lg { font-size: 1.5rem; font-weight: 900; line-height: 1; }
-        .stack-sm { font-size: 0.7rem; font-weight: 700; color: #444; display: block; }
+        .stack-lg { font-size: 1.4rem; font-weight: 900; line-height: 1; }
+        .stack-sm { font-size: 0.65rem; font-weight: 700; color: #444; display: block; }
         
         table { width: 100%; border-collapse: collapse; }
-        th { color:#444; font-size:9px; text-transform:uppercase; font-weight: 900; padding:10px; border-bottom:2px solid #222; text-align: left; }
-        td { padding:10px; border-bottom: 1px solid #1a1a1a; font-size:0.85rem; font-weight: 700; }
+        th { color:#555; font-size:8px; text-transform:uppercase; font-weight: 900; padding:8px 10px; border-bottom:1px solid #222; text-align: left; }
+        td { padding:8px 10px; border-bottom: 1px solid #0f0f0f; font-size:0.8rem; font-weight: 700; }
         
         .rev-green { color: #00FF41 !important; } 
         .pct-green { color: #00FF41 !important; } 
         .pct-red { color: #FF0000 !important; }  
         
-        .staff-name { display: block; font-weight: 900; color: #fff; }
-        .staff-cat { font-size: 0.7rem; color: #666; font-weight: 400; text-transform: uppercase; }
-        #resetBtn { display: none; background: #FF0000; color: white; font-size: 9px; font-weight: 900; padding: 2px 8px; border-radius: 4px; cursor: pointer; text-transform: uppercase; margin-left: 10px; }
+        .staff-name { display: block; font-weight: 900; color: #fff; font-size: 0.85rem; }
+        .staff-cat { font-size: 0.65rem; color: #555; font-weight: 600; text-transform: uppercase; }
+        #resetBtn { display: none; background: #FF0000; color: white; font-size: 8px; font-weight: 900; padding: 2px 6px; border-radius: 3px; cursor: pointer; text-transform: uppercase; margin-left: 8px; vertical-align: middle; }
     </style>
 </head>
 <body>
 
     <div class="fixed-header">
-        <header class="flex justify-between items-center mb-3">
-            <h1 class="text-2xl font-black tracking-tighter uppercase">ENERGY<span class="text-red-600">MALL</span> <span id="resetBtn" onclick="resetAudit()">Reset View ✕</span></h1>
+        <header class="flex justify-between items-center mb-2">
+            <h1 class="text-xl font-black tracking-tighter uppercase">ENERGY<span class="text-red-600">MALL</span> <span id="resetBtn" onclick="resetAudit()">Reset View ✕</span></h1>
             <div class="text-right">
-                <p id="viewStatus" class="text-zinc-500 font-bold uppercase text-[9px] tracking-[2px]">Product Team Report | Feb 2026</p>
+                <p id="viewStatus" class="text-zinc-500 font-bold uppercase text-[8px] tracking-[1.5px]">Product Team Report | Feb 2026</p>
             </div>
         </header>
         <div class="grid grid-cols-4 gap-2">
-            <div class="card"><p class="stat-label">Updates</p><p id="hUpdate" class="stack-lg txt-update">61</p><span class="stack-sm">Target: 1.4k</span></div>
-            <div class="card"><p class="stat-label">Onboard</p><p id="hOnboard" class="stack-lg txt-onboard">63</p><span class="stack-sm">Target: 900</span></div>
-            <div class="card"><p class="stat-label">SEO</p><p id="hSeo" class="stack-lg txt-seo">35</p><span class="stack-sm">Target: 180</span></div>
-            <div class="card"><p class="stat-label">Content</p><p id="hContent" class="stack-lg txt-content">10</p><span class="stack-sm">Target: 720</span></div>
+            <div class="card"><p class="stat-label">Updates</p><p id="hUpdate" class="stack-lg txt-update">86</p><span class="stack-sm">Target: 1.4k</span></div>
+            <div class="card"><p class="stat-label">Onboard</p><p id="hOnboard" class="stack-lg txt-onboard">118</p><span class="stack-sm">Target: 900</span></div>
+            <div class="card"><p class="stat-label">SEO</p><p id="hSeo" class="stack-lg txt-seo">40</p><span class="stack-sm">Target: 180</span></div>
+            <div class="card"><p class="stat-label">Content</p><p id="hContent" class="stack-lg txt-content">20</p><span class="stack-sm">Target: 720</span></div>
         </div>
     </div>
 
@@ -67,7 +68,7 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Staff & Focus</th>
+                            <th>Staff & Focus Area</th>
                             <th class="txt-update">Update</th>
                             <th class="txt-onboard">Onboard</th>
                             <th class="txt-seo">SEO</th>
@@ -86,14 +87,14 @@
                     <table>
                         <thead><tr><th>Top Categories</th><th class="text-right">Units</th></tr></thead>
                         <tbody>
-                            <tr><td>Cables</td><td class="text-right rev-green">1,221</td></tr>
-                            <tr><td>Electrical Access.</td><td class="text-right rev-green">56</td></tr>
-                            <tr><td>Solar Panels</td><td class="text-right rev-green">35</td></tr>
-                            <tr><td>Solar Batteries</td><td class="text-right rev-green">9</td></tr>
-                            <tr><td>Inverters</td><td class="text-right rev-green">7</td></tr>
-                            <tr class="bg-zinc-900 border-t-2 border-red-600 font-black">
-                                <td>TOTAL UNITS (MTD)</td>
-                                <td class="text-right text-lg rev-green">1,339</td>
+                            <tr><td>Cables & Wiring</td><td class="text-right rev-green">1,821</td></tr>
+                            <tr><td>Electrical Accessories</td><td class="text-right rev-green">50</td></tr>
+                            <tr><td>Solar Panels</td><td class="text-right rev-green">49</td></tr>
+                            <tr><td>Solar Batteries</td><td class="text-right rev-green">11</td></tr>
+                            <tr><td>Inverters</td><td class="text-right rev-green">8</td></tr>
+                            <tr class="bg-zinc-900 font-black">
+                                <td>TOTAL UNITS (FEBRUARY)</td>
+                                <td class="text-right rev-green">1,953</td>
                             </tr>
                         </tbody>
                     </table>
@@ -101,17 +102,17 @@
             </div>
             <div>
                 <span class="h-red">Market Dominance</span>
-                <div class="card flex flex-col justify-center items-center py-10 bg-zinc-900/30">
+                <div class="card flex flex-col justify-center items-center py-8 bg-zinc-950">
                     <p class="stat-label">2026 Core Driver</p>
-                    <p class="text-xl font-black text-white">Cables & Wiring</p>
-                    <p class="text-4xl font-black rev-green">4.6k Units YTD</p>
-                    <p class="text-[10px] text-zinc-500 mt-2">92% TOTAL MARKET SHARE</p>
+                    <p class="text-lg font-black text-white">Cables & Wiring</p>
+                    <p class="text-3xl font-black rev-green">5.3k Units YTD</p>
+                    <p class="text-[9px] text-zinc-600 mt-2 font-bold tracking-widest">93% TOTAL MARKET SHARE</p>
                 </div>
             </div>
         </div>
 
         <span class="h-red">Category Growth Audit (Historical)</span>
-        <div class="card p-0 overflow-hidden mb-10">
+        <div class="card p-0 overflow-hidden mb-8">
             <div class="overflow-x-auto">
                 <table>
                     <thead>
@@ -124,16 +125,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>Cables</td><td>26.2k</td><td>85.9k</td><td class="rev-green">4.6k</td><td class="text-right pct-green">92%</td></tr>
-                        <tr><td>Solar Panels</td><td>144</td><td>212</td><td class="text-white">71</td><td class="text-right pct-green">11%</td></tr>
-                        <tr><td>Electrical Access.</td><td>3.6k</td><td>1.2k</td><td class="text-white">182</td><td class="text-right pct-red">4%</td></tr>
-                        <tr><td>Solar Batteries</td><td>2.5k</td><td>1.9k</td><td class="text-white">56</td><td class="text-right pct-red">1%</td></tr>
-                        <tr><td>Inverters</td><td>518</td><td>284</td><td class="text-white">39</td><td class="text-right pct-red">1%</td></tr>
-                        <tr class="bg-zinc-950">
-                            <td class="font-bold">TOTAL AGGREGATE</td>
+                        <tr><td>Cables</td><td>26.2k</td><td>85.9k</td><td class="rev-green">5.3k</td><td class="text-right pct-green">93%</td></tr>
+                        <tr><td>Electrical Accessories</td><td>3.6k</td><td>1.2k</td><td class="text-white">176</td><td class="text-right pct-red">3%</td></tr>
+                        <tr><td>Solar Panels</td><td>144</td><td>212</td><td class="text-white">85</td><td class="text-right pct-green">2%</td></tr>
+                        <tr><td>Solar Batteries</td><td>256</td><td>197</td><td class="text-white">58</td><td class="text-right pct-red">1%</td></tr>
+                        <tr><td>Inverters</td><td>518</td><td>284</td><td class="text-white">40</td><td class="text-right pct-red">1%</td></tr>
+                        <tr class="bg-zinc-950 font-bold">
+                            <td>TOTAL AGGREGATE</td>
                             <td>12.5k</td>
                             <td>13.6k</td>
-                            <td class="rev-green">5k</td>
+                            <td class="rev-green">5.6k</td>
                             <td class="text-right">--</td>
                         </tr>
                     </tbody>
@@ -151,10 +152,10 @@
             { name: "Emmanuel Rafiu", cat: "Cables & Electricals", upA: 3, upT: 200, onA: 17, onT: 100, seoA: 5, seoT: 20, conA: 0, conT: 80 },
             { name: "Olanrewaju Victoria", cat: "Home Electronics", upA: 199, upT: 200, onA: 0, onT: 100, seoA: 2, seoT: 20, conA: 0, conT: 80 },
             { name: "Asia Grace & Funmi", cat: "Water & Insulation", upA: 33, upT: 100, onA: 5, onT: 100, seoA: 11, seoT: 20, conA: 9, conT: 80 },
-            { name: "Oyelekan Samson", cat: "UPS & Gen", upA: 23, upT: 200, onA: 18, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
-            { name: "Ishola Abisola", cat: "Computer & CCTV", upA: 2, upT: 200, onA: 12, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
-            { name: "Orumwense Owen", cat: "Lighting", upA: 0, upT: 200, onA: 3, onT: 100, seoA: 7, seoT: 20, conA: 1, conT: 80 },
-            { name: "Oyelekan Victor", cat: "Solar (Inverters/Batt)", upA: 11, upT: 100, onA: 8, onT: 100, seoA: 10, seoT: 20, conA: 0, conT: 80 },
+            { name: "Oyelekan Samson", cat: "UPS & Gen", upA: 23, upT: 200, onA: 43, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
+            { name: "Ishola Abisola", cat: "Computer & CCTV", upA: 5, upT: 200, onA: 27, onT: 100, seoA: 5, seoT: 20, conA: 0, conT: 80 },
+            { name: "Orumwense Owen", cat: "Lighting", upA: 3, upT: 200, onA: 4, onT: 100, seoA: 7, seoT: 20, conA: 10, conT: 80 },
+            { name: "Oyelekan Victor", cat: "Solar (Inverters/Batt)", upA: 30, upT: 100, onA: 22, onT: 100, seoA: 10, seoT: 20, conA: 1, conT: 80 },
             { name: "Sarah Onuoha", cat: "Solar (Panels)", upA: 0, upT: 100, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
             { name: "Funmilola", cat: "Water & Insulation", upA: 0, upT: 100, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 }
         ];
@@ -164,7 +165,7 @@
             body.innerHTML = "";
             staffData.forEach(s => {
                 const tr = document.createElement('tr');
-                tr.className = "cursor-pointer hover:bg-zinc-900";
+                tr.className = "cursor-pointer hover:bg-zinc-900 transition-colors";
                 tr.onclick = () => filterStaff(s);
                 tr.innerHTML = `
                     <td><span class="staff-name">${s.name}</span><span class="staff-cat">${s.cat}</span></td>
@@ -188,10 +189,10 @@
         }
 
         function resetAudit() {
-            document.getElementById('hUpdate').innerText = "61";
-            document.getElementById('hOnboard').innerText = "63";
-            document.getElementById('hSeo').innerText = "35";
-            document.getElementById('hContent').innerText = "10";
+            document.getElementById('hUpdate').innerText = "86";
+            document.getElementById('hOnboard').innerText = "118";
+            document.getElementById('hSeo').innerText = "40";
+            document.getElementById('hContent').innerText = "20";
             document.getElementById('viewStatus').innerText = "Product Team Report | Feb 2026";
             document.getElementById('resetBtn').style.display = 'none';
         }
