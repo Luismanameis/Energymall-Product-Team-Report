@@ -50,11 +50,11 @@
         <header class="flex justify-between items-center mb-2">
             <h1 class="text-xl font-black tracking-tighter uppercase">ENERGY<span class="text-red-600">MALL</span> <span id="resetBtn" onclick="resetAudit()">Reset View ✕</span></h1>
             <div class="text-right">
-                <p id="viewStatus" class="text-zinc-500 font-bold uppercase text-[8px] tracking-[1.5px]">Product Team Report | Feb 2026</p>
+                <p id="viewStatus" class="text-zinc-500 font-bold uppercase text-[8px] tracking-[1.5px]">Product Team Audit | Feb 2026</p>
             </div>
         </header>
         <div class="grid grid-cols-4 gap-2">
-            <div class="card"><p class="stat-label">Updates</p><p id="hUpdate" class="stack-lg txt-update">420</p><span class="stack-sm">Target: 1.4k</span></div>
+            <div class="card"><p class="stat-label">Updates</p><p id="hUpdate" class="stack-lg txt-update">407</p><span class="stack-sm">Target: 1.4k</span></div>
             <div class="card"><p class="stat-label">Onboard</p><p id="hOnboard" class="stack-lg txt-onboard">250</p><span class="stack-sm">Target: 900</span></div>
             <div class="card"><p class="stat-label">SEO</p><p id="hSeo" class="stack-lg txt-seo">122</p><span class="stack-sm">Target: 180</span></div>
             <div class="card"><p class="stat-label">Content</p><p id="hContent" class="stack-lg txt-content">157</p><span class="stack-sm">Target: 720</span></div>
@@ -62,7 +62,7 @@
     </div>
 
     <div class="scroll-container">
-        <span class="h-red">Operational Personnel Audit (February Achievements)</span>
+        <span class="h-red">Operational Personnel Audit (Corrected Feb Data)</span>
         <div class="card p-0 overflow-hidden mb-6">
             <div class="overflow-x-auto">
                 <table>
@@ -111,7 +111,7 @@
             </div>
         </div>
 
-        <span class="h-red">Category Growth Audit (Historical)</span>
+        <span class="h-red">Category Growth Audit (All-Time 2026)</span>
         <div class="card p-0 overflow-hidden mb-8">
             <div class="overflow-x-auto">
                 <table>
@@ -125,16 +125,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>Cables</td><td>26.2k</td><td>85.9k</td><td class="rev-green">85.5k</td><td class="text-right pct-green">94%</td></tr>
+                        <tr><td>Cables</td><td>26.2k</td><td>85.9k</td><td class="rev-green">85,509</td><td class="text-right pct-green">94%</td></tr>
                         <tr><td>Electrical Accessories</td><td>3.6k</td><td>1.2k</td><td class="text-white">1,782</td><td class="text-right pct-red">2%</td></tr>
                         <tr><td>Solar Batteries</td><td>256</td><td>197</td><td class="text-white">62</td><td class="text-right pct-red">1%</td></tr>
                         <tr><td>Solar Panels</td><td>144</td><td>212</td><td class="text-white">96</td><td class="text-right pct-green">1%</td></tr>
                         <tr><td>Lighting</td><td>354</td><td>22</td><td class="text-white">111</td><td class="text-right pct-green">1%</td></tr>
                         <tr class="bg-zinc-950 font-bold">
                             <td>TOTAL AGGREGATE</td>
-                            <td>12.4k</td>
-                            <td>13.6k</td>
-                            <td class="rev-green">90.9k</td>
+                            <td>12,483</td>
+                            <td>13,606</td>
+                            <td class="rev-green">90,950</td>
                             <td class="text-right">--</td>
                         </tr>
                     </tbody>
@@ -152,7 +152,7 @@
             { name: "Emmanuel Rafiu", cat: "Cables & Electricals", upA: 12, upT: 200, onA: 17, onT: 100, seoA: 5, seoT: 20, conA: 1, conT: 80 },
             { name: "Olanrewaju Victoria", cat: "Home Electronics", upA: 44, upT: 200, onA: 16, onT: 100, seoA: 16, seoT: 20, conA: 10, conT: 80 },
             { name: "Asia Grace And Funmi", cat: "Water & Insulation", upA: 20, upT: 100, onA: 23, onT: 100, seoA: 27, seoT: 20, conA: 52, conT: 80 },
-            { name: "Oyelekan Samson", cat: "UPS & Gen", upA: 70, upT: 200, onA: 43, onT: 100, seoA: 5, seoT: 20, conA: 44, conT: 80 },
+            { name: "Oyelekan Samson", cat: "UPS & Gen", upA: 57, upT: 200, onA: 43, onT: 100, seoA: 5, seoT: 20, conA: 44, conT: 80 },
             { name: "Ishola Abisola", cat: "Computer & CCTV", upA: 24, upT: 200, onA: 51, onT: 100, seoA: 10, seoT: 20, conA: 10, conT: 80 },
             { name: "Orumwense Owen", cat: "Lighting", upA: 59, upT: 200, onA: 28, onT: 100, seoA: 14, seoT: 20, conA: 17, conT: 80 },
             { name: "Oyelekan Victor", cat: "Solar (Inverters/Batt)", upA: 178, upT: 100, onA: 56, onT: 100, seoA: 42, seoT: 20, conA: 10, conT: 80 },
@@ -189,11 +189,11 @@
         }
 
         function resetAudit() {
-            document.getElementById('hUpdate').innerText = "420";
+            document.getElementById('hUpdate').innerText = "407";
             document.getElementById('hOnboard').innerText = "250";
             document.getElementById('hSeo').innerText = "122";
             document.getElementById('hContent').innerText = "157";
-            document.getElementById('viewStatus').innerText = "Product Team Report | Feb 2026";
+            document.getElementById('viewStatus').innerText = "Product Team Audit | Feb 2026";
             document.getElementById('resetBtn').style.display = 'none';
         }
 
