@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ENERGYMALL PRODUCT AUDIT - FEB 2026</title>
+    <title>ENERGYMALL PRODUCT AUDIT - MARCH 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
@@ -19,7 +19,7 @@
         
         @media (max-width: 768px) { .scroll-container { margin-top: 215px; } }
 
-        .h-red { color: #FF0000 !important; font-weight: 950; text-transform: uppercase; border-left: 4px solid #FF0000; padding-left: 10px; margin: 20px 0 10px 0; display: block; font-size: 0.9rem; letter-spacing: 1px; }
+        .h-red { color: #FF0000 !important; font-weight: 950; text-transform: uppercase; border-left: 4px solid #FF0000; padding-left: 10px; margin: 20px 0 10px 0; display: block; font-size: 0.85rem; letter-spacing: 1px; }
         .card { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 6px; padding: 10px; }
         .stat-label { color: #666; font-size: 0.6rem; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px; }
         
@@ -50,19 +50,19 @@
         <header class="flex justify-between items-center mb-2">
             <h1 class="text-xl font-black tracking-tighter uppercase">ENERGY<span class="text-red-600">MALL</span> <span id="resetBtn" onclick="resetAudit()">Reset View ✕</span></h1>
             <div class="text-right">
-                <p id="viewStatus" class="text-zinc-500 font-bold uppercase text-[8px] tracking-[1.5px]">Product Team Audit | Feb 2026</p>
+                <p id="viewStatus" class="text-zinc-500 font-bold uppercase text-[8px] tracking-[1.5px]">Product Team Audit | March 2026</p>
             </div>
         </header>
         <div class="grid grid-cols-4 gap-2">
-            <div class="card"><p class="stat-label">Updates</p><p id="hUpdate" class="stack-lg txt-update">407</p><span class="stack-sm">Target: 1.4k</span></div>
-            <div class="card"><p class="stat-label">Onboard</p><p id="hOnboard" class="stack-lg txt-onboard">250</p><span class="stack-sm">Target: 900</span></div>
-            <div class="card"><p class="stat-label">SEO</p><p id="hSeo" class="stack-lg txt-seo">122</p><span class="stack-sm">Target: 180</span></div>
-            <div class="card"><p class="stat-label">Content</p><p id="hContent" class="stack-lg txt-content">157</p><span class="stack-sm">Target: 720</span></div>
+            <div class="card"><p class="stat-label">Updates</p><p id="hUpdate" class="stack-lg txt-update">15</p><span class="stack-sm">Target: 1.4k</span></div>
+            <div class="card"><p class="stat-label">Onboard</p><p id="hOnboard" class="stack-lg txt-onboard">0</p><span class="stack-sm">Target: 900</span></div>
+            <div class="card"><p class="stat-label">SEO</p><p id="hSeo" class="stack-lg txt-seo">5</p><span class="stack-sm">Target: 180</span></div>
+            <div class="card"><p class="stat-label">Content</p><p id="hContent" class="stack-lg txt-content">0</p><span class="stack-sm">Target: 720</span></div>
         </div>
     </div>
 
     <div class="scroll-container">
-        <span class="h-red">Operational Personnel Audit (Corrected Feb Data)</span>
+        <span class="h-red">Operational Personnel Audit (March Data)</span>
         <div class="card p-0 overflow-hidden mb-6">
             <div class="overflow-x-auto">
                 <table>
@@ -82,36 +82,35 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             <div>
-                <span class="h-red">Feb Sales Volume by Unit</span>
+                <span class="h-red">March Sales Unit Volume</span>
                 <div class="card p-0 overflow-hidden">
                     <table>
-                        <thead><tr><th>Top Categories</th><th class="text-right">Units</th></tr></thead>
+                        <thead><tr><th>Current Month Drivers</th><th class="text-right">Units</th></tr></thead>
                         <tbody>
-                            <tr><td>Cables</td><td class="text-right rev-green">5,121</td></tr>
-                            <tr><td>Lighting (Total)</td><td class="text-right rev-green">110</td></tr>
-                            <tr><td>Solar Panels</td><td class="text-right rev-green">60</td></tr>
-                            <tr><td>Electrical Accessories</td><td class="text-right rev-green">52</td></tr>
-                            <tr><td>Insulation Materials</td><td class="text-right rev-green">30</td></tr>
+                            <tr><td>Solar Panels</td><td class="text-right rev-green">2</td></tr>
+                            <tr><td>Solar Batteries</td><td class="text-right rev-green">2</td></tr>
+                            <tr><td>Inverters</td><td class="text-right rev-green">1</td></tr>
+                            <tr><td>Charge Controllers</td><td class="text-right rev-green">1</td></tr>
                             <tr class="bg-zinc-900 font-black">
-                                <td>TOTAL UNITS (FEBRUARY)</td>
-                                <td class="text-right rev-green">5,406</td>
+                                <td>TOTAL UNITS (MARCH)</td>
+                                <td class="text-right rev-green">6</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
             <div>
-                <span class="h-red">Market Dominance</span>
+                <span class="h-red">Market Dominance YTD</span>
                 <div class="card flex flex-col justify-center items-center py-8 bg-zinc-950">
-                    <p class="stat-label">2026 Core Driver</p>
+                    <p class="stat-label">Cables Market Share</p>
                     <p class="text-lg font-black text-white">Cables & Wiring</p>
-                    <p class="text-3xl font-black rev-green">85.5k Units YTD</p>
-                    <p class="text-[9px] text-zinc-600 mt-2 font-bold tracking-widest">94% TOTAL MARKET SHARE</p>
+                    <p class="text-3xl font-black rev-green">85,509 Units</p>
+                    <p class="text-[9px] text-zinc-600 mt-2 font-bold tracking-widest">91% TOTAL AGGREGATE SHARE</p>
                 </div>
             </div>
         </div>
 
-        <span class="h-red">Category Growth Audit (All-Time 2026)</span>
+        <span class="h-red">Category Growth Audit (2024 - 2026 YTD)</span>
         <div class="card p-0 overflow-hidden mb-8">
             <div class="overflow-x-auto">
                 <table>
@@ -125,16 +124,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>Cables</td><td>26.2k</td><td>85.9k</td><td class="rev-green">85,509</td><td class="text-right pct-green">94%</td></tr>
-                        <tr><td>Electrical Accessories</td><td>3.6k</td><td>1.2k</td><td class="text-white">1,782</td><td class="text-right pct-red">2%</td></tr>
-                        <tr><td>Solar Batteries</td><td>256</td><td>197</td><td class="text-white">62</td><td class="text-right pct-red">1%</td></tr>
-                        <tr><td>Solar Panels</td><td>144</td><td>212</td><td class="text-white">96</td><td class="text-right pct-green">1%</td></tr>
-                        <tr><td>Lighting</td><td>354</td><td>22</td><td class="text-white">111</td><td class="text-right pct-green">1%</td></tr>
+                        <tr><td>Cables</td><td>26,242</td><td>85,986</td><td class="rev-green">85,509</td><td class="text-right pct-green">91%</td></tr>
+                        <tr><td>Electrical Accessories</td><td>3,626</td><td>1,248</td><td class="text-white">1,792</td><td class="text-right pct-red">2%</td></tr>
+                        <tr><td>Lighting (Total)</td><td>354</td><td>22</td><td class="text-white">111</td><td class="text-right pct-green">1%</td></tr>
+                        <tr><td>Solar Panels</td><td>144</td><td>212</td><td class="text-white">282</td><td class="text-right pct-green">3%</td></tr>
+                        <tr><td>Solar Batteries</td><td>256</td><td>197</td><td class="text-white">193</td><td class="text-right pct-red">2%</td></tr>
+                        <tr><td>Inverters</td><td>518</td><td>284</td><td class="text-white">55</td><td class="text-right pct-red">1%</td></tr>
                         <tr class="bg-zinc-950 font-bold">
                             <td>TOTAL AGGREGATE</td>
                             <td>12,483</td>
                             <td>13,606</td>
-                            <td class="rev-green">90,950</td>
+                            <td class="rev-green">94,300</td>
                             <td class="text-right">--</td>
                         </tr>
                     </tbody>
@@ -149,15 +149,15 @@
 
     <script>
         const staffData = [
-            { name: "Emmanuel Rafiu", cat: "Cables & Electricals", upA: 12, upT: 200, onA: 17, onT: 100, seoA: 5, seoT: 20, conA: 1, conT: 80 },
-            { name: "Olanrewaju Victoria", cat: "Home Electronics", upA: 44, upT: 200, onA: 16, onT: 100, seoA: 16, seoT: 20, conA: 10, conT: 80 },
-            { name: "Asia Grace And Funmi", cat: "Water & Insulation", upA: 20, upT: 100, onA: 23, onT: 100, seoA: 27, seoT: 20, conA: 52, conT: 80 },
-            { name: "Oyelekan Samson", cat: "UPS & Gen", upA: 57, upT: 200, onA: 43, onT: 100, seoA: 5, seoT: 20, conA: 44, conT: 80 },
-            { name: "Ishola Abisola", cat: "Computer & CCTV", upA: 24, upT: 200, onA: 51, onT: 100, seoA: 10, seoT: 20, conA: 10, conT: 80 },
-            { name: "Orumwense Owen", cat: "Lighting", upA: 59, upT: 200, onA: 28, onT: 100, seoA: 14, seoT: 20, conA: 17, conT: 80 },
-            { name: "Oyelekan Victor", cat: "Solar (Inverters/Batt)", upA: 178, upT: 100, onA: 56, onT: 100, seoA: 42, seoT: 20, conA: 10, conT: 80 },
-            { name: "Sarah Onuoha", cat: "Solar (Panels)", upA: 13, upT: 100, onA: 16, onT: 100, seoA: 1, seoT: 20, conA: 13, conT: 80 },
-            { name: "Funmilola", cat: "Water & Insulation", upA: 0, upT: 100, onA: 0, onT: 100, seoA: 2, seoT: 20, conA: 0, conT: 80 }
+            { name: "Orumwense Owen", cat: "Lighting", upA: 15, upT: 200, onA: 0, onT: 100, seoA: 5, seoT: 20, conA: 0, conT: 80 },
+            { name: "Josiah Favour Oluchi", cat: "Cables & Electricals", upA: 0, upT: 200, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
+            { name: "Olanrewaju Victoria", cat: "Home Electronics", upA: 0, upT: 200, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
+            { name: "Asia Grace And Funmi", cat: "Water & Insulation", upA: 0, upT: 100, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
+            { name: "Oyelekan Samson", cat: "UPS & Gen", upA: 0, upT: 200, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
+            { name: "Ishola Abisola", cat: "Computer & CCTV", upA: 0, upT: 200, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
+            { name: "Oyelekan Victor", cat: "Solar (Inverters/Batt)", upA: 0, upT: 100, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
+            { name: "Sarah Onuoha", cat: "Solar (Panels)", upA: 0, upT: 100, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 },
+            { name: "Funmilola", cat: "Water & Insulation", upA: 0, upT: 100, onA: 0, onT: 100, seoA: 0, seoT: 20, conA: 0, conT: 80 }
         ];
 
         function initTable() {
@@ -189,11 +189,11 @@
         }
 
         function resetAudit() {
-            document.getElementById('hUpdate').innerText = "407";
-            document.getElementById('hOnboard').innerText = "250";
-            document.getElementById('hSeo').innerText = "122";
-            document.getElementById('hContent').innerText = "157";
-            document.getElementById('viewStatus').innerText = "Product Team Audit | Feb 2026";
+            document.getElementById('hUpdate').innerText = "15";
+            document.getElementById('hOnboard').innerText = "0";
+            document.getElementById('hSeo').innerText = "5";
+            document.getElementById('hContent').innerText = "0";
+            document.getElementById('viewStatus').innerText = "Product Team Audit | March 2026";
             document.getElementById('resetBtn').style.display = 'none';
         }
 
