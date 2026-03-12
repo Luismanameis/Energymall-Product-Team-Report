@@ -14,40 +14,31 @@ window.addEventListener('resize',fixPadding);
 <title>EnergyMall — Product Team · March 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg:      #F6F7FA;
-  --surface: #FFFFFF;
-  --surface2:#F0F2F7;
-  --border:  #E3E6EF;
-  --border2: #CDD1DF;
-  --ink:     #111218;
-  --muted:   #9298AA;
-  --muted2:  #6B7080;
-  --red:     #B01828;
-  --green:   #0E8F52;
-  --gold:    #B87D00;
-  --blue:    #2558E8;
-  --teal:    #0891B2;
+:root{
+  --bg:#F6F7FA;--surface:#FFFFFF;--surface2:#F0F2F7;
+  --border:#E3E6EF;--border2:#CDD1DF;--ink:#111218;
+  --muted:#9298AA;--muted2:#6B7080;
+  --red:#B01828;--green:#0E8F52;--gold:#B87D00;--blue:#2558E8;--teal:#0891B2;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{font-family:'Familjen Grotesk',sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;min-height:100vh;font-size:16px;}
 
-/* ── FIXED HEADER ── */
+/* FIXED HEADER */
 .fixed-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);box-shadow:0 1px 0 var(--border),0 4px 24px rgba(0,0,0,0.07);}
 
-/* ── TICKER ── */
+/* TICKER */
 .ticker{background:var(--ink);padding:8px 0;overflow:hidden;}
 .ticker-track{display:inline-flex;animation:tick 45s linear infinite;white-space:nowrap;}
 .ticker-item{padding:0 36px;font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#F6F7FA;}
 .ticker-sep{opacity:0.3;}
 @keyframes tick{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
-/* ── MASTHEAD ── */
+/* MASTHEAD */
 .masthead{border-bottom:1px solid var(--border);padding:0 48px;display:grid;grid-template-columns:auto 1fr auto;align-items:stretch;min-height:88px;background:var(--surface);}
 .masthead-brand{display:flex;align-items:center;gap:18px;padding:20px 36px 20px 0;border-right:1px solid var(--border);}
-.brand-logo{width:48px;height:48px;background:var(--red);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;color:white;flex-shrink:0;letter-spacing:-0.5px;}
-.brand-name{font-size:22px;font-weight:700;letter-spacing:-0.5px;color:var(--ink);}
+.brand-logo{width:48px;height:48px;background:var(--red);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;color:white;flex-shrink:0;}
+.brand-name{font-size:22px;font-weight:700;letter-spacing:-0.5px;}
 .brand-sub{font-size:12px;color:var(--muted);letter-spacing:0.22em;text-transform:uppercase;margin-top:2px;}
 .masthead-kpis{display:flex;align-items:stretch;padding:0 0 0 36px;}
 .mkpi{padding:20px 28px;border-right:1px solid var(--border);display:flex;flex-direction:column;justify-content:center;}
@@ -60,7 +51,7 @@ body{font-family:'Familjen Grotesk',sans-serif;background:var(--bg);color:var(--
 .live-pip{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);margin-right:7px;animation:blink 2s ease-in-out infinite;}
 @keyframes blink{0%,100%{opacity:1;}50%{opacity:0.3;}}
 
-/* ── FILTER BAR ── */
+/* FILTER BAR */
 .filter-bar{background:var(--surface2);border-bottom:1px solid var(--border2);padding:10px 48px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
 .filter-label{font-size:12px;font-weight:700;color:var(--muted2);letter-spacing:0.2em;text-transform:uppercase;margin-right:4px;}
 .filter-select{appearance:none;background:var(--surface);border:1px solid var(--border2);border-radius:4px;padding:7px 30px 7px 12px;font-size:14px;font-weight:600;font-family:'Familjen Grotesk',sans-serif;color:var(--ink);cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236B7080' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;min-width:160px;transition:border-color .2s;}
@@ -71,10 +62,10 @@ body{font-family:'Familjen Grotesk',sans-serif;background:var(--bg);color:var(--
 .filter-reset:hover{border-color:var(--red);color:var(--red);}
 tr.filter-hidden{display:none;}
 
-/* ── PAGE ── */
+/* PAGE */
 .page{max-width:1600px;margin:0 auto;padding:48px 48px 100px;display:flex;flex-direction:column;gap:56px;}
 
-/* ── SECTION HEAD ── */
+/* SECTION HEAD */
 .sec-head{display:flex;align-items:center;gap:14px;margin-bottom:20px;padding-bottom:14px;border-bottom:2px solid var(--ink);}
 .sec-num{font-size:12px;font-weight:700;color:var(--red);letter-spacing:0.28em;text-transform:uppercase;background:rgba(176,24,40,0.08);padding:4px 10px;border-radius:3px;}
 .sec-title{font-size:18px;font-weight:700;letter-spacing:-0.3px;}
@@ -83,21 +74,18 @@ tr.filter-hidden{display:none;}
 .badge-top{background:rgba(184,125,0,0.1);color:var(--gold);border:1px solid rgba(184,125,0,0.25);}
 .badge-ytd{background:rgba(37,88,232,0.08);color:var(--blue);border:1px solid rgba(37,88,232,0.2);}
 
-/* ── KPI BAND ── */
+/* KPI BAND */
 .kpi-band{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:1px solid var(--border);border-radius:6px;overflow:hidden;background:var(--surface);}
 .kpi-cell{padding:28px 24px;border-right:1px solid var(--border);position:relative;overflow:hidden;}
 .kpi-cell:last-child{border-right:none;}
 .kpi-cell::after{content:'';position:absolute;bottom:0;left:0;right:0;height:4px;}
-.kpi-cell.kc-gold::after{background:var(--gold);}
-.kpi-cell.kc-blue::after{background:var(--blue);}
-.kpi-cell.kc-green::after{background:var(--green);}
-.kpi-cell.kc-red::after{background:var(--red);}
+.kc-gold::after{background:var(--gold);}.kc-blue::after{background:var(--blue);}.kc-green::after{background:var(--green);}.kc-red::after{background:var(--red);}
 .kc-label{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:10px;}
 .kc-num{font-size:52px;font-weight:700;letter-spacing:-3px;line-height:1;}
 .kc-pct{font-size:16px;font-weight:700;margin-top:4px;}
 .kc-note{font-size:12px;color:var(--muted);margin-top:3px;}
 
-/* ── BAR ── */
+/* BAR */
 .bar-wrap{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:28px 32px;}
 .bar-label-row{font-size:12px;color:var(--muted2);letter-spacing:0.16em;text-transform:uppercase;margin-bottom:20px;font-weight:700;}
 .bar-row{display:flex;align-items:center;gap:14px;margin-bottom:16px;}
@@ -109,25 +97,24 @@ tr.filter-hidden{display:none;}
 .bar-pct{font-size:15px;font-weight:700;width:56px;text-align:right;flex-shrink:0;}
 .bar-count{font-size:13px;color:var(--muted);width:36px;text-align:right;flex-shrink:0;}
 
-/* ── TABLE ── */
+/* TABLE */
 .tbl-wrap{background:var(--surface);border-radius:6px;overflow:hidden;border:1px solid var(--border);overflow-x:auto;-webkit-overflow-scrolling:touch;}
 table{width:100%;border-collapse:collapse;min-width:600px;}
 thead tr{background:var(--surface2);}
-th{padding:13px 18px;text-align:left;font-size:12px;color:var(--muted2);letter-spacing:0.16em;text-transform:uppercase;font-weight:700;border-bottom:1px solid var(--border2);white-space:nowrap;}
-th:not(:first-child){text-align:right;}
-td{padding:16px 18px;font-size:15px;font-weight:500;border-bottom:1px solid var(--border);color:var(--ink);}
-td:not(:first-child){text-align:right;}
+th{padding:13px 18px;text-align:right;font-size:12px;color:var(--muted2);letter-spacing:0.16em;text-transform:uppercase;font-weight:700;border-bottom:1px solid var(--border2);white-space:nowrap;}
+th:first-child{text-align:left;}
+td{padding:16px 18px;font-size:15px;font-weight:500;border-bottom:1px solid var(--border);color:var(--ink);text-align:right;}
+td:first-child{text-align:left;}
 tr:last-child td{border-bottom:none;}
 tr:hover td{background:#F8F9FD;}
 .td-total td{background:var(--surface2)!important;font-weight:700;border-top:2px solid var(--border2);}
 .td-total td:first-child{color:var(--gold);font-weight:800;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;}
 .top-row td{background:rgba(184,125,0,0.03);}
 .zero-row td{background:rgba(176,24,40,0.02);}
-.td-rep{text-align:left!important;}
-.rep-name{font-size:16px;font-weight:700;color:var(--ink);}
-.rep-cat{font-size:12px;color:var(--muted);margin-top:2px;letter-spacing:0.04em;}
+.rep-name{font-size:16px;font-weight:700;}
+.rep-cat{font-size:12px;color:var(--muted);margin-top:2px;}
 
-/* ── CHIP ── */
+/* CHIP */
 .chip{display:inline-block;padding:3px 9px;border-radius:3px;font-size:13px;font-weight:700;}
 .chip-g{background:rgba(14,143,82,0.1);color:var(--green);}
 .chip-r{background:rgba(176,24,40,0.1);color:var(--red);}
@@ -135,53 +122,51 @@ tr:hover td{background:#F8F9FD;}
 .chip-b{background:rgba(37,88,232,0.1);color:var(--blue);}
 .chip-mu{background:rgba(146,152,170,0.12);color:var(--muted2);}
 
-/* ── COLORS ── */
-.g{color:var(--green);font-weight:700;}.r{color:var(--red);font-weight:700;}.gold{color:var(--gold);font-weight:700;}
-.mu{color:var(--muted);}.w{color:var(--ink);font-weight:700;}.b{color:var(--blue);font-weight:700;}
+/* COLORS */
+.g{color:var(--green);font-weight:700;}.r{color:var(--red);font-weight:700;}
+.gold{color:var(--gold);font-weight:700;}.mu{color:var(--muted);}
+.w{color:var(--ink);font-weight:700;}.b{color:var(--blue);font-weight:700;}
 
-/* ── PROGRESS ── */
+/* PROGRESS */
 .sp-progress{height:4px;background:var(--border2);border-radius:2px;margin-top:5px;overflow:hidden;}
 .sp-bar{height:100%;border-radius:2px;}
 
-/* ── REP CARD GRID ── */
+/* REP CARDS */
 .rep-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
 .rep-card{background:var(--surface);border:1px solid var(--border);border-radius:6px;overflow:hidden;}
 .rep-card-top{padding:20px 22px 16px;border-bottom:1px solid var(--border);}
-.rep-card-name{font-size:17px;font-weight:700;color:var(--ink);margin-bottom:2px;}
-.rep-card-cat{font-size:12px;color:var(--muted);letter-spacing:0.06em;}
+.rep-card-name{font-size:17px;font-weight:700;margin-bottom:2px;}
+.rep-card-cat{font-size:12px;color:var(--muted);}
 .rep-card-body{display:grid;grid-template-columns:repeat(5,1fr);border-bottom:1px solid var(--border);}
 .rc-stat{padding:16px 12px;border-right:1px solid var(--border);text-align:center;}
 .rc-stat:last-child{border-right:none;}
 .rc-stat-label{font-size:10px;color:var(--muted);letter-spacing:0.16em;text-transform:uppercase;margin-bottom:6px;font-weight:600;}
 .rc-march{font-size:22px;font-weight:700;letter-spacing:-0.5px;line-height:1;}
 .rc-ytd{font-size:12px;color:var(--muted2);margin-top:3px;}
-.rc-ytd strong{color:var(--muted2);}
 .rep-card-footer{padding:12px 22px;display:flex;gap:8px;flex-wrap:wrap;}
 
-/* ── VICTOR HERO ── */
+/* VICTOR HERO */
 .victor-hero{background:var(--surface);border:1px solid var(--border);border-left:5px solid var(--gold);border-radius:6px;padding:32px 36px;margin-bottom:20px;}
-.vh-top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap;}
 .vh-title-label{font-size:12px;color:var(--muted2);letter-spacing:0.18em;text-transform:uppercase;margin-bottom:6px;font-weight:700;}
 .vh-name{font-size:28px;font-weight:700;color:var(--gold);letter-spacing:-0.5px;}
 .vh-cat{font-size:14px;color:var(--muted);margin-top:4px;}
-.vh-stats{display:flex;gap:0;border:1px solid var(--border);border-radius:4px;overflow:hidden;}
-.vh-stat{padding:20px 28px;border-right:1px solid var(--border);text-align:center;min-width:110px;}
+.vh-stats{display:flex;gap:0;border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-top:20px;}
+.vh-stat{padding:20px 28px;border-right:1px solid var(--border);text-align:center;flex:1;}
 .vh-stat:last-child{border-right:none;}
 .vh-stat-label{font-size:11px;color:var(--muted);letter-spacing:0.16em;text-transform:uppercase;margin-bottom:8px;font-weight:600;}
 .vh-stat-march{font-size:32px;font-weight:700;letter-spacing:-1.5px;line-height:1;}
 .vh-stat-ytd{font-size:12px;color:var(--muted2);margin-top:4px;}
 
-/* ── TWO COL ── */
+/* TWO COL */
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
-.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;}
 
-/* ── FADE ── */
+/* FADE */
 .fade{opacity:0;transform:translateY(14px);animation:fadeUp .5s cubic-bezier(.16,1,.3,1) forwards;}
 .d1{animation-delay:.05s}.d2{animation-delay:.1s}.d3{animation-delay:.15s}
 .d4{animation-delay:.2s}.d5{animation-delay:.25s}.d6{animation-delay:.3s}
 @keyframes fadeUp{to{opacity:1;transform:translateY(0);}}
 
-/* ── RESPONSIVE ── */
+/* RESPONSIVE */
 @media(max-width:1100px){
   .rep-grid{grid-template-columns:1fr 1fr;}
   .kpi-band{grid-template-columns:repeat(3,1fr);}
@@ -199,9 +184,8 @@ tr:hover td{background:#F8F9FD;}
   .kpi-band{grid-template-columns:1fr 1fr!important;}
   .kc-num{font-size:36px!important;}
   .rep-grid{grid-template-columns:1fr!important;}
-  .two-col,.three-col{grid-template-columns:1fr!important;}
+  .two-col{grid-template-columns:1fr!important;}
   .vh-stats{flex-wrap:wrap;}
-  .vh-stat{min-width:90px;}
   td{font-size:14px!important;padding:12px 12px!important;}
   th{font-size:11px!important;padding:10px 12px!important;}
   .bar-name{width:100px!important;font-size:14px!important;}
@@ -221,23 +205,23 @@ tr:hover td{background:#F8F9FD;}
   <div class="ticker-track">
     <span class="ticker-item">ENERGYMALL PRODUCT TEAM</span><span class="ticker-item ticker-sep">///</span>
     <span class="ticker-item">MARCH 2026</span><span class="ticker-item ticker-sep">///</span>
-    <span class="ticker-item">UPDATED 193 · 14.44%</span><span class="ticker-item ticker-sep">///</span>
-    <span class="ticker-item">ONBOARDED 52 · 5.78%</span><span class="ticker-item ticker-sep">///</span>
-    <span class="ticker-item">SEO 61 · 33.89%</span><span class="ticker-item ticker-sep">///</span>
-    <span class="ticker-item">CONTENT 119 · 33.06%</span><span class="ticker-item ticker-sep">///</span>
+    <span class="ticker-item">UPDATED 265 · 20.44%</span><span class="ticker-item ticker-sep">///</span>
+    <span class="ticker-item">ONBOARDED 63 · 7.00%</span><span class="ticker-item ticker-sep">///</span>
+    <span class="ticker-item">SEO 76 · 42.22%</span><span class="ticker-item ticker-sep">///</span>
+    <span class="ticker-item">CONTENT 139 · 38.61%</span><span class="ticker-item ticker-sep">///</span>
     <span class="ticker-item">SOLD 81 · 1.92%</span><span class="ticker-item ticker-sep">///</span>
-    <span class="ticker-item">TOP PERFORMER: OYELEKAN VICTOR · 68 UNITS SOLD</span><span class="ticker-item ticker-sep">///</span>
-    <span class="ticker-item">YTD SOLD: 9,218 UNITS</span><span class="ticker-item ticker-sep">///</span>
+    <span class="ticker-item">TOP PERFORMER: OYELEKAN VICTOR · 68 SOLD</span><span class="ticker-item ticker-sep">///</span>
+    <span class="ticker-item">YTD SOLD: 9,218</span><span class="ticker-item ticker-sep">///</span>
     <span class="ticker-item">TEAM LEAD: OLUFUNMILAYO</span><span class="ticker-item ticker-sep">///</span>
     <span class="ticker-item">ENERGYMALL PRODUCT TEAM</span><span class="ticker-item ticker-sep">///</span>
     <span class="ticker-item">MARCH 2026</span><span class="ticker-item ticker-sep">///</span>
-    <span class="ticker-item">UPDATED 193 · 14.44%</span><span class="ticker-item ticker-sep">///</span>
-    <span class="ticker-item">ONBOARDED 52 · 5.78%</span><span class="ticker-item ticker-sep">///</span>
-    <span class="ticker-item">SEO 61 · 33.89%</span><span class="ticker-item ticker-sep">///</span>
-    <span class="ticker-item">CONTENT 119 · 33.06%</span><span class="ticker-item ticker-sep">///</span>
+    <span class="ticker-item">UPDATED 265 · 20.44%</span><span class="ticker-item ticker-sep">///</span>
+    <span class="ticker-item">ONBOARDED 63 · 7.00%</span><span class="ticker-item ticker-sep">///</span>
+    <span class="ticker-item">SEO 76 · 42.22%</span><span class="ticker-item ticker-sep">///</span>
+    <span class="ticker-item">CONTENT 139 · 38.61%</span><span class="ticker-item ticker-sep">///</span>
     <span class="ticker-item">SOLD 81 · 1.92%</span><span class="ticker-item ticker-sep">///</span>
-    <span class="ticker-item">TOP PERFORMER: OYELEKAN VICTOR · 68 UNITS SOLD</span><span class="ticker-item ticker-sep">///</span>
-    <span class="ticker-item">YTD SOLD: 9,218 UNITS</span><span class="ticker-item ticker-sep">///</span>
+    <span class="ticker-item">TOP PERFORMER: OYELEKAN VICTOR · 68 SOLD</span><span class="ticker-item ticker-sep">///</span>
+    <span class="ticker-item">YTD SOLD: 9,218</span><span class="ticker-item ticker-sep">///</span>
     <span class="ticker-item">TEAM LEAD: OLUFUNMILAYO</span><span class="ticker-item ticker-sep">///</span>
   </div>
 </div>
@@ -254,13 +238,13 @@ tr:hover td{background:#F8F9FD;}
   <div class="masthead-kpis">
     <div class="mkpi">
       <div class="mkpi-label">Products Updated</div>
-      <div class="mkpi-val gold">193</div>
-      <div class="mkpi-sub">14.44% of annual target</div>
+      <div class="mkpi-val gold">265</div>
+      <div class="mkpi-sub">20.44% of annual target</div>
     </div>
     <div class="mkpi">
       <div class="mkpi-label">New Onboarded</div>
-      <div class="mkpi-val b">52</div>
-      <div class="mkpi-sub">5.78% of annual target</div>
+      <div class="mkpi-val b">63</div>
+      <div class="mkpi-sub">7.00% of annual target</div>
     </div>
     <div class="mkpi">
       <div class="mkpi-label">Units Sold</div>
@@ -269,8 +253,8 @@ tr:hover td{background:#F8F9FD;}
     </div>
     <div class="mkpi">
       <div class="mkpi-label">SEO · Content</div>
-      <div class="mkpi-val w">61 · 119</div>
-      <div class="mkpi-sub">33.89% · 33.06%</div>
+      <div class="mkpi-val w">76 · 139</div>
+      <div class="mkpi-sub">42.22% · 38.61%</div>
     </div>
   </div>
   <div class="masthead-date">
@@ -315,9 +299,9 @@ tr:hover td{background:#F8F9FD;}
 
 <div class="page">
 
-<!-- ══════════════════════════════════════
+<!-- ══════════════════════════════════
      SEG 01 — MARCH MONTH SUMMARY
-══════════════════════════════════════ -->
+══════════════════════════════════ -->
 <section class="section fade d2">
   <div class="sec-head">
     <span class="sec-num">SEG 01</span>
@@ -325,30 +309,29 @@ tr:hover td{background:#F8F9FD;}
     <span class="sec-badge badge-march">This Month</span>
   </div>
 
-  <!-- Big 5 KPI Cells -->
   <div class="kpi-band" style="margin-bottom:20px;">
     <div class="kpi-cell kc-gold">
       <div class="kc-label">Existing Products Updated</div>
-      <div class="kc-num gold">193</div>
-      <div class="kc-pct gold">14.44%</div>
+      <div class="kc-num gold">265</div>
+      <div class="kc-pct gold">20.44%</div>
       <div class="kc-note">of annual target</div>
     </div>
     <div class="kpi-cell kc-blue">
       <div class="kc-label">New Products Onboarded</div>
-      <div class="kc-num b">52</div>
-      <div class="kc-pct b">5.78%</div>
+      <div class="kc-num b">63</div>
+      <div class="kc-pct b">7.00%</div>
       <div class="kc-note">of annual target</div>
     </div>
     <div class="kpi-cell kc-green">
       <div class="kc-label">SEO Articles Submitted</div>
-      <div class="kc-num g">61</div>
-      <div class="kc-pct g">33.89%</div>
+      <div class="kc-num g">76</div>
+      <div class="kc-pct g">42.22%</div>
       <div class="kc-note">best % achieved this month</div>
     </div>
     <div class="kpi-cell kc-green">
       <div class="kc-label">Product Content Submitted</div>
-      <div class="kc-num g">119</div>
-      <div class="kc-pct g">33.06%</div>
+      <div class="kc-num g">139</div>
+      <div class="kc-pct g">38.61%</div>
       <div class="kc-note">of annual target</div>
     </div>
     <div class="kpi-cell kc-red">
@@ -359,32 +342,31 @@ tr:hover td{background:#F8F9FD;}
     </div>
   </div>
 
-  <!-- Progress bar chart -->
   <div class="bar-wrap">
     <div class="bar-label-row">March % Achieved vs Annual Targets</div>
     <div class="bar-row">
       <span class="bar-name">SEO Articles</span>
-      <div class="bar-track"><div class="bar-fill" style="width:33.89%;background:var(--green);"></div></div>
-      <span class="bar-pct g">33.89%</span>
-      <span class="bar-count mu">61</span>
+      <div class="bar-track"><div class="bar-fill" style="width:42.22%;background:var(--green);"></div></div>
+      <span class="bar-pct g">42.22%</span>
+      <span class="bar-count mu">76</span>
     </div>
     <div class="bar-row">
       <span class="bar-name">Product Content</span>
-      <div class="bar-track"><div class="bar-fill" style="width:33.06%;background:var(--green);"></div></div>
-      <span class="bar-pct g">33.06%</span>
-      <span class="bar-count mu">119</span>
+      <div class="bar-track"><div class="bar-fill" style="width:38.61%;background:var(--green);"></div></div>
+      <span class="bar-pct g">38.61%</span>
+      <span class="bar-count mu">139</span>
     </div>
     <div class="bar-row">
       <span class="bar-name">Existing Updated</span>
-      <div class="bar-track"><div class="bar-fill" style="width:14.44%;background:var(--gold);"></div></div>
-      <span class="bar-pct gold">14.44%</span>
-      <span class="bar-count mu">193</span>
+      <div class="bar-track"><div class="bar-fill" style="width:20.44%;background:var(--gold);"></div></div>
+      <span class="bar-pct gold">20.44%</span>
+      <span class="bar-count mu">265</span>
     </div>
     <div class="bar-row">
       <span class="bar-name">New Onboarded</span>
-      <div class="bar-track"><div class="bar-fill" style="width:5.78%;background:var(--blue);"></div></div>
-      <span class="bar-pct b">5.78%</span>
-      <span class="bar-count mu">52</span>
+      <div class="bar-track"><div class="bar-fill" style="width:7.00%;background:var(--blue);"></div></div>
+      <span class="bar-pct b">7.00%</span>
+      <span class="bar-count mu">63</span>
     </div>
     <div class="bar-row">
       <span class="bar-name">Units Sold</span>
@@ -395,9 +377,9 @@ tr:hover td{background:#F8F9FD;}
   </div>
 </section>
 
-<!-- ══════════════════════════════════════
-     SEG 02 — MARCH PERFORMANCE TABLE
-══════════════════════════════════════ -->
+<!-- ══════════════════════════════════
+     SEG 02 — MARCH RAW NUMBERS
+══════════════════════════════════ -->
 <section class="section fade d2">
   <div class="sec-head">
     <span class="sec-num">SEG 02</span>
@@ -408,84 +390,76 @@ tr:hover td{background:#F8F9FD;}
     <table>
       <thead>
         <tr>
-          <th style="text-align:left;">Rep &amp; Category</th>
-          <th>Updated</th>
-          <th>Onboarded</th>
-          <th>SEO</th>
-          <th>Content</th>
-          <th>Sold</th>
+          <th>Rep &amp; Category</th>
+          <th>Updated</th><th>Onboarded</th><th>SEO</th><th>Content</th><th>Sold</th>
         </tr>
       </thead>
       <tbody>
         <tr data-rep="Josiah" data-cat="Cables">
-          <td class="td-rep"><div class="rep-name">Josiah Favour Oluchi</div><div class="rep-cat">Cables &amp; Electricals</div></td>
+          <td><div class="rep-name">Josiah Favour Oluchi</div><div class="rep-cat">Cables &amp; Electricals</div></td>
           <td class="w">6</td><td class="w">4</td><td class="mu">—</td><td class="mu">—</td><td class="g">13</td>
         </tr>
         <tr data-rep="Victoria" data-cat="HomeElec">
-          <td class="td-rep"><div class="rep-name">Olanrewaju Victoria</div><div class="rep-cat">Home Electronics</div></td>
+          <td><div class="rep-name">Olanrewaju Victoria</div><div class="rep-cat">Home Electronics</div></td>
           <td class="w">19</td><td class="w">6</td><td class="mu">—</td><td class="mu">—</td><td class="r">0</td>
         </tr>
         <tr data-rep="AsiaGrace" data-cat="Water">
-          <td class="td-rep"><div class="rep-name">Asia Grace &amp; Funmi (Lead)</div><div class="rep-cat">Water &amp; Insulation</div></td>
+          <td><div class="rep-name">Asia Grace &amp; Funmi (Lead)</div><div class="rep-cat">Water &amp; Insulation</div></td>
           <td class="w">6</td><td class="w">5</td><td class="g">21</td><td class="w">20</td><td class="r">0</td>
         </tr>
         <tr class="zero-row" data-rep="Funmilola" data-cat="Water">
-          <td class="td-rep"><div class="rep-name">Funmilola (Lead)</div><div class="rep-cat">Water &amp; Insulation · Team Lead</div></td>
+          <td><div class="rep-name">Funmilola (Lead)</div><div class="rep-cat">Water &amp; Insulation · Team Lead</div></td>
           <td class="r">0</td><td class="r">0</td><td class="r">0</td><td class="r">0</td><td class="r">0</td>
         </tr>
         <tr data-rep="Samson" data-cat="UPS">
-          <td class="td-rep"><div class="rep-name">Oyelekan Samson</div><div class="rep-cat">UPS · Generators · Stabilizers · Transformers</div></td>
+          <td><div class="rep-name">Oyelekan Samson</div><div class="rep-cat">UPS · Generators · Stabilizers · Transformers</div></td>
           <td class="g">53</td><td class="r">0</td><td class="w">10</td><td class="g">40</td><td class="r">0</td>
         </tr>
         <tr data-rep="Abisola" data-cat="Computer">
-          <td class="td-rep"><div class="rep-name">Ishola Abisola</div><div class="rep-cat">Computer · Network · Connectivity · CCTV</div></td>
+          <td><div class="rep-name">Ishola Abisola</div><div class="rep-cat">Computer · Network · Connectivity · CCTV</div></td>
           <td class="w">13</td><td class="w">6</td><td class="mu">—</td><td class="mu">—</td><td class="r">0</td>
         </tr>
         <tr data-rep="Owen" data-cat="Lighting">
-          <td class="td-rep"><div class="rep-name">Orumwense Owen</div><div class="rep-cat">Lighting · Streetlight · Floodlight</div></td>
-          <td class="w">35</td><td class="w">3</td><td class="w">5</td><td class="mu">—</td><td class="r">0</td>
+          <td><div class="rep-name">Orumwense Owen</div><div class="rep-cat">Lighting · Streetlight · Floodlight</div></td>
+          <td class="g">71</td><td class="w">7</td><td class="g">15</td><td class="w">10</td><td class="r">0</td>
         </tr>
         <tr class="top-row" data-rep="Victor" data-cat="Solar">
-          <td class="td-rep"><div class="rep-name" style="color:var(--gold);">⭐ Oyelekan Victor</div><div class="rep-cat">Solar — Inverters &amp; Batteries</div></td>
+          <td><div class="rep-name" style="color:var(--gold);">⭐ Oyelekan Victor</div><div class="rep-cat">Solar — Inverters &amp; Batteries</div></td>
           <td class="gold">46</td><td class="gold">16</td><td class="gold">20</td><td class="gold">59</td><td class="gold">68</td>
         </tr>
         <tr data-rep="Sarah" data-cat="Solar">
-          <td class="td-rep"><div class="rep-name">Sarah Onuoha</div><div class="rep-cat">Solar — Controllers · Panels · Gen · Home Appliances</div></td>
-          <td class="w">15</td><td class="w">12</td><td class="w">5</td><td class="mu">—</td><td class="g">10</td>
+          <td><div class="rep-name">Sarah Onuoha</div><div class="rep-cat">Solar — Controllers · Panels · Gen · Home Appliances</div></td>
+          <td class="w">51</td><td class="w">19</td><td class="w">10</td><td class="w">10</td><td class="g">10</td>
         </tr>
         <tr class="td-total">
-          <td style="text-align:left;">TEAM TOTAL</td>
-          <td>193</td><td>52</td><td>61</td><td>119</td><td class="g">81</td>
+          <td>TEAM TOTAL</td>
+          <td>265</td><td>63</td><td>76</td><td>139</td><td class="g">81</td>
         </tr>
       </tbody>
     </table>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════
+<!-- ══════════════════════════════════
      SEG 03 — MARCH % ACHIEVED
-══════════════════════════════════════ -->
+══════════════════════════════════ -->
 <section class="section fade d3">
   <div class="sec-head">
     <span class="sec-num">SEG 03</span>
-    <span class="sec-title">March % Achieved vs Target</span>
-    <span class="sec-badge badge-march">Per Rep</span>
+    <span class="sec-title">March % Achieved vs Target — Per Rep</span>
+    <span class="sec-badge badge-march">% of Annual</span>
   </div>
   <div class="tbl-wrap">
     <table>
       <thead>
         <tr>
-          <th style="text-align:left;">Rep &amp; Category</th>
-          <th>Updated %</th>
-          <th>Onboarded %</th>
-          <th>SEO %</th>
-          <th>Content %</th>
-          <th>Sold %</th>
+          <th>Rep &amp; Category</th>
+          <th>Updated %</th><th>Onboarded %</th><th>SEO %</th><th>Content %</th><th>Sold %</th>
         </tr>
       </thead>
       <tbody>
         <tr data-rep="Josiah" data-cat="Cables">
-          <td class="td-rep"><div class="rep-name">Josiah</div><div class="rep-cat">Cables &amp; Electricals</div></td>
+          <td><div class="rep-name">Josiah</div><div class="rep-cat">Cables &amp; Electricals</div></td>
           <td><span class="chip chip-mu">3.00%</span></td>
           <td><span class="chip chip-mu">4.00%</span></td>
           <td><span class="chip chip-r">0%</span></td>
@@ -493,7 +467,7 @@ tr:hover td{background:#F8F9FD;}
           <td><span class="chip chip-mu">0.33%</span></td>
         </tr>
         <tr data-rep="Victoria" data-cat="HomeElec">
-          <td class="td-rep"><div class="rep-name">Victoria</div><div class="rep-cat">Home Electronics</div></td>
+          <td><div class="rep-name">Victoria</div><div class="rep-cat">Home Electronics</div></td>
           <td><span class="chip chip-mu">9.50%</span></td>
           <td><span class="chip chip-mu">6.00%</span></td>
           <td><span class="chip chip-r">0%</span></td>
@@ -501,7 +475,7 @@ tr:hover td{background:#F8F9FD;}
           <td><span class="chip chip-r">0.00%</span></td>
         </tr>
         <tr data-rep="AsiaGrace" data-cat="Water">
-          <td class="td-rep"><div class="rep-name">Asia Grace &amp; Funmi</div><div class="rep-cat">Water &amp; Insulation</div></td>
+          <td><div class="rep-name">Asia Grace &amp; Funmi</div><div class="rep-cat">Water &amp; Insulation</div></td>
           <td><span class="chip chip-mu">6.00%</span></td>
           <td><span class="chip chip-mu">5.00%</span></td>
           <td><span class="chip chip-g">105.00% ✓</span></td>
@@ -509,7 +483,7 @@ tr:hover td{background:#F8F9FD;}
           <td><span class="chip chip-r">0.00%</span></td>
         </tr>
         <tr class="zero-row" data-rep="Funmilola" data-cat="Water">
-          <td class="td-rep"><div class="rep-name">Funmilola (Lead)</div><div class="rep-cat">Water &amp; Insulation</div></td>
+          <td><div class="rep-name">Funmilola (Lead)</div><div class="rep-cat">Water &amp; Insulation</div></td>
           <td><span class="chip chip-r">0.00%</span></td>
           <td><span class="chip chip-r">0.00%</span></td>
           <td><span class="chip chip-r">0.00%</span></td>
@@ -517,7 +491,7 @@ tr:hover td{background:#F8F9FD;}
           <td><span class="chip chip-r">0.00%</span></td>
         </tr>
         <tr data-rep="Samson" data-cat="UPS">
-          <td class="td-rep"><div class="rep-name">Samson</div><div class="rep-cat">UPS · Generators · Stabilizers</div></td>
+          <td><div class="rep-name">Samson</div><div class="rep-cat">UPS · Generators · Stabilizers</div></td>
           <td><span class="chip chip-gold">26.50%</span></td>
           <td><span class="chip chip-r">0.00%</span></td>
           <td><span class="chip chip-gold">50.00%</span></td>
@@ -525,7 +499,7 @@ tr:hover td{background:#F8F9FD;}
           <td><span class="chip chip-r">0.00%</span></td>
         </tr>
         <tr data-rep="Abisola" data-cat="Computer">
-          <td class="td-rep"><div class="rep-name">Abisola</div><div class="rep-cat">Computer · Network · CCTV</div></td>
+          <td><div class="rep-name">Abisola</div><div class="rep-cat">Computer · Network · CCTV</div></td>
           <td><span class="chip chip-mu">6.50%</span></td>
           <td><span class="chip chip-mu">6.00%</span></td>
           <td><span class="chip chip-r">0%</span></td>
@@ -533,15 +507,15 @@ tr:hover td{background:#F8F9FD;}
           <td><span class="chip chip-r">0.00%</span></td>
         </tr>
         <tr data-rep="Owen" data-cat="Lighting">
-          <td class="td-rep"><div class="rep-name">Owen</div><div class="rep-cat">Lighting · Streetlight · Floodlight</div></td>
-          <td><span class="chip chip-gold">17.50%</span></td>
-          <td><span class="chip chip-mu">3.00%</span></td>
+          <td><div class="rep-name">Owen</div><div class="rep-cat">Lighting · Streetlight · Floodlight</div></td>
+          <td><span class="chip chip-gold">35.50%</span></td>
+          <td><span class="chip chip-mu">7.00%</span></td>
+          <td><span class="chip chip-g">75.00%</span></td>
           <td><span class="chip chip-gold">25.00%</span></td>
-          <td><span class="chip chip-r">0.00%</span></td>
           <td><span class="chip chip-r">0.00%</span></td>
         </tr>
         <tr class="top-row" data-rep="Victor" data-cat="Solar">
-          <td class="td-rep"><div class="rep-name" style="color:var(--gold);">⭐ Victor</div><div class="rep-cat">Solar — Inverters &amp; Batteries</div></td>
+          <td><div class="rep-name" style="color:var(--gold);">⭐ Victor</div><div class="rep-cat">Solar — Inverters &amp; Batteries</div></td>
           <td><span class="chip chip-gold">46.00%</span></td>
           <td><span class="chip chip-gold">16.00%</span></td>
           <td><span class="chip chip-g">100.00% ✓</span></td>
@@ -549,25 +523,25 @@ tr:hover td{background:#F8F9FD;}
           <td><span class="chip chip-gold">13.60%</span></td>
         </tr>
         <tr data-rep="Sarah" data-cat="Solar">
-          <td class="td-rep"><div class="rep-name">Sarah</div><div class="rep-cat">Solar — Controllers · Panels</div></td>
-          <td><span class="chip chip-gold">15.00%</span></td>
-          <td><span class="chip chip-gold">12.00%</span></td>
+          <td><div class="rep-name">Sarah</div><div class="rep-cat">Solar — Controllers · Panels</div></td>
+          <td><span class="chip chip-gold">51.00%</span></td>
+          <td><span class="chip chip-gold">19.00%</span></td>
+          <td><span class="chip chip-gold">50.00%</span></td>
           <td><span class="chip chip-gold">25.00%</span></td>
-          <td><span class="chip chip-r">0.00%</span></td>
           <td><span class="chip chip-mu">3.33%</span></td>
         </tr>
         <tr class="td-total">
-          <td style="text-align:left;">TEAM AVERAGE</td>
-          <td>14.44%</td><td>5.78%</td><td>33.89%</td><td>33.06%</td><td class="g">1.92%</td>
+          <td>TEAM AVERAGE</td>
+          <td>20.44%</td><td>7.00%</td><td>42.22%</td><td>38.61%</td><td class="g">1.92%</td>
         </tr>
       </tbody>
     </table>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════
-     SEG 04 — INDIVIDUAL REP CARDS (MARCH vs YTD)
-══════════════════════════════════════ -->
+<!-- ══════════════════════════════════
+     SEG 04 — REP CARDS (MARCH vs YTD)
+══════════════════════════════════ -->
 <section class="section fade d3">
   <div class="sec-head">
     <span class="sec-num">SEG 04</span>
@@ -577,38 +551,34 @@ tr:hover td{background:#F8F9FD;}
 
   <!-- VICTOR HERO -->
   <div class="victor-hero">
-    <div class="vh-top">
-      <div>
-        <div class="vh-title-label">March 2026 — Top Performer</div>
-        <div class="vh-name">⭐ Oyelekan Victor</div>
-        <div class="vh-cat">Solar — Inverters &amp; Batteries</div>
+    <div class="vh-title-label">March 2026 — Top Performer</div>
+    <div class="vh-name">⭐ Oyelekan Victor</div>
+    <div class="vh-cat">Solar — Inverters &amp; Batteries</div>
+    <div class="vh-stats">
+      <div class="vh-stat">
+        <div class="vh-stat-label">Updated</div>
+        <div class="vh-stat-march gold">46</div>
+        <div class="vh-stat-ytd">YTD: 593 · 49.42%</div>
       </div>
-      <div class="vh-stats">
-        <div class="vh-stat">
-          <div class="vh-stat-label">Updated</div>
-          <div class="vh-stat-march gold">46</div>
-          <div class="vh-stat-ytd">YTD: 593</div>
-        </div>
-        <div class="vh-stat">
-          <div class="vh-stat-label">Onboarded</div>
-          <div class="vh-stat-march gold">16</div>
-          <div class="vh-stat-ytd">YTD: 140</div>
-        </div>
-        <div class="vh-stat">
-          <div class="vh-stat-label">SEO</div>
-          <div class="vh-stat-march g">20</div>
-          <div class="vh-stat-ytd">YTD: 80 · 100% ✓</div>
-        </div>
-        <div class="vh-stat">
-          <div class="vh-stat-label">Content</div>
-          <div class="vh-stat-march g">59</div>
-          <div class="vh-stat-ytd">YTD: 84 · 147.5% ✓</div>
-        </div>
-        <div class="vh-stat">
-          <div class="vh-stat-label">Units Sold</div>
-          <div class="vh-stat-march gold">68</div>
-          <div class="vh-stat-ytd">YTD: 313 · 13.60%</div>
-        </div>
+      <div class="vh-stat">
+        <div class="vh-stat-label">Onboarded</div>
+        <div class="vh-stat-march gold">16</div>
+        <div class="vh-stat-ytd">YTD: 140 · 1.33%</div>
+      </div>
+      <div class="vh-stat">
+        <div class="vh-stat-label">SEO</div>
+        <div class="vh-stat-march g">20</div>
+        <div class="vh-stat-ytd">YTD: 80 · 100% ✓</div>
+      </div>
+      <div class="vh-stat">
+        <div class="vh-stat-label">Content</div>
+        <div class="vh-stat-march g">59</div>
+        <div class="vh-stat-ytd">YTD: 84 · 147.5% ✓</div>
+      </div>
+      <div class="vh-stat">
+        <div class="vh-stat-label">Units Sold</div>
+        <div class="vh-stat-march gold">68</div>
+        <div class="vh-stat-ytd">YTD: 313 · 13.60%</div>
       </div>
     </div>
   </div>
@@ -623,31 +593,11 @@ tr:hover td{background:#F8F9FD;}
         <div class="rep-card-cat">Cables &amp; Electricals</div>
       </div>
       <div class="rep-card-body">
-        <div class="rc-stat">
-          <div class="rc-stat-label">Updated</div>
-          <div class="rc-march w">6</div>
-          <div class="rc-ytd">YTD <strong>138</strong></div>
-        </div>
-        <div class="rc-stat">
-          <div class="rc-stat-label">Onboarded</div>
-          <div class="rc-march w">4</div>
-          <div class="rc-ytd">YTD <strong>72</strong></div>
-        </div>
-        <div class="rc-stat">
-          <div class="rc-stat-label">SEO</div>
-          <div class="rc-march mu">—</div>
-          <div class="rc-ytd">YTD <strong>16</strong></div>
-        </div>
-        <div class="rc-stat">
-          <div class="rc-stat-label">Content</div>
-          <div class="rc-march mu">—</div>
-          <div class="rc-ytd">YTD <strong>3</strong></div>
-        </div>
-        <div class="rc-stat">
-          <div class="rc-stat-label">Sold</div>
-          <div class="rc-march g">13</div>
-          <div class="rc-ytd">YTD <strong style="color:var(--green);">8,742</strong></div>
-        </div>
+        <div class="rc-stat"><div class="rc-stat-label">Updated</div><div class="rc-march w">6</div><div class="rc-ytd">YTD <strong>138</strong></div></div>
+        <div class="rc-stat"><div class="rc-stat-label">Onboarded</div><div class="rc-march w">4</div><div class="rc-ytd">YTD <strong>72</strong></div></div>
+        <div class="rc-stat"><div class="rc-stat-label">SEO</div><div class="rc-march mu">—</div><div class="rc-ytd">YTD <strong>16</strong></div></div>
+        <div class="rc-stat"><div class="rc-stat-label">Content</div><div class="rc-march mu">—</div><div class="rc-ytd">YTD <strong>3</strong></div></div>
+        <div class="rc-stat"><div class="rc-stat-label">Sold</div><div class="rc-march g">13</div><div class="rc-ytd">YTD <strong style="color:var(--green);">8,742</strong></div></div>
       </div>
       <div class="rep-card-footer">
         <span class="chip chip-mu">Updated 3.00%</span>
@@ -662,31 +612,11 @@ tr:hover td{background:#F8F9FD;}
         <div class="rep-card-cat">Home Electronics</div>
       </div>
       <div class="rep-card-body">
-        <div class="rc-stat">
-          <div class="rc-stat-label">Updated</div>
-          <div class="rc-march w">19</div>
-          <div class="rc-ytd">YTD <strong>141</strong></div>
-        </div>
-        <div class="rc-stat">
-          <div class="rc-stat-label">Onboarded</div>
-          <div class="rc-march w">6</div>
-          <div class="rc-ytd">YTD <strong>39</strong></div>
-        </div>
-        <div class="rc-stat">
-          <div class="rc-stat-label">SEO</div>
-          <div class="rc-march mu">—</div>
-          <div class="rc-ytd">YTD <strong>29</strong></div>
-        </div>
-        <div class="rc-stat">
-          <div class="rc-stat-label">Content</div>
-          <div class="rc-march mu">—</div>
-          <div class="rc-ytd">YTD <strong>11</strong></div>
-        </div>
-        <div class="rc-stat">
-          <div class="rc-stat-label">Sold</div>
-          <div class="rc-march r">0</div>
-          <div class="rc-ytd">YTD <strong class="r">0</strong></div>
-        </div>
+        <div class="rc-stat"><div class="rc-stat-label">Updated</div><div class="rc-march w">19</div><div class="rc-ytd">YTD <strong>141</strong></div></div>
+        <div class="rc-stat"><div class="rc-stat-label">Onboarded</div><div class="rc-march w">6</div><div class="rc-ytd">YTD <strong>39</strong></div></div>
+        <div class="rc-stat"><div class="rc-stat-label">SEO</div><div class="rc-march mu">—</div><div class="rc-ytd">YTD <strong>29</strong></div></div>
+        <div class="rc-stat"><div class="rc-stat-label">Content</div><div class="rc-march mu">—</div><div class="rc-ytd">YTD <strong>11</strong></div></div>
+        <div class="rc-stat"><div class="rc-stat-label">Sold</div><div class="rc-march r">0</div><div class="rc-ytd">YTD <strong class="r">0</strong></div></div>
       </div>
       <div class="rep-card-footer">
         <span class="chip chip-mu">Updated 9.50%</span>
@@ -701,31 +631,11 @@ tr:hover td{background:#F8F9FD;}
         <div class="rep-card-cat">Water &amp; Insulation</div>
       </div>
       <div class="rep-card-body">
-        <div class="rc-stat">
-          <div class="rc-stat-label">Updated</div>
-          <div class="rc-march w">6</div>
-          <div class="rc-ytd">YTD <strong>53</strong></div>
-        </div>
-        <div class="rc-stat">
-          <div class="rc-stat-label">Onboarded</div>
-          <div class="rc-march w">5</div>
-          <div class="rc-ytd">YTD <strong>61</strong></div>
-        </div>
-        <div class="rc-stat">
-          <div class="rc-stat-label">SEO</div>
-          <div class="rc-march g">21</div>
-          <div class="rc-ytd">YTD <strong>58</strong></div>
-        </div>
-        <div class="rc-stat">
-          <div class="rc-stat-label">Content</div>
-          <div class="rc-march w">20</div>
-          <div class="rc-ytd">YTD <strong>83</strong></div>
-        </div>
-        <div class="rc-stat">
-          <div class="rc-stat-label">Sold</div>
-          <div class="rc-march r">0</div>
-          <div class="rc-ytd">YTD <strong>43</strong></div>
-        </div>
+        <div class="rc-stat"><div class="rc-stat-label">Updated</div><div class="rc-march w">6</div><div class="rc-ytd">YTD <strong>53</strong></div></div>
+        <div class="rc-stat"><div class="rc-stat-label">Onboarded</div><div class="rc-march w">5</div><div class="rc-ytd">YTD <strong>61</strong></div></div>
+        <div class="rc-stat"><div class="rc-stat-label">SEO</div><div class="rc-march g">21</div><div class="rc-ytd">YTD <strong>58</strong></div></div>
+        <div class="rc-stat"><div class="rc-stat-label">Content</div><div class="rc-march w">20</div><div class="rc-ytd">YTD <strong>83</strong></div></div>
+        <div class="rc-stat"><div class="rc-stat-label">Sold</div><div class="rc-march r">0</div><div class="rc-ytd">YTD <strong>43</strong></div></div>
       </div>
       <div class="rep-card-footer">
         <span class="chip chip-g">SEO 105% ✓</span>
@@ -740,31 +650,11 @@ tr:hover td{background:#F8F9FD;}
         <div class="rep-card-cat">Water &amp; Insulation · Team Lead</div>
       </div>
       <div class="rep-card-body">
-        <div class="rc-stat">
-          <div class="rc-stat-label">Updated</div>
-          <div class="rc-march r">0</div>
-          <div class="rc-ytd">YTD <strong>1</strong></div>
-        </div>
-        <div class="rc-stat">
-          <div class="rc-stat-label">Onboarded</div>
-          <div class="rc-march r">0</div>
-          <div class="rc-ytd">YTD <strong>0</strong></div>
-        </div>
-        <div class="rc-stat">
-          <div class="rc-stat-label">SEO</div>
-          <div class="rc-march r">0</div>
-          <div class="rc-ytd">YTD <strong>8</strong></div>
-        </div>
-        <div class="rc-stat">
-          <div class="rc-stat-label">Content</div>
-          <div class="rc-march r">0</div>
-          <div class="rc-ytd">YTD <strong>28</strong></div>
-        </div>
-        <div class="rc-stat">
-          <div class="rc-stat-label">Sold</div>
-          <div class="rc-march r">0</div>
-          <div class="rc-ytd">YTD <strong>43</strong></div>
-        </div>
+        <div class="rc-stat"><div class="rc-stat-label">Updated</div><div class="rc-march r">0</div><div class="rc-ytd">YTD <strong>1</strong></div></div>
+        <div class="rc-stat"><div class="rc-stat-label">Onboarded</div><div class="rc-march r">0</div><div class="rc-ytd">YTD <strong>0</strong></div></div>
+        <div class="rc-stat"><div class="rc-stat-label">SEO</div><div class="rc-march r">0</div><div class="rc-ytd">YTD <strong>8</strong></div></div>
+        <div class="rc-stat"><div class="rc-stat-label">Content</div><div class="rc-march r">0</div><div class="rc-ytd">YTD <strong>28</strong></div></div>
+        <div class="rc-stat"><div class="rc-stat-label">Sold</div><div class="rc-march r">0</div><div class="rc-ytd">YTD <strong>43</strong></div></div>
       </div>
       <div class="rep-card-footer">
         <span class="chip chip-r">No activity this month</span>
@@ -778,31 +668,11 @@ tr:hover td{background:#F8F9FD;}
         <div class="rep-card-cat">UPS · Generators · Stabilizers · Transformers</div>
       </div>
       <div class="rep-card-body">
-        <div class="rc-stat">
-          <div class="rc-stat-label">Updated</div>
-          <div class="rc-march g">53</div>
-          <div class="rc-ytd">YTD <strong>188</strong></div>
-        </div>
-        <div class="rc-stat">
-          <div class="rc-stat-label">Onboarded</div>
-          <div class="rc-march r">0</div>
-          <div class="rc-ytd">YTD <strong>90</strong></div>
-        </div>
-        <div class="rc-stat">
-          <div class="rc-stat-label">SEO</div>
-          <div class="rc-march w">10</div>
-          <div class="rc-ytd">YTD <strong>31</strong></div>
-        </div>
-        <div class="rc-stat">
-          <div class="rc-stat-label">Content</div>
-          <div class="rc-march g">40</div>
-          <div class="rc-ytd">YTD <strong>84</strong></div>
-        </div>
-        <div class="rc-stat">
-          <div class="rc-stat-label">Sold</div>
-          <div class="rc-march r">0</div>
-          <div class="rc-ytd">YTD <strong class="r">0</strong></div>
-        </div>
+        <div class="rc-stat"><div class="rc-stat-label">Updated</div><div class="rc-march g">53</div><div class="rc-ytd">YTD <strong>188</strong></div></div>
+        <div class="rc-stat"><div class="rc-stat-label">Onboarded</div><div class="rc-march r">0</div><div class="rc-ytd">YTD <strong>90</strong></div></div>
+        <div class="rc-stat"><div class="rc-stat-label">SEO</div><div class="rc-march w">10</div><div class="rc-ytd">YTD <strong>31</strong></div></div>
+        <div class="rc-stat"><div class="rc-stat-label">Content</div><div class="rc-march g">40</div><div class="rc-ytd">YTD <strong>84</strong></div></div>
+        <div class="rc-stat"><div class="rc-stat-label">Sold</div><div class="rc-march r">0</div><div class="rc-ytd">YTD <strong class="r">0</strong></div></div>
       </div>
       <div class="rep-card-footer">
         <span class="chip chip-g">Content 100% ✓</span>
@@ -817,31 +687,11 @@ tr:hover td{background:#F8F9FD;}
         <div class="rep-card-cat">Computer · Network · Connectivity · CCTV</div>
       </div>
       <div class="rep-card-body">
-        <div class="rc-stat">
-          <div class="rc-stat-label">Updated</div>
-          <div class="rc-march w">13</div>
-          <div class="rc-ytd">YTD <strong>84</strong></div>
-        </div>
-        <div class="rc-stat">
-          <div class="rc-stat-label">Onboarded</div>
-          <div class="rc-march w">6</div>
-          <div class="rc-ytd">YTD <strong>109</strong></div>
-        </div>
-        <div class="rc-stat">
-          <div class="rc-stat-label">SEO</div>
-          <div class="rc-march mu">—</div>
-          <div class="rc-ytd">YTD <strong>32</strong></div>
-        </div>
-        <div class="rc-stat">
-          <div class="rc-stat-label">Content</div>
-          <div class="rc-march mu">—</div>
-          <div class="rc-ytd">YTD <strong>11</strong></div>
-        </div>
-        <div class="rc-stat">
-          <div class="rc-stat-label">Sold</div>
-          <div class="rc-march r">0</div>
-          <div class="rc-ytd">YTD <strong>3</strong></div>
-        </div>
+        <div class="rc-stat"><div class="rc-stat-label">Updated</div><div class="rc-march w">13</div><div class="rc-ytd">YTD <strong>84</strong></div></div>
+        <div class="rc-stat"><div class="rc-stat-label">Onboarded</div><div class="rc-march w">6</div><div class="rc-ytd">YTD <strong>109</strong></div></div>
+        <div class="rc-stat"><div class="rc-stat-label">SEO</div><div class="rc-march mu">—</div><div class="rc-ytd">YTD <strong>32</strong></div></div>
+        <div class="rc-stat"><div class="rc-stat-label">Content</div><div class="rc-march mu">—</div><div class="rc-ytd">YTD <strong>11</strong></div></div>
+        <div class="rc-stat"><div class="rc-stat-label">Sold</div><div class="rc-march r">0</div><div class="rc-ytd">YTD <strong>3</strong></div></div>
       </div>
       <div class="rep-card-footer">
         <span class="chip chip-mu">Updated 6.50%</span>
@@ -856,34 +706,15 @@ tr:hover td{background:#F8F9FD;}
         <div class="rep-card-cat">Lighting · Streetlight · Floodlight</div>
       </div>
       <div class="rep-card-body">
-        <div class="rc-stat">
-          <div class="rc-stat-label">Updated</div>
-          <div class="rc-march w">35</div>
-          <div class="rc-ytd">YTD <strong>162</strong></div>
-        </div>
-        <div class="rc-stat">
-          <div class="rc-stat-label">Onboarded</div>
-          <div class="rc-march w">3</div>
-          <div class="rc-ytd">YTD <strong>42</strong></div>
-        </div>
-        <div class="rc-stat">
-          <div class="rc-stat-label">SEO</div>
-          <div class="rc-march w">5</div>
-          <div class="rc-ytd">YTD <strong>40</strong></div>
-        </div>
-        <div class="rc-stat">
-          <div class="rc-stat-label">Content</div>
-          <div class="rc-march mu">—</div>
-          <div class="rc-ytd">YTD <strong>18</strong></div>
-        </div>
-        <div class="rc-stat">
-          <div class="rc-stat-label">Sold</div>
-          <div class="rc-march r">0</div>
-          <div class="rc-ytd">YTD <strong>117</strong></div>
-        </div>
+        <div class="rc-stat"><div class="rc-stat-label">Updated</div><div class="rc-march g">71</div><div class="rc-ytd">YTD <strong>198</strong></div></div>
+        <div class="rc-stat"><div class="rc-stat-label">Onboarded</div><div class="rc-march w">7</div><div class="rc-ytd">YTD <strong>46</strong></div></div>
+        <div class="rc-stat"><div class="rc-stat-label">SEO</div><div class="rc-march g">15</div><div class="rc-ytd">YTD <strong>50</strong></div></div>
+        <div class="rc-stat"><div class="rc-stat-label">Content</div><div class="rc-march w">10</div><div class="rc-ytd">YTD <strong>28</strong></div></div>
+        <div class="rc-stat"><div class="rc-stat-label">Sold</div><div class="rc-march r">0</div><div class="rc-ytd">YTD <strong>117</strong></div></div>
       </div>
       <div class="rep-card-footer">
-        <span class="chip chip-gold">Updated 17.50%</span>
+        <span class="chip chip-gold">Updated 35.50%</span>
+        <span class="chip chip-g">SEO 75%</span>
         <span class="chip chip-gold">YTD Sold 9.75%</span>
       </div>
     </div>
@@ -895,34 +726,15 @@ tr:hover td{background:#F8F9FD;}
         <div class="rep-card-cat">Solar — Controllers · Panels · Gen · Home Appliances</div>
       </div>
       <div class="rep-card-body">
-        <div class="rc-stat">
-          <div class="rc-stat-label">Updated</div>
-          <div class="rc-march w">15</div>
-          <div class="rc-ytd">YTD <strong>40</strong></div>
-        </div>
-        <div class="rc-stat">
-          <div class="rc-stat-label">Onboarded</div>
-          <div class="rc-march w">12</div>
-          <div class="rc-ytd">YTD <strong>43</strong></div>
-        </div>
-        <div class="rc-stat">
-          <div class="rc-stat-label">SEO</div>
-          <div class="rc-march w">5</div>
-          <div class="rc-ytd">YTD <strong>5</strong></div>
-        </div>
-        <div class="rc-stat">
-          <div class="rc-stat-label">Content</div>
-          <div class="rc-march mu">—</div>
-          <div class="rc-ytd">YTD <strong>13</strong></div>
-        </div>
-        <div class="rc-stat">
-          <div class="rc-stat-label">Sold</div>
-          <div class="rc-march g">10</div>
-          <div class="rc-ytd">YTD <strong>296</strong></div>
-        </div>
+        <div class="rc-stat"><div class="rc-stat-label">Updated</div><div class="rc-march g">51</div><div class="rc-ytd">YTD <strong>76</strong></div></div>
+        <div class="rc-stat"><div class="rc-stat-label">Onboarded</div><div class="rc-march w">19</div><div class="rc-ytd">YTD <strong>50</strong></div></div>
+        <div class="rc-stat"><div class="rc-stat-label">SEO</div><div class="rc-march w">10</div><div class="rc-ytd">YTD <strong>10</strong></div></div>
+        <div class="rc-stat"><div class="rc-stat-label">Content</div><div class="rc-march w">10</div><div class="rc-ytd">YTD <strong>23</strong></div></div>
+        <div class="rc-stat"><div class="rc-stat-label">Sold</div><div class="rc-march g">10</div><div class="rc-ytd">YTD <strong>296</strong></div></div>
       </div>
       <div class="rep-card-footer">
-        <span class="chip chip-gold">Sold 3.33% Mar</span>
+        <span class="chip chip-gold">Updated 51%</span>
+        <span class="chip chip-gold">Sold 3.33%</span>
         <span class="chip chip-gold">YTD 8.22%</span>
       </div>
     </div>
@@ -930,9 +742,9 @@ tr:hover td{background:#F8F9FD;}
   </div><!-- /rep-grid -->
 </section>
 
-<!-- ══════════════════════════════════════
+<!-- ══════════════════════════════════
      SEG 05 — 2026 ALL-TIME TABLE
-══════════════════════════════════════ -->
+══════════════════════════════════ -->
 <section class="section fade d4">
   <div class="sec-head">
     <span class="sec-num">SEG 05</span>
@@ -943,34 +755,26 @@ tr:hover td{background:#F8F9FD;}
     <table>
       <thead>
         <tr>
-          <th style="text-align:left;">Rep &amp; Category</th>
-          <th>Updated</th>
-          <th>% Target</th>
-          <th>Onboarded</th>
-          <th>% Target</th>
-          <th>SEO</th>
-          <th>% Target</th>
-          <th>Content</th>
-          <th>% Target</th>
-          <th>Sold</th>
-          <th>% Target</th>
+          <th>Rep &amp; Category</th>
+          <th>Updated</th><th>% Target</th>
+          <th>Onboarded</th><th>% Target</th>
+          <th>SEO</th><th>% Target</th>
+          <th>Content</th><th>% Target</th>
+          <th>Sold</th><th>% Target</th>
         </tr>
       </thead>
       <tbody>
         <tr data-rep="Josiah" data-cat="Cables">
-          <td class="td-rep"><div class="rep-name">Josiah Favour Oluchi</div><div class="rep-cat">Cables &amp; Electricals</div></td>
+          <td><div class="rep-name">Josiah Favour Oluchi</div><div class="rep-cat">Cables &amp; Electricals</div></td>
           <td class="w">138</td><td><span class="chip chip-mu">5.75%</span></td>
           <td class="w">72</td><td><span class="chip chip-mu">0.33%</span></td>
           <td class="w">16</td><td class="mu">—</td>
           <td class="w">3</td><td class="mu">—</td>
           <td class="g">8,742</td>
-          <td>
-            <div class="sp-progress"><div class="sp-bar" style="width:18.21%;background:var(--green);"></div></div>
-            <span class="chip chip-g" style="margin-top:5px;display:inline-block;">18.21%</span>
-          </td>
+          <td><div class="sp-progress"><div class="sp-bar" style="width:18.21%;background:var(--green);"></div></div><span class="chip chip-g" style="margin-top:5px;display:inline-block;">18.21%</span></td>
         </tr>
         <tr data-rep="Victoria" data-cat="HomeElec">
-          <td class="td-rep"><div class="rep-name">Olanrewaju Victoria</div><div class="rep-cat">Home Electronics</div></td>
+          <td><div class="rep-name">Olanrewaju Victoria</div><div class="rep-cat">Home Electronics</div></td>
           <td class="w">141</td><td><span class="chip chip-mu">5.88%</span></td>
           <td class="w">39</td><td><span class="chip chip-mu">0.50%</span></td>
           <td class="w">29</td><td class="mu">—</td>
@@ -978,7 +782,7 @@ tr:hover td{background:#F8F9FD;}
           <td class="r">0</td><td><span class="chip chip-r">0.00%</span></td>
         </tr>
         <tr data-rep="AsiaGrace" data-cat="Water">
-          <td class="td-rep"><div class="rep-name">Asia Grace &amp; Funmi (Lead)</div><div class="rep-cat">Water &amp; Insulation</div></td>
+          <td><div class="rep-name">Asia Grace &amp; Funmi (Lead)</div><div class="rep-cat">Water &amp; Insulation</div></td>
           <td class="w">53</td><td><span class="chip chip-mu">4.42%</span></td>
           <td class="w">61</td><td><span class="chip chip-mu">0.42%</span></td>
           <td class="w">58</td><td><span class="chip chip-gold">8.75%</span></td>
@@ -986,7 +790,7 @@ tr:hover td{background:#F8F9FD;}
           <td class="w">43</td><td><span class="chip chip-mu">3.58%</span></td>
         </tr>
         <tr class="zero-row" data-rep="Funmilola" data-cat="Water">
-          <td class="td-rep"><div class="rep-name">Funmilola (Lead)</div><div class="rep-cat">Water &amp; Insulation · Team Lead</div></td>
+          <td><div class="rep-name">Funmilola (Lead)</div><div class="rep-cat">Water &amp; Insulation · Team Lead</div></td>
           <td class="r">1</td><td><span class="chip chip-r">0.08%</span></td>
           <td class="r">0</td><td><span class="chip chip-r">0.00%</span></td>
           <td class="w">8</td><td><span class="chip chip-r">0.00%</span></td>
@@ -994,7 +798,7 @@ tr:hover td{background:#F8F9FD;}
           <td class="w">43</td><td><span class="chip chip-mu">3.58%</span></td>
         </tr>
         <tr data-rep="Samson" data-cat="UPS">
-          <td class="td-rep"><div class="rep-name">Oyelekan Samson</div><div class="rep-cat">UPS · Generators · Stabilizers</div></td>
+          <td><div class="rep-name">Oyelekan Samson</div><div class="rep-cat">UPS · Generators · Stabilizers</div></td>
           <td class="w">188</td><td><span class="chip chip-mu">7.83%</span></td>
           <td class="w">90</td><td><span class="chip chip-r">0.00%</span></td>
           <td class="w">31</td><td><span class="chip chip-mu">4.17%</span></td>
@@ -1002,7 +806,7 @@ tr:hover td{background:#F8F9FD;}
           <td class="r">0</td><td><span class="chip chip-r">0.00%</span></td>
         </tr>
         <tr data-rep="Abisola" data-cat="Computer">
-          <td class="td-rep"><div class="rep-name">Ishola Abisola</div><div class="rep-cat">Computer · Network · CCTV</div></td>
+          <td><div class="rep-name">Ishola Abisola</div><div class="rep-cat">Computer · Network · CCTV</div></td>
           <td class="w">84</td><td><span class="chip chip-mu">3.50%</span></td>
           <td class="w">109</td><td><span class="chip chip-mu">0.50%</span></td>
           <td class="w">32</td><td class="mu">—</td>
@@ -1010,47 +814,38 @@ tr:hover td{background:#F8F9FD;}
           <td class="mu">3</td><td><span class="chip chip-r">0.25%</span></td>
         </tr>
         <tr data-rep="Owen" data-cat="Lighting">
-          <td class="td-rep"><div class="rep-name">Orumwense Owen</div><div class="rep-cat">Lighting · Streetlight · Floodlight</div></td>
-          <td class="w">162</td><td><span class="chip chip-mu">6.75%</span></td>
-          <td class="w">42</td><td><span class="chip chip-mu">0.25%</span></td>
-          <td class="w">40</td><td><span class="chip chip-mu">2.08%</span></td>
-          <td class="w">18</td><td><span class="chip chip-r">0.00%</span></td>
+          <td><div class="rep-name">Orumwense Owen</div><div class="rep-cat">Lighting · Streetlight · Floodlight</div></td>
+          <td class="w">198</td><td><span class="chip chip-mu">8.25%</span></td>
+          <td class="w">46</td><td><span class="chip chip-mu">0.58%</span></td>
+          <td class="w">50</td><td><span class="chip chip-mu">6.25%</span></td>
+          <td class="w">28</td><td><span class="chip chip-mu">2.08%</span></td>
           <td class="w">117</td><td><span class="chip chip-gold">9.75%</span></td>
         </tr>
         <tr class="top-row" data-rep="Victor" data-cat="Solar">
-          <td class="td-rep"><div class="rep-name" style="color:var(--gold);">⭐ Oyelekan Victor</div><div class="rep-cat">Solar — Inverters &amp; Batteries</div></td>
+          <td><div class="rep-name" style="color:var(--gold);">⭐ Oyelekan Victor</div><div class="rep-cat">Solar — Inverters &amp; Batteries</div></td>
           <td class="gold">593</td>
-          <td>
-            <div class="sp-progress"><div class="sp-bar" style="width:49.42%;background:var(--gold);"></div></div>
-            <span class="chip chip-gold" style="margin-top:5px;display:inline-block;">49.42%</span>
-          </td>
+          <td><div class="sp-progress"><div class="sp-bar" style="width:49.42%;background:var(--gold);"></div></div><span class="chip chip-gold" style="margin-top:5px;display:inline-block;">49.42%</span></td>
           <td class="gold">140</td><td><span class="chip chip-mu">1.33%</span></td>
           <td class="gold">80</td><td><span class="chip chip-gold">8.33%</span></td>
           <td class="gold">84</td><td><span class="chip chip-gold">12.29%</span></td>
           <td class="gold">313</td>
-          <td>
-            <div class="sp-progress"><div class="sp-bar" style="width:5.22%;background:var(--gold);"></div></div>
-            <span class="chip chip-gold" style="margin-top:5px;display:inline-block;">5.22%</span>
-          </td>
+          <td><div class="sp-progress"><div class="sp-bar" style="width:5.22%;background:var(--gold);"></div></div><span class="chip chip-gold" style="margin-top:5px;display:inline-block;">5.22%</span></td>
         </tr>
         <tr data-rep="Sarah" data-cat="Solar">
-          <td class="td-rep"><div class="rep-name">Sarah Onuoha</div><div class="rep-cat">Solar — Controllers · Panels · Home Appliances</div></td>
-          <td class="w">40</td><td><span class="chip chip-mu">3.33%</span></td>
-          <td class="w">43</td><td><span class="chip chip-mu">1.00%</span></td>
-          <td class="w">5</td><td><span class="chip chip-mu">2.08%</span></td>
-          <td class="w">13</td><td><span class="chip chip-r">0.00%</span></td>
+          <td><div class="rep-name">Sarah Onuoha</div><div class="rep-cat">Solar — Controllers · Panels · Home Appliances</div></td>
+          <td class="w">76</td><td><span class="chip chip-mu">6.33%</span></td>
+          <td class="w">50</td><td><span class="chip chip-mu">1.58%</span></td>
+          <td class="w">10</td><td><span class="chip chip-mu">4.17%</span></td>
+          <td class="w">23</td><td><span class="chip chip-mu">2.08%</span></td>
           <td class="w">296</td>
-          <td>
-            <div class="sp-progress"><div class="sp-bar" style="width:8.22%;background:var(--gold);"></div></div>
-            <span class="chip chip-gold" style="margin-top:5px;display:inline-block;">8.22%</span>
-          </td>
+          <td><div class="sp-progress"><div class="sp-bar" style="width:8.22%;background:var(--gold);"></div></div><span class="chip chip-gold" style="margin-top:5px;display:inline-block;">8.22%</span></td>
         </tr>
         <tr class="td-total">
-          <td style="text-align:left;">TEAM TOTAL</td>
-          <td>1,400</td><td>9.66%</td>
-          <td>596</td><td>0.48%</td>
-          <td>299</td><td>2.82%</td>
-          <td>335</td><td>2.75%</td>
+          <td>TEAM TOTAL</td>
+          <td>1,472</td><td>10.16%</td>
+          <td>607</td><td>0.58%</td>
+          <td>314</td><td>3.52%</td>
+          <td>355</td><td>3.22%</td>
           <td class="g">9,218</td><td>5.42%</td>
         </tr>
       </tbody>
@@ -1058,81 +853,50 @@ tr:hover td{background:#F8F9FD;}
   </div>
 </section>
 
-<!-- ══════════════════════════════════════
+<!-- ══════════════════════════════════
      SEG 06 — SOLD RANKINGS
-══════════════════════════════════════ -->
+══════════════════════════════════ -->
 <section class="section fade d5">
   <div class="sec-head">
     <span class="sec-num">SEG 06</span>
     <span class="sec-title">Units Sold — Rankings</span>
   </div>
   <div class="two-col">
-
-    <!-- March -->
     <div>
       <div style="font-size:13px;font-weight:700;color:var(--muted2);letter-spacing:0.16em;text-transform:uppercase;margin-bottom:12px;">March 2026 — Sold Ranking</div>
       <div class="tbl-wrap">
         <table>
-          <thead><tr>
-            <th style="text-align:left;">#</th>
-            <th style="text-align:left;">Rep</th>
-            <th>Sold</th>
-            <th>% Target</th>
-          </tr></thead>
+          <thead><tr><th>#</th><th>Rep</th><th>Sold</th><th>% Target</th></tr></thead>
           <tbody>
-            <tr class="top-row">
-              <td class="mu">01</td>
-              <td class="td-rep"><div class="rep-name" style="color:var(--gold);">⭐ Victor</div></td>
-              <td class="gold">68</td>
-              <td><span class="chip chip-gold">13.60%</span></td>
-            </tr>
-            <tr>
-              <td class="mu">02</td>
-              <td class="td-rep"><div class="rep-name">Josiah</div></td>
-              <td class="g">13</td>
-              <td><span class="chip chip-mu">0.33%</span></td>
-            </tr>
-            <tr>
-              <td class="mu">03</td>
-              <td class="td-rep"><div class="rep-name">Sarah</div></td>
-              <td class="g">10</td>
-              <td><span class="chip chip-mu">3.33%</span></td>
-            </tr>
-            <tr><td class="mu">—</td><td class="td-rep"><div class="rep-name mu">All Others</div></td><td class="r">0</td><td class="mu">—</td></tr>
+            <tr class="top-row"><td class="mu">01</td><td style="text-align:left;"><div class="rep-name" style="color:var(--gold);">⭐ Victor</div></td><td class="gold">68</td><td><span class="chip chip-gold">13.60%</span></td></tr>
+            <tr><td class="mu">02</td><td style="text-align:left;"><div class="rep-name">Josiah</div></td><td class="g">13</td><td><span class="chip chip-mu">0.33%</span></td></tr>
+            <tr><td class="mu">03</td><td style="text-align:left;"><div class="rep-name">Sarah</div></td><td class="g">10</td><td><span class="chip chip-mu">3.33%</span></td></tr>
+            <tr><td class="mu">—</td><td style="text-align:left;"><div class="rep-name mu">All Others</div></td><td class="r">0</td><td class="mu">—</td></tr>
             <tr class="td-total"><td colspan="2" style="text-align:left;">TOTAL</td><td>81</td><td>1.92%</td></tr>
           </tbody>
         </table>
       </div>
     </div>
-
-    <!-- YTD -->
     <div>
       <div style="font-size:13px;font-weight:700;color:var(--muted2);letter-spacing:0.16em;text-transform:uppercase;margin-bottom:12px;">2026 All-Time — Sold Ranking</div>
       <div class="tbl-wrap">
         <table>
-          <thead><tr>
-            <th style="text-align:left;">#</th>
-            <th style="text-align:left;">Rep</th>
-            <th>YTD Sold</th>
-            <th>% Target</th>
-          </tr></thead>
+          <thead><tr><th>#</th><th>Rep</th><th>YTD Sold</th><th>% Target</th></tr></thead>
           <tbody>
-            <tr><td class="mu">01</td><td class="td-rep"><div class="rep-name">Josiah</div></td><td class="g">8,742</td><td><span class="chip chip-g">18.21%</span></td></tr>
-            <tr class="top-row"><td class="mu">02</td><td class="td-rep"><div class="rep-name" style="color:var(--gold);">⭐ Victor</div></td><td class="gold">313</td><td><span class="chip chip-gold">5.22%</span></td></tr>
-            <tr><td class="mu">03</td><td class="td-rep"><div class="rep-name">Sarah</div></td><td class="w">296</td><td><span class="chip chip-gold">8.22%</span></td></tr>
-            <tr><td class="mu">04</td><td class="td-rep"><div class="rep-name">Owen</div></td><td class="w">117</td><td><span class="chip chip-gold">9.75%</span></td></tr>
-            <tr><td class="mu">05</td><td class="td-rep"><div class="rep-name">Asia Grace / Funmilola</div></td><td class="w">43 each</td><td><span class="chip chip-mu">3.58%</span></td></tr>
-            <tr><td class="mu">07</td><td class="td-rep"><div class="rep-name">Abisola</div></td><td class="mu">3</td><td><span class="chip chip-r">0.25%</span></td></tr>
-            <tr><td class="mu">—</td><td class="td-rep"><div class="rep-name mu">Victoria / Samson</div></td><td class="r">0</td><td class="mu">—</td></tr>
+            <tr><td class="mu">01</td><td style="text-align:left;"><div class="rep-name">Josiah</div></td><td class="g">8,742</td><td><span class="chip chip-g">18.21%</span></td></tr>
+            <tr class="top-row"><td class="mu">02</td><td style="text-align:left;"><div class="rep-name" style="color:var(--gold);">⭐ Victor</div></td><td class="gold">313</td><td><span class="chip chip-gold">5.22%</span></td></tr>
+            <tr><td class="mu">03</td><td style="text-align:left;"><div class="rep-name">Sarah</div></td><td class="w">296</td><td><span class="chip chip-gold">8.22%</span></td></tr>
+            <tr><td class="mu">04</td><td style="text-align:left;"><div class="rep-name">Owen</div></td><td class="w">117</td><td><span class="chip chip-gold">9.75%</span></td></tr>
+            <tr><td class="mu">05</td><td style="text-align:left;"><div class="rep-name">Asia Grace / Funmilola</div></td><td class="w">43 each</td><td><span class="chip chip-mu">3.58%</span></td></tr>
+            <tr><td class="mu">07</td><td style="text-align:left;"><div class="rep-name">Abisola</div></td><td class="mu">3</td><td><span class="chip chip-r">0.25%</span></td></tr>
+            <tr><td class="mu">—</td><td style="text-align:left;"><div class="rep-name mu">Victoria / Samson</div></td><td class="r">0</td><td class="mu">—</td></tr>
             <tr class="td-total"><td colspan="2" style="text-align:left;">TOTAL</td><td class="g">9,218</td><td>5.42%</td></tr>
           </tbody>
         </table>
       </div>
     </div>
-
   </div>
 
-  <!-- Bar chart -->
   <div class="bar-wrap" style="margin-top:20px;">
     <div class="bar-label-row">2026 YTD Sold — Visual Ranking</div>
     <div class="bar-row">
@@ -1174,10 +938,7 @@ tr:hover td{background:#F8F9FD;}
 
 <script>
 function getFilters(){
-  return{
-    rep: document.getElementById('filterRep').value,
-    cat: document.getElementById('filterCat').value
-  };
+  return{rep:document.getElementById('filterRep').value,cat:document.getElementById('filterCat').value};
 }
 function applyFilters(){
   const f=getFilters();
@@ -1198,9 +959,11 @@ function applyFilters(){
     badge.style.cssText='font-size:14px;font-weight:700;color:var(--blue);padding:4px 12px;background:rgba(37,88,232,0.08);border-radius:20px;border:1px solid rgba(37,88,232,0.2);';
     document.getElementById('filterBar').insertBefore(badge,document.getElementById('resetBtn'));
   }
+  const sel1=document.getElementById('filterRep');
+  const sel2=document.getElementById('filterCat');
   const parts=[];
-  if(f.rep!=='all')parts.push('Rep: '+document.getElementById('filterRep').options[document.getElementById('filterRep').selectedIndex].text);
-  if(f.cat!=='all')parts.push('Cat: '+document.getElementById('filterCat').options[document.getElementById('filterCat').selectedIndex].text);
+  if(f.rep!=='all')parts.push('Rep: '+sel1.options[sel1.selectedIndex].text);
+  if(f.cat!=='all')parts.push('Cat: '+sel2.options[sel2.selectedIndex].text);
   badge.textContent=parts.length?'● '+parts.join(' · '):'';
   badge.style.display=parts.length?'inline':'none';
 }
