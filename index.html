@@ -3,109 +3,128 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Product Team Final Audit — March 2026</title>
+<title>Product Team Fixed Report — March 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#F6F7FA;--surface:#FFFFFF;--border:#E3E6EF;--ink:#111218;
-  --muted:#9298AA;--red:#B01828;--green:#0E8F52;--gold:#B87D00;--blue:#2558E8;
+  --muted:#9298AA;--red-text:#D32F2F;--green-text:#2E7D32;--blue:#2558E8;
 }
-body{font-family:'Familjen Grotesk',sans-serif;background:var(--bg);color:var(--ink);margin:0;padding-bottom:100px;line-height:1.4;}
-.header{background:var(--ink);color:white;padding:30px 48px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;}
-.container{max-width:1400px;margin:40px auto;padding:0 24px;display:flex;flex-direction:column;gap:50px;}
-.section-title{border-bottom:2px solid var(--ink);padding-bottom:12px;margin-bottom:24px;font-size:18px;font-weight:700;text-transform:uppercase;}
-.kpi-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
-.kpi-card{background:white;padding:30px 20px;}
-.kpi-val{display:block;font-size:32px;font-weight:700;line-height:1;}
-.kpi-label{font-size:11px;color:var(--muted);text-transform:uppercase;font-weight:600;margin-bottom:8px;display:block;}
-.kpi-pct{display:block;font-size:13px;font-weight:700;margin-top:8px;}
+body{font-family:'Familjen Grotesk',sans-serif;background:var(--bg);color:var(--ink);margin:0;padding-top:420px;line-height:1.4;}
+
+/* FIXED HEADER SECTION */
+.fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--bg);
+  z-index: 1000;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--ink);
+}
+.brand-bar{background:var(--ink);color:white;padding:20px 48px;display:flex;justify-content:space-between;align-items:center;}
+
+.container{max-width:1400px;margin:0 auto;padding:0 24px;display:flex;flex-direction:column;gap:50px;}
+.section-title{border-bottom:2px solid var(--ink);padding-bottom:12px;margin-bottom:24px;font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:1px;}
+
+/* KPI CARDS */
+.kpi-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border:1px solid var(--border);overflow:hidden;margin: 20px 48px 0;}
+.kpi-card{background:white;padding:20px;}
+.kpi-val{display:block;font-size:28px;font-weight:700;line-height:1;}
+.kpi-label{font-size:10px;color:var(--muted);text-transform:uppercase;font-weight:600;margin-bottom:5px;display:block;}
+.kpi-pct{display:block;font-size:12px;font-weight:700;margin-top:5px;}
+
+/* TABLE STYLING */
 .table-wrap{background:white;border:1px solid var(--border);border-radius:8px;overflow-x:auto;box-shadow:0 2px 8px rgba(0,0,0,0.04);}
 table{width:100%;border-collapse:collapse;font-size:13px;min-width:1100px;}
-th{background:#F8F9FB;padding:14px 18px;text-align:right;color:var(--muted);text-transform:uppercase;font-size:10px;}
+th{background:#F8F9FB;padding:12px 18px;text-align:right;color:var(--muted);text-transform:uppercase;font-size:10px;}
 th:first-child{text-align:left;}
-td{padding:14px 18px;text-align:right;border-bottom:1px solid var(--border);font-weight:500;}
-td:first-child{text-align:left;font-weight:600;}
-.total-row td{background:#F0F2F7;font-weight:800;border-top:2px solid var(--ink);}
+td{padding:12px 18px;text-align:right;border-bottom:1px solid var(--border);font-weight:600;}
+td:first-child{text-align:left;font-weight:700;}
+
+/* COLORS */
+.pass { color: var(--green-text); }
+.fail { color: var(--red-text); }
+.total-row td{background:#F0F2F7;font-weight:800;border-top:2px solid var(--ink); color: var(--ink) !important;}
 </style>
 </head>
 <body>
 
-<header class="header">
-  <div>
-    <h1 style="margin:0;font-size:22px;">FINAL PRODUCT TEAM AUDIT</h1>
-    <p style="margin:4px 0 0;color:var(--muted);font-size:12px;text-transform:uppercase;">March 2026 | Verified Individual & Total Data</p>
+<div class="fixed-header">
+  <div class="brand-bar">
+    <h1 style="margin:0;font-size:20px;">ENERGYMALL PRODUCT DASHBOARD</h1>
+    <p style="margin:0;font-size:11px;opacity:0.8;">MARCH 2026 | TEAM LEAD: OLUFUNMILAYO</p>
   </div>
-</header>
+
+  <div class="kpi-grid">
+    <div class="kpi-card"><span class="kpi-label">MAR UPDATED</span><span class="kpi-val">501</span><span class="kpi-pct fail">42.00%</span></div>
+    <div class="kpi-card"><span class="kpi-label">MAR ONBOARDED</span><span class="kpi-val">197</span><span class="kpi-pct fail">24.63%</span></div>
+    <div class="kpi-card"><span class="kpi-label">MAR SEO</span><span class="kpi-val">102</span><span class="kpi-pct pass">63.75%</span></div>
+    <div class="kpi-card"><span class="kpi-label">MAR CONTENT</span><span class="kpi-val">238</span><span class="kpi-pct pass">74.38%</span></div>
+    <div class="kpi-card"><span class="kpi-label">MAR SOLD</span><span class="kpi-val">1,701</span><span class="kpi-pct fail">10.26%</span></div>
+  </div>
+
+  <div class="kpi-grid" style="margin-top:10px;">
+    <div class="kpi-card"><span class="kpi-label">YTD UPDATED</span><span class="kpi-val">17,167</span><span class="kpi-pct fail">13.05%</span></div>
+    <div class="kpi-card"><span class="kpi-label">YTD ONBOARDED</span><span class="kpi-val">4,433</span><span class="kpi-pct fail">2.05%</span></div>
+    <div class="kpi-card"><span class="kpi-label">YTD SEO</span><span class="kpi-val">242</span><span class="kpi-pct fail">5.31%</span></div>
+    <div class="kpi-card"><span class="kpi-label">YTD CONTENT</span><span class="kpi-val">426</span><span class="kpi-pct fail">6.20%</span></div>
+    <div class="kpi-card"><span class="kpi-label">YTD SOLD</span><span class="kpi-val">10,838</span><span class="kpi-pct fail">6.33%</span></div>
+  </div>
+</div>
 
 <div class="container">
 
   <section>
-    <div class="section-title">Verified Monthly Summary</div>
-    <div class="kpi-grid">
-      <div class="kpi-card"><span class="kpi-label">Updated</span><span class="kpi-val">501</span><span class="kpi-pct" style="color:var(--gold)">42.00%</span></div>
-      <div class="kpi-card"><span class="kpi-label">Onboarded</span><span class="kpi-val">197</span><span class="kpi-pct" style="color:var(--blue)">24.63%</span></div>
-      <div class="kpi-card"><span class="kpi-label">SEO Articles</span><span class="kpi-val">102</span><span class="kpi-pct" style="color:var(--green)">63.75%</span></div>
-      <div class="kpi-card"><span class="kpi-label">Product Content</span><span class="kpi-val">238</span><span class="kpi-pct" style="color:var(--green)">74.38%</span></div>
-      <div class="kpi-card"><span class="kpi-label">Sold</span><span class="kpi-val" style="color:var(--red)">1,701</span><span class="kpi-pct" style="color:var(--red)">10.26%</span></div>
-    </div>
-  </section>
-
-  <section>
-    <div class="section-title">March Performance (Raw Data - Verified Sums)</div>
+    <div class="section-title">March Individual Performance (Raw)</div>
     <div class="table-wrap">
       <table>
         <thead>
-          <tr>
-            <th>Representative & Category</th>
-            <th>Updated</th><th>Onboarded</th><th>SEO</th><th>Content</th><th>Sold</th>
-          </tr>
+          <tr><th>Rep & Category</th><th>Updated</th><th>Onboarded</th><th>SEO</th><th>Content</th><th>Sold</th></tr>
         </thead>
         <tbody>
           <tr><td>Josiah Favour Oluchi - Cables and Electricals</td><td>45</td><td>13</td><td>0</td><td>23</td><td>1613</td></tr>
           <tr><td>Olanrewaju Victoria – Home Electronics</td><td>76</td><td>53</td><td>10</td><td>20</td><td>200</td></tr>
           <tr><td>Asia Grace And Funmi (Lead) – Water & Insulation</td><td>16</td><td>5</td><td>21</td><td>40</td><td>5</td></tr>
-          <tr><td>Oyelekan Samson – UPS, Generators, Stabilizer & Transformers</td><td>58</td><td>7</td><td>10</td><td>56</td><td>1</td></tr>
-          <tr><td>Ishola Abisola – Computer, Network & connectivity & CCTV</td><td>63</td><td>55</td><td>5</td><td>11</td><td>200</td></tr>
-          <tr><td>Orumwense Owen – Lighting, Streetlight And Floodlight</td><td>88</td><td>13</td><td>15</td><td>10</td><td>0</td></tr>
-          <tr><td>Oyelekan Victor - Solar (Inverters and Batteries)</td><td>89</td><td>32</td><td>20</td><td>59</td><td>82</td></tr>
+          <tr><td>Oyelekan Samson – UPS/Generators</td><td>58</td><td>7</td><td>10</td><td>56</td><td>1</td></tr>
+          <tr><td>Ishola Abisola – Computer/CCTV</td><td>63</td><td>55</td><td>5</td><td>11</td><td>200</td></tr>
+          <tr><td>Orumwense Owen – Lighting</td><td>88</td><td>13</td><td>15</td><td>10</td><td>0</td></tr>
+          <tr><td>Oyelekan Victor - Solar (Inverters)</td><td>89</td><td>32</td><td>20</td><td>59</td><td>82</td></tr>
           <tr><td>Sarah Onuoha - Solar Appliances</td><td>66</td><td>19</td><td>15</td><td>105</td><td>0</td></tr>
-          <tr class="total-row"><td>ACHIEVED BY ALL</td><td>501</td><td>197</td><td>102</td><td>238</td><td>1701</td></tr>
+          <tr class="total-row"><td>MONTH TOTALS</td><td>501</td><td>197</td><td>102</td><td>238</td><td>1701</td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
   <section>
-    <div class="section-title">Performance % Achievement</div>
+    <div class="section-title">March Achievement % (Green ≥ 50%)</div>
     <div class="table-wrap">
       <table>
         <thead>
           <tr><th>Rep Name</th><th>Updated %</th><th>Onboarded %</th><th>SEO %</th><th>Content %</th><th>Sold %</th></tr>
         </thead>
         <tbody>
-          <tr><td>Josiah Favour Oluchi</td><td>22.50%</td><td>13.00%</td><td>0.00%</td><td>57.50%</td><td>40.33%</td></tr>
-          <tr><td>Olanrewaju Victoria</td><td>38.00%</td><td>53.00%</td><td>50.00%</td><td>50.00%</td><td>0.00%</td></tr>
-          <tr><td>Asia Grace And Funmi</td><td>16.00%</td><td>5.00%</td><td>105.00%</td><td>100.00%</td><td>5.00%</td></tr>
-          <tr><td>Oyelekan Samson</td><td>29.00%</td><td>7.00%</td><td>50.00%</td><td>140.00%</td><td>1.00%</td></tr>
-          <tr><td>Ishola Abisola</td><td>31.50%</td><td>55.00%</td><td>55.00%</td><td>50.00%</td><td>0.00%</td></tr>
-          <tr><td>Orumwense Owen</td><td>44.00%</td><td>13.00%</td><td>75.00%</td><td>25.00%</td><td>0.00%</td></tr>
-          <tr><td>Oyelekan Victor</td><td>89.00%</td><td>32.00%</td><td>100.00%</td><td>147.50%</td><td>16.40%</td></tr>
-          <tr><td>Sarah Onuoha</td><td>66.00%</td><td>19.00%</td><td>75.00%</td><td>25.00%</td><td>19.33%</td></tr>
-          <tr class="total-row"><td>% ACHIEVED BY ALL</td><td>42.00%</td><td>24.63%</td><td>63.75%</td><td>74.38%</td><td>10.26%</td></tr>
+          <tr><td>Josiah Favour</td><td class="fail">22.50%</td><td class="fail">13.00%</td><td class="fail">0.00%</td><td class="pass">57.50%</td><td class="fail">40.33%</td></tr>
+          <tr><td>Olanrewaju Victoria</td><td class="fail">38.00%</td><td class="pass">53.00%</td><td class="pass">50.00%</td><td class="pass">50.00%</td><td class="fail">0.00%</td></tr>
+          <tr><td>Asia Grace & Funmi</td><td class="fail">16.00%</td><td class="fail">5.00%</td><td class="pass">105.00%</td><td class="pass">100.00%</td><td class="fail">5.00%</td></tr>
+          <tr><td>Oyelekan Samson</td><td class="fail">29.00%</td><td class="fail">7.00%</td><td class="pass">50.00%</td><td class="pass">140.00%</td><td class="fail">1.00%</td></tr>
+          <tr><td>Ishola Abisola</td><td class="fail">31.50%</td><td class="pass">55.00%</td><td class="pass">55.00%</td><td class="pass">50.00%</td><td class="fail">0.00%</td></tr>
+          <tr><td>Orumwense Owen</td><td class="fail">44.00%</td><td class="fail">13.00%</td><td class="pass">75.00%</td><td class="fail">25.00%</td><td class="fail">0.00%</td></tr>
+          <tr><td>Oyelekan Victor</td><td class="pass">89.00%</td><td class="fail">32.00%</td><td class="pass">100.00%</td><td class="pass">147.50%</td><td class="fail">16.40%</td></tr>
+          <tr><td>Sarah Onuoha</td><td class="pass">66.00%</td><td class="fail">19.00%</td><td class="pass">75.00%</td><td class="fail">25.00%</td><td class="fail">19.33%</td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
   <section>
-    <div class="section-title">2026 All Time (YTD Breakdown)</div>
+    <div class="section-title">2026 All Time (YTD) Breakdown</div>
     <div class="table-wrap">
       <table>
         <thead>
-          <tr>
-            <th>Representative Name</th>
-            <th>Updated</th><th>Onboarded</th><th>SEO</th><th>Content</th><th>Sold</th>
-          </tr>
+          <tr><th>Rep Name</th><th>Updated</th><th>Onboarded</th><th>SEO</th><th>Content</th><th>Sold</th></tr>
         </thead>
         <tbody>
           <tr><td>Josiah Favour Oluchi</td><td>1778</td><td>116</td><td>26</td><td>10</td><td>10342</td></tr>
@@ -115,8 +134,8 @@ td:first-child{text-align:left;font-weight:600;}
           <tr><td>Ishola Abisola</td><td>1431</td><td>584</td><td>33</td><td>13</td><td>3</td></tr>
           <tr><td>Orumwense Owen</td><td>2155</td><td>250</td><td>28</td><td>117</td><td>117</td></tr>
           <tr><td>Oyelekan Victor</td><td>6361</td><td>568</td><td>80</td><td>84</td><td>327</td></tr>
-          <tr><td>Sarah Onuoha</td><td>915</td><td>50</td><td>15</td><td>233</td><td>441</td></tr>
-          <tr class="total-row"><td>ACHIEVED BY ALL (YTD)</td><td>17167</td><td>4433</td><td>242</td><td>426</td><td>10838</td></tr>
+          <tr><td>Sarah Onuoha</td><td>915</td><td>0</td><td>15</td><td>233</td><td>441</td></tr>
+          <tr class="total-row"><td>YTD TOTALS</td><td>17167</td><td>4433</td><td>242</td><td>426</td><td>10838</td></tr>
         </tbody>
       </table>
     </div>
